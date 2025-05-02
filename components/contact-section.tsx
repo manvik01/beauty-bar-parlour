@@ -52,21 +52,27 @@ export function ContactSection() {
             </div>
           </div>
 
-          <div className="h-[400px] md:h-auto">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7258670816313!2d103.9494!3d1.3767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768<Thinking>
-The text was cut off in the middle of an iframe src URL in the contact-section.tsx component. I need to continue the iframe code and complete the component, then finish any other components that might have been cut off. This appears to be part of updating the contact section with the new email address.
-</Thinking>
-
-maps/embed?pb=!1m18!1m12!1m3!1d3988.7258670816313!2d103.9494!3d1.3767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMcKwMjInMzYuMSJOIDEwM8KwNTYnNTcuOCJF!5e0!3m2!1sen!2ssg!4v1619144473623!5m2!1sen!2ssg"
-              width="100%"
-              height="100%"
+          <div className="h-[400px] md:h-auto bg-gray-100 relative">
+            <iframe 
+              src="https://www.openstreetmap.org/export/embed.html?bbox=103.93272399902345%2C1.3605785378077986%2C103.96688842773439%2C1.38552628565068&amp;layer=mapnik&amp;marker=1.3730532168123306%2C103.94980621337892" 
+              width="100%" 
+              height="100%" 
               style={{ border: 0 }}
               allowFullScreen={false}
               loading="lazy"
               title="Beauty Bar Parlour location"
               className="grayscale"
             ></iframe>
+            <div className="absolute bottom-3 right-3">
+              <a 
+                href="https://goo.gl/maps/LgK2L3ybJzQpfRtR8" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-primary text-white text-xs px-3 py-1 rounded-sm hover:bg-primary/90 transition-colors"
+              >
+                View on Google Maps
+              </a>
+            </div>
           </div>
         </div>
       </div>
