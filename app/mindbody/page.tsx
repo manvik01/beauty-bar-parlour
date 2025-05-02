@@ -2,6 +2,7 @@ import { ServiceScheduleWidget } from "@/components/mindbody/service-schedule-wi
 import { StaffWidget } from "@/components/mindbody/staff-widget"
 import { BookingWidget } from "@/components/mindbody/booking-widget"
 import { ClientAccountWidget } from "@/components/mindbody/client-account-widget"
+import { Suspense } from "react"
 
 export default function MindbodyIntegrationPage() {
   return (
@@ -48,7 +49,9 @@ export default function MindbodyIntegrationPage() {
               Book appointments directly through our website. This widget integrates with Mindbody to show real-time
               availability and process bookings.
             </p>
-            <BookingWidget />
+            <Suspense fallback={<div className="text-center p-8">Loading booking widget...</div>}>
+              <BookingWidget />
+            </Suspense>
           </div>
 
           <div className="max-w-2xl mx-auto">
