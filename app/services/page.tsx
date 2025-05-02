@@ -84,17 +84,29 @@ export default function ServicesPage() {
                   <span className="font-serif text-black group-hover:glitter-bold transition-all">
                     Henna Root Touch Up
                   </span>
-                  <span className="text-primary font-medium">$65</span>
+                  <span className="text-primary font-medium">$75</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
                   <span className="font-serif text-black group-hover:glitter-bold transition-all">Hot Oil Massage</span>
-                  <span className="text-primary font-medium">$65-$85</span>
+                  <span className="text-primary font-medium">$65-$95</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
                   <span className="font-serif text-black group-hover:glitter-bold transition-all">
                     Herbal Hair treatment
                   </span>
-                  <span className="text-primary font-medium">$60-$110</span>
+                  <span className="text-primary font-medium">$70-$120</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
+                    Hair Color (Full)
+                  </span>
+                  <span className="text-primary font-medium">$95-$150</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
+                    Hair Styling (Special Occasion)
+                  </span>
+                  <span className="text-primary font-medium">$85-$120</span>
                 </div>
               </div>
 

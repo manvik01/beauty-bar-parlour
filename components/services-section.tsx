@@ -38,6 +38,14 @@ const serviceCategories = [
     image: "/bridal-service-hd.png",
     link: "/services#bridal",
   },
+  // You can add new service categories here
+  // Example:
+  // {
+  //   title: "Massage Therapy",
+  //   description: "Unisex",
+  //   image: "/massage-service.png",
+  //   link: "/services#massage",
+  // },
 ]
 
 export function ServicesSection() {

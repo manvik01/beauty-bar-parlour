@@ -14,23 +14,87 @@ const getHeaders = () => {
   }
 }
 
-// Fetch services from Mindbody
+// Mock services data for fallback
+const mockServices = [
+  { 
+    Id: "s1", 
+    Name: "Henna Root Touch Up", 
+    Description: "Natural hair coloring with high-quality henna.", 
+    Price: 75, 
+    Duration: 60,
+    CategoryId: "c1",
+    CategoryName: "Hair Services" 
+  },
+  { 
+    Id: "s2", 
+    Name: "Hot Oil Massage",
+    Description: "Relaxing scalp treatment that nourishes hair follicles.",
+    Price: 75, 
+    Duration: 45,
+    CategoryId: "c1",
+    CategoryName: "Hair Services"
+  },
+  { 
+    Id: "s3", 
+    Name: "Herbal Hair Treatment",
+    Description: "Organic herbs to strengthen and rejuvenate hair.",
+    Price: 90, 
+    Duration: 90,
+    CategoryId: "c1",
+    CategoryName: "Hair Services"
+  },
+  { 
+    Id: "s4", 
+    Name: "Hair Color (Full)",
+    Description: "Premium hair coloring service using quality products.",
+    Price: 120, 
+    Duration: 120,
+    CategoryId: "c1",
+    CategoryName: "Hair Services"
+  },
+  { 
+    Id: "s5", 
+    Name: "Classic Manicure", 
+    Description: "Standard manicure with polish of your choice.", 
+    Price: 25, 
+    Duration: 30,
+    CategoryId: "c2",
+    CategoryName: "Nail Services" 
+  },
+  { 
+    Id: "s6", 
+    Name: "Gel Pedicure", 
+    Description: "Long-lasting gel polish for toes with full pedicure.", 
+    Price: 58, 
+    Duration: 60,
+    CategoryId: "c2",
+    CategoryName: "Nail Services" 
+  }
+]
+
+// Fetch services from Mindbody with better fallback support
 export async function getServices() {
   try {
+    // Check if API keys are configured
+    if (!MINDBODY_API_KEY || !MINDBODY_SITE_ID) {
+      console.warn("Mindbody API keys not configured, using mock data")
+      return mockServices
+    }
+
     const response = await fetch(`${MINDBODY_API_BASE_URL}/services`, {
       method: "GET",
       headers: getHeaders(),
     })
 
     if (!response.ok) {
-      throw new Error("Failed to fetch services")
+      throw new Error(`Failed to fetch services: ${response.status} ${response.statusText}`)
     }
 
     const data = await response.json()
-    return data.Services || []
+    return data.Services && data.Services.length > 0 ? data.Services : mockServices
   } catch (error) {
     console.error("Error fetching services:", error)
-    return []
+    return mockServices
   }
 }
 
