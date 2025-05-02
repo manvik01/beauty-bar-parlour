@@ -8,7 +8,7 @@ import { Menu, X } from "lucide-react"
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
-  { name: "Gallery", href: "/gallery" },
+  { name: "Gallery", href: "/gallery", hidden: true },
   { name: "Service Menu", href: "/services" },
   { name: "Contact Us", href: "/contact" },
   { name: "Book Now", href: "/booking" },
@@ -52,7 +52,7 @@ export function Navbar() {
 
           {/* Desktop Navigation - moved to right */}
           <nav className="hidden md:flex items-center space-x-6">
-            {navLinks.map((link) => (
+            {navLinks.filter(link => !link.hidden).map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
@@ -77,7 +77,7 @@ export function Navbar() {
         {isOpen && (
           <div className="md:hidden fixed inset-0 bg-white z-0 flex flex-col items-center justify-center">
             <nav className="flex flex-col items-center space-y-6">
-              {navLinks.map((link) => (
+              {navLinks.filter(link => !link.hidden).map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
