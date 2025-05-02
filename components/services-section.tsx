@@ -4,37 +4,37 @@ import Image from "next/image"
 const serviceCategories = [
   {
     title: "Hair Services",
-    description: "Unisex",
+    description: "Professional Styling",
     image: "/hair-service-hd.png",
     link: "/services#hair",
   },
   {
     title: "Nail Services",
-    description: "Female Only",
+    description: "Manicure & Pedicure",
     image: "/nail-service-gold.png",
     link: "/services#nail",
   },
   {
     title: "Facial Services",
-    description: "Female Only",
+    description: "Skincare Treatments",
     image: "/facial-service-hd.png",
     link: "/services#facial",
   },
   {
     title: "Waxing & Threading",
-    description: "Female Only",
+    description: "Hair Removal",
     image: "/waxing-service-hd.png",
     link: "/services#waxing",
   },
   {
     title: "Henna Art",
-    description: "Female Only",
+    description: "Traditional Designs",
     image: "/henna-service-hd.png",
     link: "/services#henna",
   },
   {
     title: "Bridal Services",
-    description: "By Appointment Only",
+    description: "Special Occasions",
     image: "/bridal-service-hd.png",
     link: "/services#bridal",
   },
@@ -42,7 +42,7 @@ const serviceCategories = [
   // Example:
   // {
   //   title: "Massage Therapy",
-  //   description: "Unisex",
+  //   description: "Relaxation & Wellness",
   //   image: "/massage-service.png",
   //   link: "/services#massage",
   // },

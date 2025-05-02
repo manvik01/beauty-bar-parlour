@@ -369,7 +369,6 @@ export default function ServicesPage() {
                 <span className="glitter-bold">Henna Art Services</span>
               </h2>
               <div className="w-16 h-1 bg-gold mx-auto mb-8"></div>
-              <p className="text-center text-sm text-muted-foreground mb-8">Female Only - Indoor Room</p>
 
               <div className="space-y-4">
                 <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
@@ -411,7 +410,6 @@ export default function ServicesPage() {
                 <span className="glitter-bold">Bridal Services</span>
               </h2>
               <div className="w-16 h-1 bg-gold mx-auto mb-8"></div>
-              <p className="text-center text-sm text-muted-foreground mb-8">By Appointment Only - Indoor Room</p>
 
               <div className="space-y-4">
                 <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
