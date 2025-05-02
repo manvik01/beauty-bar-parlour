@@ -1,0 +1,550 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Black and Gold color palette with improved contrast */
+  --background: 0 0% 100%; /* Pure white #ffffff */
+  --foreground: 0 0% 0%; /* Pure black #000000 */
+
+  --primary: 43 55% 65%; /* Brighter gold #d9b347 for better contrast */
+  --primary-foreground: 0 0% 0%; /* Black text on gold */
+
+  --secondary: 0 0% 95%; /* Light gray #f2f2f2 */
+  --secondary-foreground: 0 0% 0%; /* Black text on light gray */
+
+  --accent: 43 55% 20%; /* Dark gold #332b15 */
+  --accent-foreground: 0 0% 100%; /* White text on dark gold */
+
+  --muted: 0 0% 90%;
+  --muted-foreground: 0 0% 20%; /* Dark gray for muted text */
+
+  --card: 0 0% 100%; /* White card background */
+  --card-foreground: 0 0% 0%; /* Black text on cards */
+
+  --border: 43 55% 45%; /* Gold border */
+  --input: 43 55% 45%;
+
+  --radius: 0;
+}
+
+body {
+  @apply bg-background text-foreground font-sans;
+  letter-spacing: 0.02em;
+  font-weight: 400; /* Increased from 300 for better readability */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-serif;
+  letter-spacing: 0.05em;
+  font-weight: 300;
+}
+
+.container-custom {
+  @apply container mx-auto px-4 md:px-8 max-w-7xl;
+}
+
+.section-padding {
+  @apply py-16 md:py-24;
+}
+
+.heading-xl {
+  @apply text-4xl md:text-5xl lg:text-6xl font-serif font-light leading-tight uppercase;
+}
+
+.heading-lg {
+  @apply text-3xl md:text-4xl font-serif font-light leading-tight uppercase;
+}
+
+.heading-md {
+  @apply text-2xl md:text-3xl font-serif font-light leading-tight uppercase;
+}
+
+.heading-sm {
+  @apply text-xl md:text-2xl font-serif font-light leading-tight uppercase;
+}
+
+.body-lg {
+  @apply text-lg leading-relaxed;
+}
+
+.body-md {
+  @apply text-base leading-relaxed;
+}
+
+.body-sm {
+  @apply text-sm leading-relaxed;
+}
+
+/* Lush N Glow Button Styles */
+.elegant-button {
+  @apply px-8 py-3 bg-gold text-black hover:bg-gold/90 transition-all duration-300 inline-block uppercase tracking-widest text-sm;
+}
+
+.elegant-button-outline {
+  @apply px-8 py-3 border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 inline-block uppercase tracking-widest text-sm;
+}
+
+/* Lush N Glow Card Styles */
+.elegant-card {
+  @apply bg-white p-6 border-t border-primary/20;
+}
+
+/* Lush N Glow Divider */
+.elegant-divider {
+  @apply w-16 h-px bg-primary my-6;
+}
+
+/* Lush N Glow Hover Effects */
+.elegant-hover {
+  @apply transition-all duration-300 hover:opacity-90;
+}
+
+/* Service Grid */
+.service-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+}
+
+.service-item {
+  @apply border-b border-border pb-4 mb-4 last:border-0 last:mb-0 last:pb-0;
+}
+
+.service-name {
+  @apply font-serif text-lg uppercase;
+}
+
+.service-price {
+  @apply font-sans text-base text-primary font-light;
+}
+
+.service-category {
+  @apply mb-12 last:mb-0;
+}
+
+/* Gold accents */
+.gold-gradient {
+  background: linear-gradient(135deg, #c0a678 0%, #e5d6b5 50%, #c0a678 100%);
+}
+
+.gold-text {
+  color: #c0a678;
+}
+
+.gold-border {
+  border-color: #c0a678;
+}
+
+/* Glitter text effect */
+.glitter-text {
+  background-image: linear-gradient(to right, #c0a678, #fff8e5, #c0a678);
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: glitter 3s linear infinite;
+  text-shadow: 0 0 10px rgba(192, 166, 120, 0.3);
+}
+
+/* Add this new class for enhanced glitter effect */
+.glitter-text-enhanced {
+  background-image: linear-gradient(to right, #c0a678, #fff8e5, #d4af37, #fff8e5, #c0a678);
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: glitter 4s linear infinite;
+  text-shadow: 0 0 5px rgba(192, 166, 120, 0.5), 0 0 10px rgba(212, 175, 55, 0.3), 0 0 15px rgba(255, 248, 229, 0.2);
+  position: relative;
+  display: inline-block;
+}
+
+/* Enhanced glitter effects for icons and bold text */
+.glitter-icon {
+  position: relative;
+  color: #c0a678;
+  filter: drop-shadow(0 0 2px rgba(212, 175, 55, 0.5));
+  animation: pulse-gold 2s infinite;
+}
+
+.glitter-bold {
+  font-weight: 600;
+  background: linear-gradient(to right, #c0a678, #fff8e5, #d4af37, #fff8e5, #c0a678);
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: glitter 4s linear infinite;
+  text-shadow: 0 0 5px rgba(192, 166, 120, 0.3);
+}
+
+/* Enhanced hover glitter effect */
+.group:hover .group-hover\:glitter-bold {
+  font-weight: 600;
+  background: linear-gradient(to right, #c0a678, #fff8e5, #d4af37, #fff8e5, #c0a678);
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: glitter 4s linear infinite;
+  text-shadow: 0 0 5px rgba(192, 166, 120, 0.3);
+}
+
+/* Service selection box hover effect */
+.service-selection-box {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.service-selection-box::after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(192, 166, 120, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(45deg);
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
+.service-selection-box:hover::after {
+  top: -50%;
+  left: -50%;
+  opacity: 1;
+  animation: shine 1.5s infinite;
+}
+
+.glitter-border {
+  position: relative;
+  border: 1px solid #c0a678;
+  overflow: hidden;
+}
+
+.glitter-border::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(45deg);
+  animation: shine 3s infinite;
+}
+
+/* Pulse animation for gold elements */
+@keyframes pulse-gold {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 2px rgba(212, 175, 55, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.8));
+  }
+}
+
+/* Shine animation for borders */
+@keyframes shine {
+  0% {
+    top: -100%;
+    left: -100%;
+  }
+  100% {
+    top: 100%;
+    left: 100%;
+  }
+}
+
+/* Add this new keyframe animation for sparkle effect */
+@keyframes sparkle {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Add this class for individual sparkles */
+.sparkle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #fff;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Enhance the existing glitter animation */
+@keyframes glitter {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Improved contrast and readability */
+.body-md,
+.body-lg,
+p {
+  font-weight: 400;
+  line-height: 1.7;
+  color: hsl(0, 0%, 0%); /* Ensure black text */
+}
+
+.text-muted-foreground {
+  color: hsl(0, 0%, 20%); /* Darker muted text for better contrast */
+}
+
+/* Input Styles */
+.elegant-input {
+  @apply px-4 py-3 border border-border focus:outline-none focus:ring-1 focus:ring-primary;
+}
+
+/* Button Styles */
+.btn-elegant {
+  @apply px-6 py-3 font-light transition-all duration-300 uppercase tracking-widest text-sm;
+}
+
+.btn-elegant-primary {
+  background-color: #c0a678;
+  color: white;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
+.btn-elegant-primary:hover {
+  background-color: rgba(192, 166, 120, 0.9);
+}
+
+.btn-elegant-outline {
+  @apply border border-primary text-primary hover:bg-primary/10;
+}
+
+/* Service Image Styles */
+.service-image {
+  @apply transition-all duration-500;
+}
+
+.service-card:hover .service-image {
+  @apply scale-105;
+}
+
+.service-caption {
+  @apply absolute bottom-0 left-0 right-0 bg-black/30 backdrop-blur-sm text-white p-4 translate-y-full transition-transform duration-300;
+}
+
+.service-card:hover .service-caption {
+  @apply translate-y-0;
+}
+
+/* Countdown styles */
+.countdown-container {
+  @apply flex justify-center gap-4 md:gap-6 my-8;
+}
+
+.countdown-item {
+  @apply flex flex-col items-center;
+}
+
+.countdown-number {
+  @apply text-2xl md:text-4xl font-light text-primary;
+}
+
+.countdown-label {
+  @apply text-xs md:text-sm text-muted-foreground uppercase tracking-wider;
+}
+
+.countdown-separator {
+  @apply text-2xl md:text-4xl font-light text-primary self-start mt-0;
+}
+
+/* Clean, minimalist styles - keep these for structure */
+.clean-nav {
+  @apply flex items-center justify-center space-x-8 uppercase text-xs tracking-widest;
+}
+
+.clean-nav-item {
+  @apply hover:text-primary transition-colors duration-300;
+}
+
+.clean-section {
+  @apply py-20 bg-white;
+}
+
+.clean-heading {
+  @apply text-center uppercase tracking-widest text-sm font-light mb-2 text-gold;
+}
+
+.clean-subheading {
+  @apply text-center text-3xl md:text-4xl font-serif font-light mb-12 uppercase tracking-widest;
+}
+
+.clean-button {
+  @apply px-8 py-3 bg-gold text-black hover:bg-gold/90 transition-all duration-300 inline-block uppercase tracking-widest text-sm;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
+.clean-card {
+  @apply bg-white p-6 border-t border-primary/20;
+}
+
+/* Hero section enhancements */
+.hero-gradient-overlay {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0) 100%);
+}
+
+.hero-content-box {
+  @apply bg-black/10 backdrop-blur-sm p-8;
+}
+
+.hero-button {
+  @apply px-8 py-3 uppercase tracking-widest text-xs transition-all duration-300;
+}
+
+.hero-button-primary {
+  @apply bg-gold text-black hover:bg-gold/90 hero-button;
+}
+
+.hero-button-outline {
+  @apply border border-white text-white hover:bg-white/10 hero-button;
+}
+
+.hero-countdown {
+  @apply bg-black/10 backdrop-blur-sm p-6;
+}
+
+.hero-slide-indicator {
+  @apply w-2 h-2 rounded-full bg-white/50 transition-all duration-300;
+}
+
+.hero-slide-indicator-active {
+  @apply bg-white scale-125;
+}
+
+/* Navbar styles */
+.navbar-elegant {
+  background-color: rgba(0, 0, 0, 0.95);
+  box-shadow: none;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.navbar-link-elegant {
+  @apply text-xs font-light uppercase tracking-widest text-white hover:text-gold transition-colors;
+}
+
+/* Section heading with gold accent */
+.heading-accent {
+  @apply relative inline-block;
+}
+
+.heading-accent::after {
+  content: "";
+  @apply absolute left-1/4 right-1/4 bottom-0 h-px bg-primary;
+}
+
+/* Improve robustness with better fallbacks */
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Improve accessibility */
+:focus {
+  outline: 2px solid #c0a678;
+  outline-offset: 2px;
+}
+
+/* Improve form element consistency */
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+}
+
+/* Better error state handling */
+.has-error {
+  border-color: #e53e3e !important;
+}
+
+.error-message {
+  color: #e53e3e;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Improve loading states */
+.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.loading::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: loading-shine 1.5s infinite;
+}
+
+@keyframes loading-shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Print styles for better printing */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    color: #000;
+    background: #fff;
+  }
+
+  a {
+    text-decoration: underline;
+    color: #000;
+  }
+}
