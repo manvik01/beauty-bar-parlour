@@ -26,7 +26,7 @@ export default function MindbodyEmbedPage() {
             <div className="bg-gray-900 text-white p-6 rounded overflow-x-auto mb-8">
               <pre className="text-sm">
                 <code>{`<iframe 
-  src="https://beautybar.parlour/mindbody/embed?widget=booking&theme=light" 
+  src="https://beautybar.parlour/api/embed?widget=booking&theme=light" 
   width="100%" 
   height="600" 
   frameborder="0"
@@ -57,7 +57,7 @@ export default function MindbodyEmbedPage() {
             <div className="bg-gray-900 text-white p-6 rounded overflow-x-auto mb-8">
               <pre className="text-sm">
                 <code>{`<iframe 
-  src="https://beautybar.parlour/mindbody/embed?widget=services&theme=light" 
+  src="https://beautybar.parlour/api/embed?widget=services&theme=light" 
   width="100%" 
   height="600" 
   frameborder="0"
@@ -73,7 +73,7 @@ export default function MindbodyEmbedPage() {
             <div className="bg-gray-900 text-white p-6 rounded overflow-x-auto mb-8">
               <pre className="text-sm">
                 <code>{`<iframe 
-  src="https://beautybar.parlour/mindbody/embed?widget=staff&theme=light" 
+  src="https://beautybar.parlour/api/embed?widget=staff&theme=light" 
   width="100%" 
   height="600" 
   frameborder="0"
