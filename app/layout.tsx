@@ -24,7 +24,13 @@ export const metadata: Metadata = {
   title: "Beauty Bar Parlour | Beyond Ordinary",
   description:
     "Redefining beauty with a truly pampering experience using high-quality products and skilled professionals.",
-    generator: 'v0.dev'
+  generator: 'v0.dev',
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+    userScalable: true,
+  },
 }
 
 export default function RootLayout({

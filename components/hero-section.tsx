@@ -55,7 +55,7 @@ export function HeroSection() {
   }
 
   return (
-    <section className="relative h-screen flex items-center overflow-hidden pt-24">
+    <section className="relative h-[90vh] md:h-screen flex items-center overflow-hidden pt-16 md:pt-24">
       {/* Hero Background with Image Slider */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -70,20 +70,22 @@ export function HeroSection() {
             src={heroImages[currentImageIndex].src || "/placeholder.svg"}
             alt={heroImages[currentImageIndex].alt}
             fill
-            className="object-cover"
+            sizes="100vw"
+            className="object-cover object-center"
             priority
+            loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent"></div>
         </motion.div>
       </AnimatePresence>
 
       {/* Slider Navigation */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center space-x-3">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center space-x-4">
         {heroImages.map((_, index) => (
           <button
             key={index}
             onClick={() => handleManualNavigation(index)}
-            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
               index === currentImageIndex ? "bg-gold scale-125" : "bg-white/50"
             }`}
             aria-label={`Go to slide ${index + 1}`}
@@ -91,31 +93,31 @@ export function HeroSection() {
         ))}
       </div>
 
-      {/* Slider Arrows */}
+      {/* Slider Arrows - larger touch targets */}
       <button
         onClick={prevImage}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-2 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-colors"
+        className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 p-3 bg-black/20 backdrop-blur-sm rounded-full hover:bg-black/30 transition-colors"
         aria-label="Previous slide"
       >
         <ChevronLeft className="w-6 h-6 text-white" />
       </button>
       <button
         onClick={nextImage}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-2 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-colors"
+        className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 p-3 bg-black/20 backdrop-blur-sm rounded-full hover:bg-black/30 transition-colors"
         aria-label="Next slide"
       >
         <ChevronRight className="w-6 h-6 text-white" />
       </button>
 
-      {/* Content */}
+      {/* Content - improved mobile layout */}
       <div className="container-custom relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-xl ml-8 md:ml-16"
+          className="max-w-xl mx-4 md:ml-8 lg:ml-16"
         >
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-light leading-tight mb-2 uppercase tracking-widest text-white">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-light leading-tight mb-2 uppercase tracking-widest text-white">
             Beauty Bar <br />
             <span className="text-gold glitter-text-enhanced">Parlour</span>
           </h1>
@@ -137,29 +139,29 @@ export function HeroSection() {
             ))}
           </div>
 
-          <div className="mb-6">
+          <div className="mb-4 md:mb-6">
             <span className="text-sm uppercase tracking-widest text-gold font-medium glitter-bold">
               Beyond Ordinary
             </span>
           </div>
 
-          <div className="w-24 h-px bg-gold mb-6"></div>
+          <div className="w-16 md:w-24 h-px bg-gold mb-4 md:mb-6"></div>
 
-          <p className="text-lg mb-8 max-w-md font-medium text-white">
+          <p className="text-base md:text-lg mb-6 md:mb-8 max-w-md font-medium text-white">
             Step into our tranquil oasis, indulge in self-care, and discover a beauty journey that exceeds your
             expectations.
           </p>
 
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <Link
               href="/services"
-              className="px-8 py-3 bg-gold text-black hover:bg-gold/90 transition-all duration-300 uppercase tracking-widest text-xs glitter-border"
+              className="px-6 sm:px-8 py-3 bg-gold text-black hover:bg-gold/90 transition-all duration-300 uppercase tracking-widest text-xs glitter-border text-center"
             >
               Our Services
             </Link>
             <Link
               href="/booking"
-              className="px-8 py-3 border border-white text-white hover:bg-white/10 transition-all duration-300 uppercase tracking-widest text-xs glitter-border"
+              className="px-6 sm:px-8 py-3 border border-white text-white hover:bg-white/10 transition-all duration-300 uppercase tracking-widest text-xs glitter-border text-center"
             >
               Book Now
             </Link>

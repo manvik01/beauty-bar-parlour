@@ -28,10 +28,21 @@
   --radius: 0;
 }
 
+/* Optimize body font for mobile */
 body {
   @apply bg-background text-foreground font-sans;
   letter-spacing: 0.02em;
   font-weight: 400; /* Increased from 300 for better readability */
+  -webkit-text-size-adjust: 100%; /* Prevent iOS font size adjustment */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  touch-action: manipulation; /* Improved touch handling */
+}
+
+/* Prevent touch callout on interactive elements */
+a, button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 h1,
@@ -49,28 +60,30 @@ h6 {
   @apply container mx-auto px-4 md:px-8 max-w-7xl;
 }
 
+/* Adjust padding for better mobile experience */
 .section-padding {
-  @apply py-16 md:py-24;
+  @apply py-12 md:py-16 lg:py-24;
 }
 
+/* Improved responsive typography */
 .heading-xl {
-  @apply text-4xl md:text-5xl lg:text-6xl font-serif font-light leading-tight uppercase;
+  @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-light leading-tight uppercase;
 }
 
 .heading-lg {
-  @apply text-3xl md:text-4xl font-serif font-light leading-tight uppercase;
+  @apply text-2xl sm:text-3xl md:text-4xl font-serif font-light leading-tight uppercase;
 }
 
 .heading-md {
-  @apply text-2xl md:text-3xl font-serif font-light leading-tight uppercase;
+  @apply text-xl sm:text-2xl md:text-3xl font-serif font-light leading-tight uppercase;
 }
 
 .heading-sm {
-  @apply text-xl md:text-2xl font-serif font-light leading-tight uppercase;
+  @apply text-lg sm:text-xl md:text-2xl font-serif font-light leading-tight uppercase;
 }
 
 .body-lg {
-  @apply text-lg leading-relaxed;
+  @apply text-base sm:text-lg leading-relaxed;
 }
 
 .body-md {
@@ -81,18 +94,18 @@ h6 {
   @apply text-sm leading-relaxed;
 }
 
-/* Lush N Glow Button Styles */
+/* Improved touch targets for mobile buttons */
 .elegant-button {
-  @apply px-8 py-3 bg-gold text-black hover:bg-gold/90 transition-all duration-300 inline-block uppercase tracking-widest text-sm;
+  @apply px-6 sm:px-8 py-3 bg-gold text-black hover:bg-gold/90 transition-all duration-300 inline-block uppercase tracking-widest text-sm min-h-[44px] min-w-[100px];
 }
 
 .elegant-button-outline {
-  @apply px-8 py-3 border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 inline-block uppercase tracking-widest text-sm;
+  @apply px-6 sm:px-8 py-3 border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 inline-block uppercase tracking-widest text-sm min-h-[44px] min-w-[100px];
 }
 
 /* Lush N Glow Card Styles */
 .elegant-card {
-  @apply bg-white p-6 border-t border-primary/20;
+  @apply bg-white p-4 sm:p-6 border-t border-primary/20;
 }
 
 /* Lush N Glow Divider */
@@ -105,9 +118,9 @@ h6 {
   @apply transition-all duration-300 hover:opacity-90;
 }
 
-/* Service Grid */
+/* Improved mobile service grid */
 .service-grid {
-  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8;
 }
 
 .service-item {
@@ -115,7 +128,7 @@ h6 {
 }
 
 .service-name {
-  @apply font-serif text-lg uppercase;
+  @apply font-serif text-base sm:text-lg uppercase;
 }
 
 .service-price {
@@ -123,7 +136,7 @@ h6 {
 }
 
 .service-category {
-  @apply mb-12 last:mb-0;
+  @apply mb-8 sm:mb-12 last:mb-0;
 }
 
 /* Gold accents */
@@ -547,4 +560,44 @@ button {
     text-decoration: underline;
     color: #000;
   }
+}
+
+/* Mobile optimizations for forms */
+input, select, textarea, button {
+  @apply text-base; /* Ensure readable text size on mobile */
+  -webkit-appearance: none; /* Remove default styles on iOS */
+  border-radius: 0; /* Remove default rounded corners */
+}
+
+/* Improved input experience on mobile */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+textarea {
+  @apply w-full p-3 border border-primary/20 bg-white;
+  font-size: 16px !important; /* Prevent zoom on iOS */
+}
+
+/* Add smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+/* Optimize images for mobile */
+img {
+  @apply max-w-full h-auto;
+  content-visibility: auto; /* Better image loading performance */
+}
+
+/* Improve focus styles for accessibility */
+:focus {
+  @apply outline-none ring-2 ring-primary/50;
+}
+
+/* Improve loading indicators */
+.loading {
+  @apply relative overflow-hidden;
+  min-height: 44px; /* Minimum touch target size */
 }

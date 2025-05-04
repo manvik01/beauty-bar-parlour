@@ -18,6 +18,29 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
+  // Close mobile menu when window is resized to desktop size
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768 && isOpen) {
+        setIsOpen(false)
+      }
+    }
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [isOpen])
+
+  // Prevent body scrolling when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = ""
+    }
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [isOpen])
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 10) {
@@ -46,7 +69,8 @@ export function Navbar() {
               alt="Beauty Bar Parlour"
               width={280}
               height={130}
-              className="h-auto"
+              className="h-auto w-auto max-w-[200px] md:max-w-[280px]"
+              priority
             />
           </Link>
 
@@ -68,21 +92,26 @@ export function Navbar() {
           </nav>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden p-2 text-foreground" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
+          <button 
+            className="md:hidden p-3 text-foreground z-50" 
+            onClick={() => setIsOpen(!isOpen)} 
+            aria-label="Toggle menu"
+            aria-expanded={isOpen}
+          >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden fixed inset-0 bg-white z-0 flex flex-col items-center justify-center">
-            <nav className="flex flex-col items-center space-y-6">
+          <div className="md:hidden fixed inset-0 bg-black/90 backdrop-blur-sm z-40 flex flex-col items-center justify-center touch-none">
+            <nav className="flex flex-col items-center space-y-8 p-6 w-full max-w-sm">
               {navLinks.filter(link => !link.hidden).map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
                   className={`text-white text-lg uppercase tracking-wider ${
-                    link.name === "Book Now" ? "px-6 py-2 bg-gold text-black hover:bg-gold/90 font-medium mt-4" : ""
+                    link.name === "Book Now" ? "px-6 py-3 bg-gold text-black hover:bg-gold/90 font-medium mt-6 w-full text-center" : "w-full text-center py-2"
                   }`}
                   onClick={() => setIsOpen(false)}
                 >
