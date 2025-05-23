@@ -39,7 +39,7 @@ export function CountdownTimer({ targetDate }: CountdownProps) {
 
   return (
     <div className="text-center">
-      <p className="text-sm uppercase tracking-widest mb-6 text-gold font-medium">June 7, 2025</p>
+      <p className="text-sm uppercase tracking-widest mb-6 text-gold font-medium">June 30, 2025</p>
       <div className="flex justify-center gap-8 md:gap-12">
         <motion.div
           className="text-center"

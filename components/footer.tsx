@@ -4,8 +4,8 @@ import { Instagram, Facebook, Twitter } from "lucide-react"
 import { CountdownTimer } from "./countdown-timer"
 
 export function Footer() {
-  // Set the target date to June 7, 2025
-  const openingDate = new Date("2025-06-07T00:00:00")
+  // Set the target date to June 30, 2025
+  const openingDate = new Date("2025-06-30T00:00:00")
 
   return (
     <footer className="bg-white py-12 text-black border-t border-gold/20">
