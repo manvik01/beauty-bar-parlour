@@ -15,7 +15,7 @@ export function ContactSection() {
                 <MapPin className="w-6 h-6 mr-4 text-primary flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="font-light text-lg mb-1 uppercase tracking-wider">Location</h3>
-                  <p className="font-light">Elias Mall, Singapore</p>
+                  <p className="font-light">Elias Mall, #02-328, 625 Elias Road, Pasir Ris, Singapore 510625</p>
                 </div>
               </div>
 

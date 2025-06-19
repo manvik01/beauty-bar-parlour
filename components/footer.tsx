@@ -82,7 +82,7 @@ export function Footer() {
           </div>
 
           <div className="text-sm text-black mb-4">
-            <p>Elias Mall, Singapore | +65 90662824 | enquiry@beautybarparlour.com</p>
+            <p>Elias Mall, #02-328, 625 Elias Road, Pasir Ris, Singapore 510625 | +65 90662824 | enquiry@beautybarparlour.com</p>
           </div>
 
           <div className="text-xs text-black/70">
