@@ -34,8 +34,8 @@ export default function ContactPage() {
                 <div className="flex items-start">
                   <Clock className="w-6 h-6 mr-4 text-primary flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-serif text-lg mb-1">Opening Soon</h3>
-                    <p>June 30, 2025</p>
+                    <h3 className="font-serif text-lg mb-1">July 26, 2025</h3>
+                    <p>July 26, 2025</p>
                     <p className="mt-1">Operating Hours: 10:00 AM – 8:00 PM, Daily</p>
                   </div>
                 </div>
