@@ -67,11 +67,11 @@ export function Footer() {
           </div>
 
           <div className="flex space-x-4 mb-6">
-            <Link href="#" className="text-black hover:text-primary transition-colors">
+            <Link href="https://www.instagram.com/beautybarparlour?igsh=dGpwZXlzM3d5Ynhq" className="text-black hover:text-primary transition-colors">
               <Instagram size={20} />
               <span className="sr-only">Instagram</span>
             </Link>
-            <Link href="#" className="text-black hover:text-primary transition-colors">
+            <Link href="https://www.facebook.com/share/15ezMQYwpK/?mibextid=wwXIfr" className="text-black hover:text-primary transition-colors">
               <Facebook size={20} />
               <span className="sr-only">Facebook</span>
             </Link>
@@ -79,10 +79,6 @@ export function Footer() {
               <Twitter size={20} />
               <span className="sr-only">Twitter</span>
             </Link>
-          </div>
-
-          <div className="text-sm text-black mb-4">
-            <p>Elias Mall, #02-328, 625 Elias Road, Pasir Ris, Singapore 510625 | +65 84158896 | enquiry@beautybarparlour.com</p>
           </div>
 
           <div className="text-xs text-black/70">
