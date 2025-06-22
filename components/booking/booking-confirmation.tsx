@@ -64,7 +64,7 @@ export function BookingConfirmation({ bookingData, reference }: BookingConfirmat
 
       <p className="text-sm text-muted-foreground mb-8">
         A confirmation email has been sent to {bookingData.email}. If you need to make any changes to your appointment,
-        please contact us at +65 90662824.
+        please contact us at +65 84158896.
       </p>
 
       <div className="flex justify-center space-x-4">

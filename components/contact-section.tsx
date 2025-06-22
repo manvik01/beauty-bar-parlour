@@ -32,7 +32,7 @@ export function ContactSection() {
                 <Phone className="w-6 h-6 mr-4 text-primary flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="font-light text-lg mb-1 uppercase tracking-wider">Phone</h3>
-                  <p className="font-light">+65 90662824</p>
+                  <p className="font-light">+65 84158896</p>
                 </div>
               </div>
 

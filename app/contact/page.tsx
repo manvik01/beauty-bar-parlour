@@ -44,7 +44,7 @@ export default function ContactPage() {
                   <Phone className="w-6 h-6 mr-4 text-primary flex-shrink-0 mt-1" />
                   <div>
                     <h3 className="font-serif text-lg mb-1">Phone</h3>
-                    <p>+65 90662824</p>
+                    <p>+65 84158896</p>
                   </div>
                 </div>
 
