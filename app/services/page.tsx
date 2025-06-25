@@ -68,6 +68,12 @@ export default function ServicesPage() {
               >
                 <Star className="w-4 h-4 mr-2 glitter-icon" /> Bridal
               </a>
+              <a
+                href="#laser"
+                className="px-4 py-2 bg-gold text-black hover:bg-gold/90 transition-all uppercase tracking-widest text-xs flex items-center"
+              >
+                <Sparkles className="w-4 h-4 mr-2 glitter-icon" /> Laser Hair Removal
+              </a>
             </div>
           </div>
 
@@ -375,13 +381,13 @@ export default function ServicesPage() {
                   <span className="font-serif text-black group-hover:glitter-bold transition-all">
                     Simple Henna (One Hand)
                   </span>
-                  <span className="text-primary font-medium">$10-$15</span>
+                  <span className="text-primary font-medium">$10-$25</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
                   <span className="font-serif text-black group-hover:glitter-bold transition-all">
                     Bridal Henna - Hands & Feet
                   </span>
-                  <span className="text-primary font-medium">$150-$250</span>
+                  <span className="text-primary font-medium">$200-$400</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
                   <span className="font-serif text-black group-hover:glitter-bold transition-all">
@@ -436,6 +442,149 @@ export default function ServicesPage() {
                   className="inline-flex items-center text-gold hover:underline group"
                 >
                   <span className="group-hover:glitter-bold">Book Bridal Service</span>{" "}
+                  <ChevronRight className="w-4 h-4 ml-1 group-hover:glitter-icon" />
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Laser Hair Removal Services */}
+          <div id="laser" className="mb-20 pt-16 -mt-16" role="region" aria-labelledby="laser-heading">
+            <div className="max-w-4xl mx-auto bg-white p-8 border-t-4 border-gold shadow-sm">
+              <h2 id="laser-heading" className="text-2xl uppercase tracking-widest text-center mb-2 text-black">
+                <span className="glitter-bold">Laser Hair Removal Services</span>
+              </h2>
+              <div className="w-16 h-1 bg-gold mx-auto mb-8"></div>
+
+              <div className="space-y-4">
+                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
+                    Upper Lip
+                  </span>
+                  <span className="text-primary font-medium">$60</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
+                    Chin (AFT)
+                  </span>
+                  <span className="text-primary font-medium">$64</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
+                    Sideburns (AFT)
+                  </span>
+                  <span className="text-primary font-medium">$83</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
+                    Full Face (AFT)
+                  </span>
+                  <span className="text-primary font-medium">$153</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
+                    Neck – Front or Back (AFT)
+                  </span>
+                  <span className="text-primary font-medium">$95</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
+                    Underarms
+                  </span>
+                  <span className="text-primary font-medium">$95</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
+                    Half Arms (Upper or Lower)
+                  </span>
+                  <span className="text-primary font-medium">$134</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
+                    Full Arms
+                  </span>
+                  <span className="text-primary font-medium">$189</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
+                    Hands & Fingers
+                  </span>
+                  <span className="text-primary font-medium">$69</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
+                    Chest
+                  </span>
+                  <span className="text-primary font-medium">$172</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
+                    Areola
+                  </span>
+                  <span className="text-primary font-medium">$47</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
+                    Abdomen
+                  </span>
+                  <span className="text-primary font-medium">$159</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
+                    Back (Full)
+                  </span>
+                  <span className="text-primary font-medium">$210</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
+                    Lower Back
+                  </span>
+                  <span className="text-primary font-medium">$124</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
+                    Bikini Line
+                  </span>
+                  <span className="text-primary font-medium">$115</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
+                    Brazilian + Crack
+                  </span>
+                  <span className="text-primary font-medium">$172</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
+                    Buttocks (Full)
+                  </span>
+                  <span className="text-primary font-medium">$153</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
+                    Half Legs (Upper or Lower)
+                  </span>
+                  <span className="text-primary font-medium">$172</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
+                    Full Legs
+                  </span>
+                  <span className="text-primary font-medium">$287</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
+                    Feet & Toes
+                  </span>
+                  <span className="text-primary font-medium">$67</span>
+                </div>
+              </div>
+
+              <div className="mt-6 text-right">
+                <Link
+                  href="/booking?service=laser"
+                  className="inline-flex items-center text-gold hover:underline group"
+                >
+                  <span className="group-hover:glitter-bold">Book Laser Hair Removal Service</span>{" "}
                   <ChevronRight className="w-4 h-4 ml-1 group-hover:glitter-icon" />
                 </Link>
               </div>
