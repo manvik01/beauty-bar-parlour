@@ -30,7 +30,7 @@ export default function ServicesPage() {
                 href="#hair"
                 className="px-4 py-2 bg-gold text-black hover:bg-gold/90 transition-all uppercase tracking-widest text-xs flex items-center"
               >
-                <Scissors className="w-4 h-4 mr-2 glitter-icon" /> Hair
+                <Scissors className="w-4 h-4 mr-2 glitter-icon" /> Herbal
               </a>
               <a
                 href="#nail"
@@ -77,11 +77,11 @@ export default function ServicesPage() {
             </div>
           </div>
 
-          {/* Hair Services */}
+          {/* Herbal Services */}
           <div id="hair" className="mb-20 pt-16 -mt-16" role="region" aria-labelledby="hair-heading">
             <div className="max-w-4xl mx-auto bg-white p-8 border-t-4 border-gold shadow-sm">
               <h2 id="hair-heading" className="text-2xl uppercase tracking-widest text-center mb-2 text-black">
-                <span className="glitter-bold">Hair Services</span>
+                <span className="glitter-bold">Herbal Services</span>
               </h2>
               <div className="w-16 h-1 bg-gold mx-auto mb-8"></div>
 
@@ -94,7 +94,7 @@ export default function ServicesPage() {
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
                   <span className="font-serif text-black group-hover:glitter-bold transition-all">Hot Oil Massage</span>
-                  <span className="text-primary font-medium">$65-$95</span>
+                  <span className="text-primary font-medium">$75-$95</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
                   <span className="font-serif text-black group-hover:glitter-bold transition-all">
@@ -102,23 +102,11 @@ export default function ServicesPage() {
                   </span>
                   <span className="text-primary font-medium">$70-$120</span>
                 </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Hair Color (Full)
-                  </span>
-                  <span className="text-primary font-medium">$95-$150</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Hair Styling (Special Occasion)
-                  </span>
-                  <span className="text-primary font-medium">$85-$120</span>
-                </div>
               </div>
 
               <div className="mt-6 text-right">
                 <Link href="/booking?service=hair" className="inline-flex items-center text-gold hover:underline group">
-                  <span className="group-hover:glitter-bold">Book Hair Service</span>{" "}
+                  <span className="group-hover:glitter-bold">Book Herbal Service</span>{" "}
                   <ChevronRight className="w-4 h-4 ml-1 group-hover:glitter-icon" />
                 </Link>
               </div>
