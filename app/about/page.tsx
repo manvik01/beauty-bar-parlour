@@ -19,16 +19,20 @@ export default function AboutPage() {
             <div>
               <h2 className="text-3xl font-serif mb-6">Beauty Bar Parlour</h2>
               <p className="body-md mb-6">
-                Welcome to Beauty Bar Parlour, where we redefine beauty with our tagline "Beyond Ordinary." Our primary
-                focus is on caring for our customers and providing a truly pampering experience.
+                Welcome to Beauty Bar Parlour, where beauty goes Beyond Ordinary. We're more than just a beauty salon —
+                we're a sanctuary where customers are truly celebrated.
               </p>
               <p className="body-md mb-6">
-                We proudly use high-quality products in all our services, including our specialized nail spa,
-                rejuvenating hair spa, revitalizing facials, expert waxing and threading, and exquisite henna services.
+                From our specialized nail spa offering over 900 GEL colors and vegan nail polish options, to our herbal
+                treatments, expert waxing and threading, revitalizing facials using luxurious products like World of
+                Beauty Italy and the Ayurvedic Experience, and our advanced painless AFT hair removal services, every
+                service is designed with your comfort and care in mind. We take pride in our exceptional hygiene
+                standards, non-pushy approach, and use only high-quality products, while keeping our prices refreshingly
+                reasonable.
               </p>
               <p className="body-md">
-                Our skilled professionals are dedicated to understanding your unique beauty needs and tailoring each
-                treatment just for you. Experience the extraordinary care you deserve at Beauty Bar Parlour!
+                At Beauty Bar Parlour, we don't just enhance your beauty — we create a pampering experience that's
+                personal, uplifting, and truly beyond the ordinary.
               </p>
             </div>
             <div className="relative h-[500px]">
