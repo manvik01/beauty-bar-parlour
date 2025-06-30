@@ -38,7 +38,7 @@ export function AboutSection() {
             </p>
           </div>
           <div className="relative h-[500px]">
-            <Image src="/pedicure-service.jpeg" alt="Beauty Bar Parlour Interior" fill className="object-cover" />
+            <Image src="/about-us-new.jpg" alt="Beauty Bar Parlour Interior" fill className="object-cover" />
           </div>
         </div>
       </div>
