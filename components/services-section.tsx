@@ -35,7 +35,7 @@ const serviceCategories = [
   {
     title: "AFT Treatment",
     description: "Painless Laser Hair Removal",
-    image: "/bridal-service.png",
+    image: "/aft-treatment.png",
     link: "/services#laser",
   },
   // You can add new service categories here
