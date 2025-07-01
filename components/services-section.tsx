@@ -5,31 +5,31 @@ const serviceCategories = [
   {
     title: "Herbal Treatment",
     description: "Root Touch-Up & Hair Packs",
-    image: "/hair-service-hd.png",
+    image: "/herbal-treatment.png",
     link: "/services#hair",
   },
   {
     title: "Nail & Foot Spa",
     description: "Manicure • Pedicure • Spa",
-    image: "/nail-service-gold.png",
+    image: "/nail-foot-spa.png",
     link: "/services#nail",
   },
   {
     title: "Facial Services",
     description: "Advanced Skincare",
-    image: "/facial-service-hd.png",
+    image: "/facial-treatment.png",
     link: "/services#facial",
   },
   {
     title: "Waxing Services",
     description: "Gentle Hair Removal",
-    image: "/waxing-service-hd.png",
+    image: "/waxing-arm.png",
     link: "/services#waxing",
   },
   {
     title: "Threading Services",
     description: "Precise Brow Shaping",
-    image: "/waxing-service-hd.png",
+    image: "/threading-eyebrow.png",
     link: "/services#threading",
   },
   {
