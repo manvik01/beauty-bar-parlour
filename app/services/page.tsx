@@ -130,66 +130,35 @@ export default function ServicesPage() {
               <div className="w-16 h-1 bg-gold mx-auto mb-8"></div>
 
               <div className="space-y-4">
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Express Manicure (Shape, Buff & Colour)
-                  </span>
-                  <span className="text-primary font-medium">$12</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Express Pedicure (Shape, Buff & Colour)
-                  </span>
-                  <span className="text-primary font-medium">$18</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Classic Manicure
-                  </span>
-                  <span className="text-primary font-medium">$25</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Classic Pedicure
-                  </span>
-                  <span className="text-primary font-medium">$35</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Gel Express Manicure
-                  </span>
-                  <span className="text-primary font-medium">$28</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Gel Express Pedicure
-                  </span>
-                  <span className="text-primary font-medium">$38</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Gel Manicure</span>
-                  <span className="text-primary font-medium">$48</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Gel Pedicure</span>
-                  <span className="text-primary font-medium">$58</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Nail Art (per nail)
-                  </span>
-                  <span className="text-primary font-medium">$3-$5</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Nail Extension (Full Set)
-                  </span>
-                  <span className="text-primary font-medium">$99</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Foot SPA</span>
-                  <span className="text-primary font-medium">$55-$90</span>
-                </div>
+                {[
+                  ["Soak Off Gel Hand – 15 mins", "$10"],
+                  ["Soak Off Gel Feet – 15 mins", "$10"],
+                  ["Express Manicure – 20 mins", "$12"],
+                  ["Express Pedicure – 20 mins", "$18"],
+                  ["Classic Manicure – 40 mins", "$25"],
+                  ["Classic Pedicure – 40 mins", "$35"],
+                  ["Gel Express Manicure – 30 mins", "$28"],
+                  ["Gel Express Pedicure – 30 mins", "$38"],
+                  ["Classic Gel Manicure – 40 mins", "$48"],
+                  ["Classic Gel Pedicure – 40 mins", "$58"],
+                  ["Nail Art (per nail) Basic design - Min 4 Nails – 30 mins", "$3"],
+                  ["Nail Art (per nail) Intermediate design - Min 4 Nails – 40 mins", "$5"],
+                  ["Nail Art (per nail) Advanced design - Min 4 Nails – 60 mins", "$8"],
+                  ["Nail Extension (Full Set) – 60 mins", "$99"],
+                  ["Parafin Wax SPA Hand – 30 mins", "$25"],
+                  ["Parafin Wax SPA Feet – 30 mins", "$45"],
+                  ["Milk Foot Spa – 45 mins", "$55"],
+                  ["Milk & Wine Foot Spa – 45 mins", "$65"],
+                  ["Signature Foot Spa – 45 mins", "$75"]
+                ].map(([label, price]) => (
+                  <div
+                    key={label}
+                    className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group"
+                  >
+                    <span className="font-serif text-black group-hover:glitter-bold transition-all">{label}</span>
+                    <span className="text-primary font-medium">{price}</span>
+                  </div>
+                ))}
               </div>
 
               <div className="mt-6 text-right">
