@@ -3,40 +3,40 @@ import Image from "next/image"
 
 const serviceCategories = [
   {
-    title: "Hair Services",
-    description: "Professional Styling",
+    title: "Herbal Treatment",
+    description: "Root Touch-Up & Hair Packs",
     image: "/hair-service-hd.png",
     link: "/services#hair",
   },
   {
-    title: "Nail Services",
-    description: "Manicure & Pedicure",
+    title: "Nail & Foot Spa",
+    description: "Manicure • Pedicure • Spa",
     image: "/nail-service-gold.png",
     link: "/services#nail",
   },
   {
     title: "Facial Services",
-    description: "Skincare Treatments",
+    description: "Advanced Skincare",
     image: "/facial-service-hd.png",
     link: "/services#facial",
   },
   {
-    title: "Waxing & Threading",
-    description: "Hair Removal",
+    title: "Waxing Services",
+    description: "Gentle Hair Removal",
     image: "/waxing-service-hd.png",
     link: "/services#waxing",
   },
   {
-    title: "Henna Art",
-    description: "Traditional Designs",
-    image: "/henna-service-hd.png",
-    link: "/services#henna",
+    title: "Threading Services",
+    description: "Precise Brow Shaping",
+    image: "/waxing-service-hd.png",
+    link: "/services#threading",
   },
   {
-    title: "Bridal Services",
-    description: "Special Occasions",
-    image: "/bridal-service-hd.png",
-    link: "/services#bridal",
+    title: "AFT Treatment",
+    description: "Painless Laser Hair Removal",
+    image: "/bridal-service.png",
+    link: "/services#laser",
   },
   // You can add new service categories here
   // Example:
