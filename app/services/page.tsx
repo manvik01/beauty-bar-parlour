@@ -30,13 +30,13 @@ export default function ServicesPage() {
                 href="#hair"
                 className="px-4 py-2 bg-gold text-black hover:bg-gold/90 transition-all uppercase tracking-widest text-xs flex items-center"
               >
-                <Scissors className="w-4 h-4 mr-2 glitter-icon" /> Herbal
+                <Scissors className="w-4 h-4 mr-2 glitter-icon" /> Herbal Treatment
               </a>
               <a
                 href="#nail"
                 className="px-4 py-2 bg-gold text-black hover:bg-gold/90 transition-all uppercase tracking-widest text-xs flex items-center"
               >
-                <Palette className="w-4 h-4 mr-2 glitter-icon" /> Nail
+                <Palette className="w-4 h-4 mr-2 glitter-icon" /> Nail & Foot Spa
               </a>
               <a
                 href="#facial"
@@ -72,7 +72,7 @@ export default function ServicesPage() {
                 href="#laser"
                 className="px-4 py-2 bg-gold text-black hover:bg-gold/90 transition-all uppercase tracking-widest text-xs flex items-center"
               >
-                <Sparkles className="w-4 h-4 mr-2 glitter-icon" /> Laser Hair Removal
+                <Sparkles className="w-4 h-4 mr-2 glitter-icon" /> AFT Treatment
               </a>
             </div>
           </div>
@@ -81,26 +81,34 @@ export default function ServicesPage() {
           <div id="hair" className="mb-20 pt-16 -mt-16" role="region" aria-labelledby="hair-heading">
             <div className="max-w-4xl mx-auto bg-white p-8 border-t-4 border-gold shadow-sm">
               <h2 id="hair-heading" className="text-2xl uppercase tracking-widest text-center mb-2 text-black">
-                <span className="glitter-bold">Herbal Services</span>
+                <span className="glitter-bold">Herbal Treatment</span>
               </h2>
               <div className="w-16 h-1 bg-gold mx-auto mb-8"></div>
 
               <div className="space-y-4">
                 <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Henna Root Touch Up
-                  </span>
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Root Touch Up (Short Hair) – 90 mins</span>
+                  <span className="text-primary font-medium">$88</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Hair Pack (Short Hair) – 90 mins</span>
+                  <span className="text-primary font-medium">$60</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Hair Pack (Medium Hair) – 90 mins</span>
+                  <span className="text-primary font-medium">$70</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Hair Pack (Long Hair) – 60 mins</span>
+                  <span className="text-primary font-medium">$80</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Hot Oil Massage (Seated) – 60 mins</span>
                   <span className="text-primary font-medium">$75</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Hot Oil Massage</span>
-                  <span className="text-primary font-medium">$75-$95</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Herbal Hair treatment
-                  </span>
-                  <span className="text-primary font-medium">$70-$120</span>
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Hot Oil Massage (Spa) – 90 mins</span>
+                  <span className="text-primary font-medium">$95</span>
                 </div>
               </div>
 
@@ -117,7 +125,7 @@ export default function ServicesPage() {
           <div id="nail" className="mb-20 pt-16 -mt-16" role="region" aria-labelledby="nail-heading">
             <div className="max-w-4xl mx-auto bg-white p-8 border-t-4 border-gold shadow-sm">
               <h2 id="nail-heading" className="text-2xl uppercase tracking-widest text-center mb-2 text-black">
-                <span className="glitter-bold">Nail Services</span>
+                <span className="glitter-bold">Nail & Foot Spa</span>
               </h2>
               <div className="w-16 h-1 bg-gold mx-auto mb-8"></div>
 
@@ -186,7 +194,7 @@ export default function ServicesPage() {
 
               <div className="mt-6 text-right">
                 <Link href="/booking?service=nail" className="inline-flex items-center text-gold hover:underline group">
-                  <span className="group-hover:glitter-bold">Book Nail Service</span>{" "}
+                  <span className="group-hover:glitter-bold">Book Nail & Foot Spa Service</span>{" "}
                   <ChevronRight className="w-4 h-4 ml-1 group-hover:glitter-icon" />
                 </Link>
               </div>
@@ -440,7 +448,7 @@ export default function ServicesPage() {
           <div id="laser" className="mb-20 pt-16 -mt-16" role="region" aria-labelledby="laser-heading">
             <div className="max-w-4xl mx-auto bg-white p-8 border-t-4 border-gold shadow-sm">
               <h2 id="laser-heading" className="text-2xl uppercase tracking-widest text-center mb-2 text-black">
-                <span className="glitter-bold">Laser Hair Removal Services</span>
+                <span className="glitter-bold">AFT Treatment</span>
               </h2>
               <div className="w-16 h-1 bg-gold mx-auto mb-8"></div>
 
@@ -572,7 +580,7 @@ export default function ServicesPage() {
                   href="/booking?service=laser"
                   className="inline-flex items-center text-gold hover:underline group"
                 >
-                  <span className="group-hover:glitter-bold">Book Laser Hair Removal Service</span>{" "}
+                  <span className="group-hover:glitter-bold">Book AFT Treatment</span>{" "}
                   <ChevronRight className="w-4 h-4 ml-1 group-hover:glitter-icon" />
                 </Link>
               </div>
