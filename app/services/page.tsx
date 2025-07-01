@@ -56,18 +56,7 @@ export default function ServicesPage() {
               >
                 <Scissors className="w-4 h-4 mr-2 glitter-icon" /> Threading
               </a>
-              <a
-                href="#henna"
-                className="px-4 py-2 bg-gold text-black hover:bg-gold/90 transition-all uppercase tracking-widest text-xs flex items-center"
-              >
-                <Palette className="w-4 h-4 mr-2 glitter-icon" /> Henna
-              </a>
-              <a
-                href="#bridal"
-                className="px-4 py-2 bg-gold text-black hover:bg-gold/90 transition-all uppercase tracking-widest text-xs flex items-center"
-              >
-                <Star className="w-4 h-4 mr-2 glitter-icon" /> Bridal
-              </a>
+              {/* Henna and Bridal navigation removed */}
               <a
                 href="#laser"
                 className="px-4 py-2 bg-gold text-black hover:bg-gold/90 transition-all uppercase tracking-widest text-xs flex items-center"
@@ -298,7 +287,7 @@ export default function ServicesPage() {
           </div>
 
           {/* Henna Art Services */}
-          <div id="henna" className="mb-20 pt-16 -mt-16" role="region" aria-labelledby="henna-heading">
+          <div id="henna" className="mb-20 pt-16 -mt-16 hidden" role="region" aria-labelledby="henna-heading">
             <div className="max-w-4xl mx-auto bg-white p-8 border-t-4 border-gold shadow-sm">
               <h2 id="henna-heading" className="text-2xl uppercase tracking-widest text-center mb-2 text-black">
                 <span className="glitter-bold">Henna Art Services</span>
@@ -339,7 +328,7 @@ export default function ServicesPage() {
           </div>
 
           {/* Bridal Services */}
-          <div id="bridal" className="mb-20 pt-16 -mt-16" role="region" aria-labelledby="bridal-heading">
+          <div id="bridal" className="mb-20 pt-16 -mt-16 hidden" role="region" aria-labelledby="bridal-heading">
             <div className="max-w-4xl mx-auto bg-white p-8 border-t-4 border-gold shadow-sm">
               <h2 id="bridal-heading" className="text-2xl uppercase tracking-widest text-center mb-2 text-black">
                 <span className="glitter-bold">Bridal Services</span>
