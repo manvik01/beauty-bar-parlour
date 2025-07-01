@@ -179,34 +179,28 @@ export default function ServicesPage() {
               <div className="w-16 h-1 bg-gold mx-auto mb-8"></div>
 
               <div className="space-y-4">
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Basic Facial</span>
-                  <span className="text-primary font-medium">$58</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Ayurvedic Facial
-                  </span>
-                  <span className="text-primary font-medium">$110</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Hydrating Facial
-                  </span>
-                  <span className="text-primary font-medium">$110-$299</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Whitening Facial
-                  </span>
-                  <span className="text-primary font-medium">$110-$299</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Anti-Aging Facial
-                  </span>
-                  <span className="text-primary font-medium">$188-$299</span>
-                </div>
+                {[
+                  ["Advanced Clinicals Basic – 45 mins", "$69"],
+                  ["Advanced Clinicals Basic – 60 mins", "$79"],
+                  ["Advanced Clinicals Advanced – 45 mins", "$89"],
+                  ["Advanced Clinicals Advanced – 60 mins", "$99"],
+                  ["WOB - Vitamin C Brightening – 45 mins", "$139"],
+                  ["WOB – Akoia Gold – 60 mins", "$183"],
+                  ["WOB - Hydra Calm – 90 mins", "$230"],
+                  ["WOB - Collagen Hlayu – 90 mins", "$252"],
+                  ["TAE - Ayurvedic Oily Skin Treatment – 60 mins", "$160"],
+                  ["TAE - Ayurvedic Skin Tightening Treatment – 60 mins", "$180"],
+                  ["TAE - Ayurvedic Hydrating Treatment – 90 mins", "$190"],
+                  ["TAE - Ayurvedic Anti Aging – 90 mins", "$210"]
+                ].map(([label, price]) => (
+                  <div
+                    key={label}
+                    className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group"
+                  >
+                    <span className="font-serif text-black group-hover:glitter-bold transition-all">{label}</span>
+                    <span className="text-primary font-medium">{price}</span>
+                  </div>
+                ))}
               </div>
 
               <div className="mt-6 text-right">
@@ -230,52 +224,27 @@ export default function ServicesPage() {
               <div className="w-16 h-1 bg-gold mx-auto mb-8"></div>
 
               <div className="space-y-4">
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Side Burn</span>
-                  <span className="text-primary font-medium">$15</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Upper Lip / Chin
-                  </span>
-                  <span className="text-primary font-medium">$15</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Eyebrow Wax</span>
-                  <span className="text-primary font-medium">$15</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Full Face Wax</span>
-                  <span className="text-primary font-medium">$50</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Half Arms</span>
-                  <span className="text-primary font-medium">$25</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Half Legs</span>
-                  <span className="text-primary font-medium">$30</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Full Arms</span>
-                  <span className="text-primary font-medium">$40</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Full Legs</span>
-                  <span className="text-primary font-medium">$60</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Underarms</span>
-                  <span className="text-primary font-medium">$25</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Bikini Line</span>
-                  <span className="text-primary font-medium">$38</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Brazilian</span>
-                  <span className="text-primary font-medium">$65</span>
-                </div>
+                {[
+                  ["Side Burn – 15 mins", "$15"],
+                  ["Upper Lip / Chin – 15 mins", "$15"],
+                  ["Eyebrow Wax – 15 mins", "$15"],
+                  ["Full Face Wax – 30 mins", "$50"],
+                  ["Half Arms – 30 mins", "$25"],
+                  ["Half Legs – 30 mins", "$30"],
+                  ["Full Arms – 30 mins", "$40"],
+                  ["Full Legs – 30 mins", "$60"],
+                  ["Underarms – 15 mins", "$25"],
+                  ["Bikini Line – 20 mins", "$38"],
+                  ["Brazilian – 45 mins", "$65"]
+                ].map(([label, price]) => (
+                  <div
+                    key={label}
+                    className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group"
+                  >
+                    <span className="font-serif text-black group-hover:glitter-bold transition-all">{label}</span>
+                    <span className="text-primary font-medium">{price}</span>
+                  </div>
+                ))}
               </div>
 
               <div className="mt-6 text-right">
@@ -299,26 +268,21 @@ export default function ServicesPage() {
               <div className="w-16 h-1 bg-gold mx-auto mb-8"></div>
 
               <div className="space-y-4">
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Eyebrows</span>
-                  <span className="text-primary font-medium">$12</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Upper Lip</span>
-                  <span className="text-primary font-medium">$10</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Chin</span>
-                  <span className="text-primary font-medium">$10</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Forehead</span>
-                  <span className="text-primary font-medium">$15</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Full Face</span>
-                  <span className="text-primary font-medium">$40</span>
-                </div>
+                {[
+                  ["Eyebrows – 15 mins", "$12"],
+                  ["Upper Lip – 15 mins", "$10"],
+                  ["Chin – 15 mins", "$10"],
+                  ["Forehead – 15 mins", "$15"],
+                  ["Full Face – 30 mins", "$40"]
+                ].map(([label, price]) => (
+                  <div
+                    key={label}
+                    className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group"
+                  >
+                    <span className="font-serif text-black group-hover:glitter-bold transition-all">{label}</span>
+                    <span className="text-primary font-medium">{price}</span>
+                  </div>
+                ))}
               </div>
 
               <div className="mt-6 text-right">
@@ -422,126 +386,36 @@ export default function ServicesPage() {
               <div className="w-16 h-1 bg-gold mx-auto mb-8"></div>
 
               <div className="space-y-4">
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Upper Lip
-                  </span>
-                  <span className="text-primary font-medium">$60</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Chin (AFT)
-                  </span>
-                  <span className="text-primary font-medium">$64</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Sideburns (AFT)
-                  </span>
-                  <span className="text-primary font-medium">$83</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Full Face (AFT)
-                  </span>
-                  <span className="text-primary font-medium">$153</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Neck – Front or Back (AFT)
-                  </span>
-                  <span className="text-primary font-medium">$95</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Underarms
-                  </span>
-                  <span className="text-primary font-medium">$95</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Half Arms (Upper or Lower)
-                  </span>
-                  <span className="text-primary font-medium">$134</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Full Arms
-                  </span>
-                  <span className="text-primary font-medium">$189</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Hands & Fingers
-                  </span>
-                  <span className="text-primary font-medium">$69</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Chest
-                  </span>
-                  <span className="text-primary font-medium">$172</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Areola
-                  </span>
-                  <span className="text-primary font-medium">$47</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Abdomen
-                  </span>
-                  <span className="text-primary font-medium">$159</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Back (Full)
-                  </span>
-                  <span className="text-primary font-medium">$210</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Lower Back
-                  </span>
-                  <span className="text-primary font-medium">$124</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Bikini Line
-                  </span>
-                  <span className="text-primary font-medium">$115</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Brazilian + Crack
-                  </span>
-                  <span className="text-primary font-medium">$172</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Buttocks (Full)
-                  </span>
-                  <span className="text-primary font-medium">$153</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Half Legs (Upper or Lower)
-                  </span>
-                  <span className="text-primary font-medium">$172</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Full Legs
-                  </span>
-                  <span className="text-primary font-medium">$287</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">
-                    Feet & Toes
-                  </span>
-                  <span className="text-primary font-medium">$67</span>
-                </div>
+                {[
+                  ["Upper Lip – 15 mins", "$60"],
+                  ["Chin – 15 mins", "$64"],
+                  ["Sideburns – 20 mins", "$83"],
+                  ["Full Face – 30 mins", "$153"],
+                  ["Neck (Front/Back) – 30 mins", "$95"],
+                  ["Underarms – 20 mins", "$95"],
+                  ["Half Arms (Upper/Lower) – 30 mins", "$134"],
+                  ["Full Arms – 45 mins", "$189"],
+                  ["Hands & Fingers – 15 mins", "$69"],
+                  ["Chest – 30 mins", "$172"],
+                  ["Areola – 15 mins", "$47"],
+                  ["Abdomen – 30 mins", "$159"],
+                  ["Back (Full) – 45 mins", "$210"],
+                  ["Lower Back – 30 mins", "$124"],
+                  ["Bikini Line – 30 mins", "$115"],
+                  ["Brazilian + Crack – 45 mins", "$172"],
+                  ["Buttocks (Full) – 30 mins", "$153"],
+                  ["Half Legs (Upper/Lower) – 45 mins", "$172"],
+                  ["Full Legs – 60 mins", "$287"],
+                  ["Feet & Toes – 20 mins", "$67"]
+                ].map(([label, price]) => (
+                  <div
+                    key={label}
+                    className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group"
+                  >
+                    <span className="font-serif text-black group-hover:glitter-bold transition-all">{label}</span>
+                    <span className="text-primary font-medium">{price}</span>
+                  </div>
+                ))}
               </div>
 
               <div className="mt-6 text-right">
