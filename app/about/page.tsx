@@ -36,7 +36,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="relative h-[500px]">
-              <Image src="/about-us-photo.jpeg" alt="Beauty Bar Parlour Nail Spa" fill className="object-cover" />
+              <Image src="/about-us-photo.png" alt="Beauty Bar Parlour Nail Spa" fill className="object-cover" />
             </div>
           </div>
 
