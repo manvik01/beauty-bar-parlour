@@ -76,7 +76,7 @@ export default function ServicesPage() {
 
               <div className="space-y-4">
                 <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Root Touch Up (Short Hair) – 90 mins</span>
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Root Touch Up – 90 mins</span>
                   <span className="text-primary font-medium">$88</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
@@ -88,7 +88,7 @@ export default function ServicesPage() {
                   <span className="text-primary font-medium">$70</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Hair Pack (Long Hair) – 60 mins</span>
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Hair Pack (Long Hair) – 90 mins</span>
                   <span className="text-primary font-medium">$80</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
@@ -130,9 +130,6 @@ export default function ServicesPage() {
                   ["Gel Express Pedicure – 30 mins", "$38"],
                   ["Classic Gel Manicure – 40 mins", "$48"],
                   ["Classic Gel Pedicure – 40 mins", "$58"],
-                  ["Nail Art (per nail) Basic design - Min 4 Nails – 30 mins", "$3"],
-                  ["Nail Art (per nail) Intermediate design - Min 4 Nails – 40 mins", "$5"],
-                  ["Nail Art (per nail) Advanced design - Min 4 Nails – 60 mins", "$8"],
                   ["Nail Extension (Full Set) – 60 mins", "$99"],
                   ["Parafin Wax SPA Hand – 30 mins", "$25"],
                   ["Parafin Wax SPA Feet – 30 mins", "$45"],
