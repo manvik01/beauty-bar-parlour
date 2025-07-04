@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Script from "next/script"
 
 const serviceCategories = [
   {
@@ -159,26 +160,41 @@ export function ServiceSelection({ selectedService, selectedCategory, onSelect, 
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-        {currentCategory?.services.map((service) => (
-          <div
-            key={service}
-            onClick={() => handleServiceSelect(service)}
-            className={`p-4 border cursor-pointer transition-all group ${
-              selectedService === service ? "border-primary bg-primary/5" : "border-border hover:border-primary/50"
-            }`}
-          >
-            <div className="flex items-center justify-center text-center">
+        {currentCategory?.services.map((service) => {
+          if (service.startsWith("Root Touch Up")) {
+            const widgetHtml = `<healcode-widget data-version=\"0.2\" data-link-class=\"healcode-pricing-option-text-link\" data-site-id=\"127612\" data-mb-site-id=\"5746301\" data-service-id=\"100059\" data-bw-identity-site=\"true\" data-type=\"pricing-link\" data-inner-html=\"Root Touch Up – 90 mins\"></healcode-widget>`
+            return (
               <div
-                className={`w-4 h-4 rounded-full border mr-3 flex items-center justify-center ${
-                  selectedService === service ? "border-primary" : "border-gray-300"
-                }`}
+                key="healcode-root-touch-up"
+                className="p-4 border transition-all border-border hover:border-primary/50"
               >
-                {selectedService === service && <div className="w-2 h-2 rounded-full bg-primary"></div>}
+                <Script src="https://widgets.mindbodyonline.com/javascripts/healcode.js" strategy="afterInteractive" />
+                <div dangerouslySetInnerHTML={{ __html: widgetHtml }} />
               </div>
-              <span className={`font-medium text-black group-hover:glitter-bold transition-all`}>{service}</span>
+            )
+          }
+
+          return (
+            <div
+              key={service}
+              onClick={() => handleServiceSelect(service)}
+              className={`p-4 border cursor-pointer transition-all group ${
+                selectedService === service ? "border-primary bg-primary/5" : "border-border hover:border-primary/50"
+              }`}
+            >
+              <div className="flex items-center justify-center text-center">
+                <div
+                  className={`w-4 h-4 rounded-full border mr-3 flex items-center justify-center ${
+                    selectedService === service ? "border-primary" : "border-gray-300"
+                  }`}
+                >
+                  {selectedService === service && <div className="w-2 h-2 rounded-full bg-primary"></div>}
+                </div>
+                <span className={`font-medium text-black group-hover:glitter-bold transition-all`}>{service}</span>
+              </div>
             </div>
-          </div>
-        ))}
+          )
+        })}
       </div>
 
       <div className="flex justify-end">

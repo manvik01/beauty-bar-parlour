@@ -8,7 +8,6 @@ import { TimeSelection } from "./time-selection"
 import { CustomerInfo } from "./customer-info"
 import { BookingConfirmation } from "./booking-confirmation"
 import { submitBooking } from "@/app/actions/booking-actions"
-import { useRouter } from "next/navigation"
 
 export type BookingData = {
   service: string
@@ -38,19 +37,12 @@ export function BookingForm() {
   const [bookingReference, setBookingReference] = useState("")
   // Add error state to the component
   const [errors, setErrors] = useState<Record<string, string>>({})
-  const router = useRouter()
 
   const updateBookingData = (data: Partial<BookingData>) => {
     setBookingData((prev) => ({ ...prev, ...data }))
   }
 
   const nextStep = () => {
-    // If Root Touch Up service is selected on the first step, redirect to Mindbody widget page instead of continuing
-    if (step === 1 && bookingData.service.startsWith("Root Touch Up")) {
-      router.push("/mindbody/root-touch-up")
-      return
-    }
-
     setStep((prev) => prev + 1)
     window.scrollTo({ top: 0, behavior: "smooth" })
   }
