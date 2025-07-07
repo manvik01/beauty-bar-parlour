@@ -166,7 +166,7 @@ export function ServiceSelection({ selectedService, selectedCategory, onSelect, 
             return (
               <div
                 key="healcode-root-touch-up"
-                className="p-4 border transition-all border-border hover:border-primary/50"
+                className="p-4 border transition-all border-border hover:border-primary/50 flex items-center justify-center text-center"
               >
                 <Script src="https://widgets.mindbodyonline.com/javascripts/healcode.js" strategy="afterInteractive" />
                 <div dangerouslySetInnerHTML={{ __html: widgetHtml }} />
