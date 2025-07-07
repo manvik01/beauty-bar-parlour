@@ -2,7 +2,11 @@
 
 import { useEffect } from "react"
 
-export function AppointmentsWidget() {
+interface AppointmentsWidgetProps {
+  widgetId?: string
+}
+
+export function AppointmentsWidget({ widgetId = "0e33258e78e" }: AppointmentsWidgetProps) {
   useEffect(() => {
     // Only run on client
     if (typeof window === "undefined") return
@@ -24,7 +28,7 @@ export function AppointmentsWidget() {
     <div
       className="mindbody-widget"
       data-widget-type="Appointments"
-      data-widget-id="0e33258e78e"
+      data-widget-id={widgetId}
       // The widget library will hydrate this div
     ></div>
   )

@@ -18,7 +18,7 @@ export default function HerbalBookingPage() {
       <section className="clean-section">
         <div className="container-custom max-w-3xl mx-auto">
           {/* Mindbody Appointments Widget */}
-          <AppointmentsWidget />
+          <AppointmentsWidget widgetId="0e33258e78e" />
         </div>
       </section>
     </main>
