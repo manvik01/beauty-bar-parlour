@@ -406,7 +406,7 @@ export default function ServicesPage() {
 
               <div className="mt-6 text-right">
                 <Link
-                  href="/booking?service=laser"
+                  href="/mindbody/appointments/laser"
                   className="inline-flex items-center text-gold hover:underline group"
                 >
                   <span className="group-hover:glitter-bold">Book AFT Treatment</span>{" "}
