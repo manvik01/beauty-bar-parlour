@@ -62,7 +62,7 @@ export function Footer() {
               href="/booking"
               className="text-xs uppercase tracking-widest text-black hover:text-primary transition-colors"
             >
-              Book Now
+              Buy Now
             </Link>
           </div>
 
