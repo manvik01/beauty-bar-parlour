@@ -425,7 +425,7 @@ export default function ServicesPage() {
               </p>
             </div>
             <Link href="/booking" className="clean-button">
-              Book Appointment
+              BUY NOW
             </Link>
           </div>
         </div>
