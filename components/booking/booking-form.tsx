@@ -95,7 +95,7 @@ export function BookingForm() {
     return (
       <div className="mb-8">
         <h2 className="text-2xl font-serif font-light mb-6 text-center uppercase tracking-wider glitter-bold">
-          Book Your Appointment
+          Make Payment
         </h2>
         <div className="flex justify-between">
           {steps.map((s) => (

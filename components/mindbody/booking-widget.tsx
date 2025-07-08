@@ -233,7 +233,7 @@ export function BookingWidget({ embedded = false }: BookingWidgetProps) {
   return (
     <div className={`bg-white border border-primary/10 ${embedded ? "" : "max-w-2xl mx-auto"}`}>
       <div className="p-6 border-b border-primary/10">
-        <h3 className="text-xl font-serif uppercase tracking-wider text-black">Book Your Appointment</h3>
+        <h3 className="text-xl font-serif uppercase tracking-wider text-black">Make Payment</h3>
         <p className="text-sm text-gold mt-2 font-medium">Schedule your visit to Beauty Bar Parlour</p>
         <p className="text-sm mt-1 text-black">Beyond Ordinary</p>
       </div>
