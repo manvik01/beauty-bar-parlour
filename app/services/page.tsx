@@ -191,7 +191,7 @@ export default function ServicesPage() {
 
               <div className="mt-6 text-right">
                 <Link
-                  href="/booking?service=facial"
+                  href="/mindbody/appointments/facial"
                   className="inline-flex items-center text-gold hover:underline group"
                 >
                   <span className="group-hover:glitter-bold">Book Facial Service</span>{" "}
