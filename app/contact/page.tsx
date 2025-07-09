@@ -1,3 +1,4 @@
+"use client"
 import { MapPin, Clock, Phone, Mail } from "lucide-react"
 import { ProspectsWidget } from "@/components/mindbody/prospects-widget"
 
