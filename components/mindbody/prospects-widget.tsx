@@ -22,12 +22,12 @@ export function ProspectsWidget({ widgetId = "0e58934e78e" }: ProspectsWidgetPro
   }, [])
 
   return (
-    <div
-      className="mindbody-widget"
-      data-widget-type="prospects"
+    // eslint-disable-next-line @next/next/no-html-link-for-pages
+    (<healcode-widget
+      data-type="prospects"
       data-widget-partner="object"
       data-widget-id={widgetId}
       data-widget-version="0"
-    ></div>
+    ></healcode-widget>) as unknown as JSX.Element
   )
 } 
