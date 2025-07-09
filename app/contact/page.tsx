@@ -58,9 +58,42 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="mt-10">
+              <form className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium mb-2">
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      className="w-full border border-border p-3 focus:outline-none focus:ring-1 focus:ring-primary"
+                      placeholder="Your Name"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="contact" className="block text-sm font-medium mb-2">Contact</label>
+                    <input
+                      type="tel"
+                      id="contact"
+                      className="w-full border border-border p-3 focus:outline-none focus:ring-1 focus:ring-primary"
+                      placeholder="Your Contact Number"
+                    />
+                  </div>
+                  <div className="md:col-span-2">
+                    <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
+                    <input
+                      type="email"
+                      id="email"
+                      className="w-full border border-border p-3 focus:outline-none focus:ring-1 focus:ring-primary"
+                      placeholder="Your Email"
+                    />
+                  </div>
+                </div>
+
+                {/* Mindbody Prospects Widget */}
                 <ProspectsWidget />
-              </div>
+              </form>
             </div>
 
             <div className="h-[600px] lg:h-auto">
