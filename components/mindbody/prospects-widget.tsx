@@ -24,7 +24,7 @@ export function ProspectsWidget({ widgetId = "0e58934e78e" }: ProspectsWidgetPro
   return (
     <div
       className="mindbody-widget"
-      data-type="prospects"
+      data-widget-type="prospects"
       data-widget-partner="object"
       data-widget-id={widgetId}
       data-widget-version="0"
