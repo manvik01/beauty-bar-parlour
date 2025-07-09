@@ -92,7 +92,25 @@ export default function ContactPage() {
                 </div>
 
                 {/* Mindbody Prospects Widget */}
-                <ProspectsWidget />
+                <div id="prospects-container">
+                  <ProspectsWidget />
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (typeof window !== "undefined") {
+                      const container = document.getElementById("prospects-container")
+                      if (container) {
+                        const btn = container.querySelector<HTMLElement>('input[type="submit"], button[type="submit"]')
+                        btn?.click()
+                      }
+                    }
+                  }}
+                  className="clean-button"
+                >
+                  Submit
+                </button>
               </form>
             </div>
 
