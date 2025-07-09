@@ -59,60 +59,8 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-2">
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      className="w-full border border-border p-3 focus:outline-none focus:ring-1 focus:ring-primary"
-                      placeholder="Your Name"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="contact" className="block text-sm font-medium mb-2">Contact</label>
-                    <input
-                      type="tel"
-                      id="contact"
-                      className="w-full border border-border p-3 focus:outline-none focus:ring-1 focus:ring-primary"
-                      placeholder="Your Contact Number"
-                    />
-                  </div>
-                  <div className="md:col-span-2">
-                    <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
-                    <input
-                      type="email"
-                      id="email"
-                      className="w-full border border-border p-3 focus:outline-none focus:ring-1 focus:ring-primary"
-                      placeholder="Your Email"
-                    />
-                  </div>
-                </div>
-
-                {/* Mindbody Prospects Widget */}
-                <div id="prospects-container">
-                  <ProspectsWidget />
-                </div>
-
-                <button
-                  type="button"
-                  onClick={() => {
-                    if (typeof window !== "undefined") {
-                      const container = document.getElementById("prospects-container")
-                      if (container) {
-                        const btn = container.querySelector<HTMLElement>('input[type="submit"], button[type="submit"]')
-                        btn?.click()
-                      }
-                    }
-                  }}
-                  className="clean-button"
-                >
-                  Submit
-                </button>
-              </form>
+              {/* Mindbody Prospects Widget (handles Name, Phone, Email, Comment) */}
+              <ProspectsWidget />
             </div>
 
             <div className="h-[600px] lg:h-auto">
