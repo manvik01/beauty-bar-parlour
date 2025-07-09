@@ -1,4 +1,5 @@
 import { MapPin, Clock, Phone, Mail } from "lucide-react"
+import { ProspectsWidget } from "@/components/mindbody/prospects-widget"
 
 export default function ContactPage() {
   return (
@@ -57,66 +58,9 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-2">
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      className="w-full border border-border p-3 focus:outline-none focus:ring-1 focus:ring-primary"
-                      placeholder="Your Name"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="contact" className="block text-sm font-medium mb-2">Contact</label>
-                    <input
-                      type="tel"
-                      id="contact"
-                      className="w-full border border-border p-3 focus:outline-none focus:ring-1 focus:ring-primary"
-                      placeholder="Your Contact Number"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      className="w-full border border-border p-3 focus:outline-none focus:ring-1 focus:ring-primary"
-                      placeholder="Your Email"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium mb-2">
-                    Subject
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    className="w-full border border-border p-3 focus:outline-none focus:ring-1 focus:ring-primary"
-                    placeholder="Subject"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    rows={5}
-                    className="w-full border border-border p-3 focus:outline-none focus:ring-1 focus:ring-primary"
-                    placeholder="Your Message"
-                  ></textarea>
-                </div>
-                <button type="submit" className="clean-button">
-                  Send Message
-                </button>
-              </form>
+              <div className="mt-10">
+                <ProspectsWidget />
+              </div>
             </div>
 
             <div className="h-[600px] lg:h-auto">
