@@ -71,6 +71,15 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
+                    <label htmlFor="contact" className="block text-sm font-medium mb-2">Contact</label>
+                    <input
+                      type="tel"
+                      id="contact"
+                      className="w-full border border-border p-3 focus:outline-none focus:ring-1 focus:ring-primary"
+                      placeholder="Your Contact Number"
+                    />
+                  </div>
+                  <div>
                     <label htmlFor="email" className="block text-sm font-medium mb-2">
                       Email
                     </label>
