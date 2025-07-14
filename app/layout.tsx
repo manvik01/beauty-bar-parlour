@@ -1,12 +1,13 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Inter, Cormorant_Garamond } from "next/font/google"
-import Script from "next/script"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { OfflineDetector } from "@/components/offline-detector"
+import { ScriptLoaderProvider } from "@/contexts/script-loader-context"
+import { MindbodyScriptLoader } from "@/components/mindbody/mindbody-script-loader"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -45,19 +46,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${cormorant.variable} font-sans bg-background`}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-          <div className="flex flex-col min-h-screen">
-            <OfflineDetector />
-            <Navbar />
-            <main className="flex-grow">{children}</main>
-            <Footer />
-          </div>
-        </ThemeProvider>
-        <Script
-          src="https://widgets.mindbodyonline.com/javascripts/healcode.js"
-          strategy="afterInteractive"
-        />
+      <body
+        className={`${inter.variable} ${cormorant.variable} font-sans bg-background`}
+      >
+        <ScriptLoaderProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <div className="flex flex-col min-h-screen">
+              <OfflineDetector />
+              <Navbar />
+              <main className="flex-grow">{children}</main>
+              <Footer />
+            </div>
+          </ThemeProvider>
+          <MindbodyScriptLoader />
+        </ScriptLoaderProvider>
       </body>
     </html>
   )
