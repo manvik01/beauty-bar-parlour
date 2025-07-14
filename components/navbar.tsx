@@ -149,7 +149,6 @@ export function Navbar() {
                         <DialogTrigger asChild>
                           <button
                             className="text-white text-lg uppercase tracking-wider w-full text-center py-2"
-                            onClick={() => setIsOpen(false)}
                           >
                             {link.name}
                           </button>
