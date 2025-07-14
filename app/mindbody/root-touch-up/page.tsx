@@ -1,4 +1,4 @@
-import { RootTouchUpWidget } from "@/components/mindbody/root-touch-up-widget"
+import Script from "next/script"
 
 export const metadata = {
   title: "Root Touch Up | Beauty Bar Parlour",
@@ -6,6 +6,8 @@ export const metadata = {
 }
 
 export default function RootTouchUpPage() {
+  const widgetHtml = `<healcode-widget data-version="0.2" data-link-class="healcode-pricing-option-text-link" data-site-id="127612" data-mb-site-id="5746301" data-service-id="100003" data-bw-identity-site="true" data-type="pricing-link" data-inner-html="Buy"></healcode-widget>`
+
   return (
     <main className="pt-24">
       <section className="py-16 bg-secondary">
@@ -16,9 +18,8 @@ export default function RootTouchUpPage() {
       </section>
 
       <section className="clean-section">
-        <div className="container-custom text-center">
-          <RootTouchUpWidget />
-        </div>
+        <Script src="https://widgets.mindbodyonline.com/javascripts/healcode.js" strategy="afterInteractive" />
+        <div className="container-custom text-center" dangerouslySetInnerHTML={{ __html: widgetHtml }} />
       </section>
     </main>
   )

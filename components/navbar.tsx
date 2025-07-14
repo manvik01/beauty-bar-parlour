@@ -4,14 +4,6 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Menu, X } from "lucide-react"
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
-import RegistrationWidget from "@/components/mindbody/registration-widget"
 import { useIsMobile } from "@/hooks/use-mobile"
 
 const navLinks = [
@@ -19,7 +11,6 @@ const navLinks = [
   { name: "About Us", href: "/about" },
   { name: "Gallery", href: "/gallery", hidden: true },
   { name: "Service Menu", href: "/services" },
-  { name: "Register", href: "#" },
   { name: "Contact Us", href: "/contact" },
   { name: "Buy Now", href: "/booking" },
 ]
@@ -89,56 +80,21 @@ export function Navbar() {
           <nav className="hidden md:flex items-center space-x-6">
             {navLinks
               .filter(link => !link.hidden)
-              .map(link => {
-                if (link.name === "Register") {
-                  if (isMobile === undefined) return null
-
-                  if (isMobile) {
-                    return (
-                      <Link
-                        key={link.name}
-                        href="/register"
-                        className="text-white text-lg uppercase tracking-wider w-full text-center py-2"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {link.name}
-                      </Link>
-                    )
-                  }
-                  return (
-                    <Dialog key={link.name}>
-                      <DialogTrigger asChild>
-                        <button
-                          className="text-white text-lg uppercase tracking-wider w-full text-center py-2"
-                        >
-                          {link.name}
-                        </button>
-                      </DialogTrigger>
-                      <DialogContent className="bg-white text-black max-h-[80vh] overflow-y-auto">
-                        <DialogHeader>
-                          <DialogTitle>Create a New Account</DialogTitle>
-                        </DialogHeader>
-                        <RegistrationWidget />
-                      </DialogContent>
-                    </Dialog>
-                  )
-                }
-                return (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    className={`text-white text-xs uppercase tracking-widest hover:text-gold transition-colors group ${
-                      link.name === "Buy Now"
-                        ? "px-4 py-2 bg-gold text-black hover:bg-gold/90 font-medium glitter-border"
-                        : ""
-                    }`}
-                  >
-                    <span className="group-hover:glitter-bold">
-                      {link.name}
-                    </span>
-                  </Link>
-                )
-              })}
+              .map(link => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className={`text-white text-xs uppercase tracking-widest hover:text-gold transition-colors group ${
+                    link.name === "Buy Now"
+                      ? "px-4 py-2 bg-gold text-black hover:bg-gold/90 font-medium glitter-border"
+                      : ""
+                  }`}
+                >
+                  <span className="group-hover:glitter-bold">
+                    {link.name}
+                  </span>
+                </Link>
+              ))}
           </nav>
 
           {/* Mobile Menu Button */}
@@ -158,55 +114,20 @@ export function Navbar() {
             <nav className="flex flex-col items-center space-y-8 p-6 w-full max-w-sm">
               {navLinks
                 .filter(link => !link.hidden)
-                .map(link => {
-                  if (link.name === "Register") {
-                    if (isMobile === undefined) return null
-
-                    if (isMobile) {
-                      return (
-                        <Link
-                          key={link.name}
-                          href="/register"
-                          className="text-white text-lg uppercase tracking-wider w-full text-center py-2"
-                          onClick={() => setIsOpen(false)}
-                        >
-                          {link.name}
-                        </Link>
-                      )
-                    }
-                    return (
-                      <Dialog key={link.name}>
-                        <DialogTrigger asChild>
-                          <button
-                            className="text-white text-lg uppercase tracking-wider w-full text-center py-2"
-                          >
-                            {link.name}
-                          </button>
-                        </DialogTrigger>
-                        <DialogContent className="bg-white text-black max-h-[80vh] overflow-y-auto">
-                          <DialogHeader>
-                            <DialogTitle>Create a New Account</DialogTitle>
-                          </DialogHeader>
-                          <RegistrationWidget />
-                        </DialogContent>
-                      </Dialog>
-                    )
-                  }
-                  return (
-                    <Link
-                      key={link.name}
-                      href={link.href}
-                      className={`text-white text-lg uppercase tracking-wider ${
-                        link.name === "Buy Now"
-                          ? "px-6 py-3 bg-gold text-black hover:bg-gold/90 font-medium mt-6 w-full text-center"
-                          : "w-full text-center py-2"
-                      }`}
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {link.name}
-                    </Link>
-                  )
-                })}
+                .map(link => (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className={`text-white text-lg uppercase tracking-wider ${
+                      link.name === "Buy Now"
+                        ? "px-6 py-3 bg-gold text-black hover:bg-gold/90 font-medium mt-6 w-full text-center"
+                        : "w-full text-center py-2"
+                    }`}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
             </nav>
           </div>
         )}
