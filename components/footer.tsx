@@ -1,6 +1,16 @@
+"use client"
+
 import Link from "next/link"
 import Image from "next/image"
 import { Instagram, Facebook, Twitter } from "lucide-react"
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import RegistrationWidget from "@/components/mindbody/registration-widget"
 import { CountdownTimer } from "./countdown-timer"
 
 export function Footer() {
@@ -13,7 +23,9 @@ export function Footer() {
         {/* Opening Soon Section */}
         <div className="mb-12 py-8 border-b border-primary/20">
           <div className="max-w-xl mx-auto">
-            <h3 className="text-center text-2xl font-serif mb-6 uppercase tracking-widest text-black">Opening Soon</h3>
+            <h3 className="text-center text-2xl font-serif mb-6 uppercase tracking-widest text-black">
+              Opening Soon
+            </h3>
             <CountdownTimer targetDate={openingDate} />
           </div>
         </div>
@@ -46,12 +58,19 @@ export function Footer() {
             >
               Services
             </Link>
-            <Link
-              href="/gallery"
-              className="text-xs uppercase tracking-widest text-black hover:text-primary transition-colors"
-            >
-              Gallery
-            </Link>
+            <Dialog>
+              <DialogTrigger asChild>
+                <button className="text-xs uppercase tracking-widest text-black hover:text-primary transition-colors">
+                  Register
+                </button>
+              </DialogTrigger>
+              <DialogContent className="bg-white text-black max-h-[80vh] overflow-y-auto">
+                <DialogHeader>
+                  <DialogTitle>Create a New Account</DialogTitle>
+                </DialogHeader>
+                <RegistrationWidget />
+              </DialogContent>
+            </Dialog>
             <Link
               href="/contact"
               className="text-xs uppercase tracking-widest text-black hover:text-primary transition-colors"
@@ -67,22 +86,34 @@ export function Footer() {
           </div>
 
           <div className="flex space-x-4 mb-6">
-            <Link href="https://www.instagram.com/beautybarparlour?igsh=dGpwZXlzM3d5Ynhq" className="text-black hover:text-primary transition-colors">
+            <Link
+              href="https://www.instagram.com/beautybarparlour?igsh=dGpwZXlzM3d5Ynhq"
+              className="text-black hover:text-primary transition-colors"
+            >
               <Instagram size={20} />
               <span className="sr-only">Instagram</span>
             </Link>
-            <Link href="https://www.facebook.com/share/15ezMQYwpK/?mibextid=wwXIfr" className="text-black hover:text-primary transition-colors">
+            <Link
+              href="https://www.facebook.com/share/15ezMQYwpK/?mibextid=wwXIfr"
+              className="text-black hover:text-primary transition-colors"
+            >
               <Facebook size={20} />
               <span className="sr-only">Facebook</span>
             </Link>
-            <Link href="#" className="text-black hover:text-primary transition-colors">
+            <Link
+              href="#"
+              className="text-black hover:text-primary transition-colors"
+            >
               <Twitter size={20} />
               <span className="sr-only">Twitter</span>
             </Link>
           </div>
 
           <div className="text-xs text-black/70">
-            <p>© {new Date().getFullYear()} Beauty Bar Parlour. All rights reserved.</p>
+            <p>
+              © {new Date().getFullYear()} Beauty Bar Parlour. All rights
+              reserved.
+            </p>
           </div>
         </div>
       </div>

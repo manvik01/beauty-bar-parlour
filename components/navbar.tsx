@@ -98,7 +98,7 @@ export function Navbar() {
                           </span>
                         </button>
                       </DialogTrigger>
-                      <DialogContent className="bg-white text-black">
+                      <DialogContent className="bg-white text-black max-h-[80vh] overflow-y-auto">
                         <DialogHeader>
                           <DialogTitle>Create a New Account</DialogTitle>
                         </DialogHeader>
@@ -154,7 +154,7 @@ export function Navbar() {
                             {link.name}
                           </button>
                         </DialogTrigger>
-                        <DialogContent className="bg-white text-black">
+                        <DialogContent className="bg-white text-black max-h-[80vh] overflow-y-auto">
                           <DialogHeader>
                             <DialogTitle>Create a New Account</DialogTitle>
                           </DialogHeader>
