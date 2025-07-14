@@ -20,6 +20,10 @@ export function Footer() {
   const isMobile = useIsMobile()
 
   const RegisterLink = () => {
+    if (isMobile === undefined) {
+      return null
+    }
+
     if (isMobile) {
       return (
         <Link

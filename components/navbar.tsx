@@ -91,13 +91,27 @@ export function Navbar() {
               .filter(link => !link.hidden)
               .map(link => {
                 if (link.name === "Register") {
+                  if (isMobile === undefined) return null
+
+                  if (isMobile) {
+                    return (
+                      <Link
+                        key={link.name}
+                        href="/register"
+                        className="text-white text-lg uppercase tracking-wider w-full text-center py-2"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {link.name}
+                      </Link>
+                    )
+                  }
                   return (
                     <Dialog key={link.name}>
                       <DialogTrigger asChild>
-                        <button className="text-white text-xs uppercase tracking-widest hover:text-gold transition-colors group">
-                          <span className="group-hover:glitter-bold">
-                            {link.name}
-                          </span>
+                        <button
+                          className="text-white text-lg uppercase tracking-wider w-full text-center py-2"
+                        >
+                          {link.name}
                         </button>
                       </DialogTrigger>
                       <DialogContent className="bg-white text-black max-h-[80vh] overflow-y-auto">
@@ -146,6 +160,8 @@ export function Navbar() {
                 .filter(link => !link.hidden)
                 .map(link => {
                   if (link.name === "Register") {
+                    if (isMobile === undefined) return null
+
                     if (isMobile) {
                       return (
                         <Link
