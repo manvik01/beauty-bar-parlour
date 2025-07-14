@@ -1,6 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Inter, Cormorant_Garamond } from "next/font/google"
+import Script from "next/script"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Navbar } from "@/components/navbar"
@@ -25,12 +26,16 @@ export const metadata: Metadata = {
   description:
     "Redefining beauty with a truly pampering experience using high-quality products and skilled professionals.",
   generator: 'v0.dev',
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-    userScalable: true,
-  },
+}
+
+// Provide viewport information via the dedicated export to follow Next.js 15 API
+import type { Viewport } from "next"
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
 }
 
 export default function RootLayout({
@@ -49,6 +54,10 @@ export default function RootLayout({
             <Footer />
           </div>
         </ThemeProvider>
+        <Script
+          src="https://widgets.mindbodyonline.com/javascripts/healcode.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   )
