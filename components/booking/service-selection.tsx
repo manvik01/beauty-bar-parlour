@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import Script from "next/script"
+import { useScriptLoader } from "@/contexts/script-loader-context"
 
 const serviceCategories = [
   {
@@ -120,6 +120,7 @@ interface ServiceSelectionProps {
 }
 
 export function ServiceSelection({ selectedService, selectedCategory, onSelect, onNext }: ServiceSelectionProps) {
+  const { isScriptLoaded } = useScriptLoader()
   const [activeCategory, setActiveCategory] = useState(selectedCategory || serviceCategories[0].id)
 
   const handleCategoryChange = (categoryId: string) => {
@@ -162,13 +163,23 @@ export function ServiceSelection({ selectedService, selectedCategory, onSelect, 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
         {currentCategory?.services.map((service) => {
           if (service.startsWith("Root Touch Up")) {
-            const widgetHtml = `<healcode-widget data-version=\"0.2\" data-link-class=\"healcode-pricing-option-text-link\" data-site-id=\"127612\" data-mb-site-id=\"5746301\" data-service-id=\"100059\" data-bw-identity-site=\"true\" data-type=\"pricing-link\" data-inner-html=\"Root Touch Up – 90 mins\"></healcode-widget>`
+            if (!isScriptLoaded) {
+              return (
+                <div
+                  key="healcode-root-touch-up"
+                  className="p-4 border transition-all border-border hover:border-primary/50 flex items-center justify-center text-center"
+                >
+                  <div className="text-sm text-gray-500">Loading...</div>
+                </div>
+              )
+            }
+
+            const widgetHtml = `<healcode-widget data-version="0.2" data-link-class="healcode-pricing-option-text-link" data-site-id="127612" data-mb-site-id="5746301" data-service-id="100059" data-bw-identity-site="true" data-type="pricing-link" data-inner-html="Root Touch Up – 90 mins"></healcode-widget>`
             return (
               <div
                 key="healcode-root-touch-up"
                 className="p-4 border transition-all border-border hover:border-primary/50 flex items-center justify-center text-center"
               >
-                <Script src="https://widgets.mindbodyonline.com/javascripts/healcode.js" strategy="afterInteractive" />
                 <div dangerouslySetInnerHTML={{ __html: widgetHtml }} />
               </div>
             )
