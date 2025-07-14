@@ -12,10 +12,41 @@ import {
 } from "@/components/ui/dialog"
 import RegistrationWidget from "@/components/mindbody/registration-widget"
 import { CountdownTimer } from "./countdown-timer"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 export function Footer() {
   // Set the target date to July 26, 2025
   const openingDate = new Date("2025-07-26T00:00:00")
+  const isMobile = useIsMobile()
+
+  const RegisterLink = () => {
+    if (isMobile) {
+      return (
+        <Link
+          href="/register"
+          className="text-xs uppercase tracking-widest text-black hover:text-primary transition-colors"
+        >
+          Register
+        </Link>
+      )
+    }
+
+    return (
+      <Dialog>
+        <DialogTrigger asChild>
+          <button className="text-xs uppercase tracking-widest text-black hover:text-primary transition-colors">
+            Register
+          </button>
+        </DialogTrigger>
+        <DialogContent className="bg-white text-black max-h-[80vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle>Create a New Account</DialogTitle>
+          </DialogHeader>
+          <RegistrationWidget />
+        </DialogContent>
+      </Dialog>
+    )
+  }
 
   return (
     <footer className="bg-white py-12 text-black border-t border-gold/20">
@@ -58,19 +89,7 @@ export function Footer() {
             >
               Services
             </Link>
-            <Dialog>
-              <DialogTrigger asChild>
-                <button className="text-xs uppercase tracking-widest text-black hover:text-primary transition-colors">
-                  Register
-                </button>
-              </DialogTrigger>
-              <DialogContent className="bg-white text-black max-h-[80vh] overflow-y-auto">
-                <DialogHeader>
-                  <DialogTitle>Create a New Account</DialogTitle>
-                </DialogHeader>
-                <RegistrationWidget />
-              </DialogContent>
-            </Dialog>
+            <RegisterLink />
             <Link
               href="/contact"
               className="text-xs uppercase tracking-widest text-black hover:text-primary transition-colors"

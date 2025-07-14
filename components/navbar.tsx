@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, Fragment } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Menu, X } from "lucide-react"
@@ -12,6 +12,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import RegistrationWidget from "@/components/mindbody/registration-widget"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -26,6 +27,7 @@ const navLinks = [
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const isMobile = useIsMobile()
 
   // Close mobile menu when window is resized to desktop size
   useEffect(() => {
@@ -144,6 +146,18 @@ export function Navbar() {
                 .filter(link => !link.hidden)
                 .map(link => {
                   if (link.name === "Register") {
+                    if (isMobile) {
+                      return (
+                        <Link
+                          key={link.name}
+                          href="/register"
+                          className="text-white text-lg uppercase tracking-wider w-full text-center py-2"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {link.name}
+                        </Link>
+                      )
+                    }
                     return (
                       <Dialog key={link.name}>
                         <DialogTrigger asChild>
