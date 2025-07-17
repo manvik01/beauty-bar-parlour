@@ -1,4 +1,4 @@
-import Script from "next/script"
+import { RegistrationWidget } from "@/components/mindbody/registration-widget"
 
 export const metadata = {
   title: "Register | Beauty Bar Parlour",
@@ -18,13 +18,7 @@ export default function RegisterPage() {
       <section className="clean-section">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-8">
-            <Script src="https://widgets.mindbodyonline.com/javascripts/healcode.js" type="text/javascript" strategy="afterInteractive" />
-            <healcode-widget 
-              data-type="registrations" 
-              data-widget-partner="object" 
-              data-widget-id="0e163173e78e" 
-              data-widget-version="0"
-            ></healcode-widget>
+            <RegistrationWidget />
           </div>
         </div>
       </section>
