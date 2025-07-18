@@ -24,7 +24,7 @@ export function ContactSection() {
                 <div>
                   <h3 className="font-light text-lg mb-1 uppercase tracking-wider">Opening Soon</h3>
                   <p className="font-light">July 27, 2025</p>
-                  <p className="mt-1 font-light">Operating Hours: 10:00 AM – 8:00 PM, Daily</p>
+                  <p className="mt-1 font-light">Operating Hours: 10:00 AM - 8:00 PM, Mon-Sat and 10:00 AM - 6:00 PM, Sun</p>
                 </div>
               </div>
 

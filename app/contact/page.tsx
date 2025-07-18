@@ -38,7 +38,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-serif text-lg mb-1">Opening Soon</h3>
                     <p>July 27, 2025</p>
-                    <p className="mt-1">Operating Hours: 10:00 AM – 8:00 PM, Daily</p>
+                    <p className="mt-1">Operating Hours: 10:00 AM - 8:00 PM, Mon-Sat and 10:00 AM - 6:00 PM, Sun</p>
                   </div>
                 </div>
 
