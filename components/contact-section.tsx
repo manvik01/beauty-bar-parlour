@@ -23,7 +23,7 @@ export function ContactSection() {
                 <Clock className="w-6 h-6 mr-4 text-primary flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="font-light text-lg mb-1 uppercase tracking-wider">Opening Soon</h3>
-                  <p className="font-light">July 26, 2025</p>
+                  <p className="font-light">July 27, 2025</p>
                   <p className="mt-1 font-light">Operating Hours: 10:00 AM – 8:00 PM, Daily</p>
                 </div>
               </div>
