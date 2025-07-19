@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react"
 import { useSearchParams } from "next/navigation"
+import MindbodyAppointments from "@/components/MindbodyAppointments"
 
 const serviceCategories = [
   {
@@ -134,11 +135,14 @@ export function ServiceSelection({}: ServiceSelectionProps) {
               Book Your {currentCategory.name} Appointment
             </h3>
           </div>
-          
-          <MindbodyWidget
-            key={widgetKey}
-            widgetId={currentCategory.widgetId}
-          />
+          {currentCategory.id === "hair" ? (
+            <MindbodyAppointments />
+          ) : (
+            <MindbodyWidget
+              key={widgetKey}
+              widgetId={currentCategory.widgetId}
+            />
+          )}
         </div>
       )}
     </div>

@@ -8,6 +8,7 @@ import { Footer } from "@/components/footer"
 import { OfflineDetector } from "@/components/offline-detector"
 import { useMindbodyScript } from "@/hooks/use-mindbody-script"
 import { MindbodyScriptProvider } from "@/components/MindbodyScriptProvider"
+import Script from 'next/script';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -64,6 +65,13 @@ export default function RootLayout({
             </div>
           </MindbodyScriptProvider>
         </ThemeProvider>
+        {/* Mindbody SDK loads exactly once after hydration */}
+        <Script
+          id="mindbody-sdk"
+          src="https://brandedweb.mindbodyonline.com/embed/widget.js"
+          strategy="afterInteractive"
+          onReady={() => console.log('Mindbody SDK ready')}
+        />
       </body>
     </html>
   )
