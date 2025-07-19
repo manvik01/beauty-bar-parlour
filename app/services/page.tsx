@@ -1,8 +1,43 @@
+"use client"
+
+import { useState, useEffect } from "react"
 import Link from "next/link"
-import { ChevronRight, Sparkles, Scissors, Palette, Star } from "lucide-react"
+import { ChevronRight, Sparkles, Scissors, Palette, Star, X } from "lucide-react"
 import { ScrollToTop } from "@/components/scroll-to-top"
 
+function MindbodyWidgetModal({ widgetId, onClose }: { widgetId: string; onClose: () => void }) {
+  useEffect(() => {
+    const script = document.createElement("script")
+    script.src = "https://brandedweb.mindbodyonline.com/embed/widget.js"
+    script.async = true
+    document.body.appendChild(script)
+
+    return () => {
+      document.body.removeChild(script)
+    }
+  }, [])
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+      <div className="bg-white p-4 rounded-lg shadow-lg max-w-2xl w-full">
+        <div className="flex justify-end">
+          <button onClick={onClose} className="text-gray-500 hover:text-gray-700">
+            <X className="w-6 h-6" />
+          </button>
+        </div>
+        <div
+          className="mindbody-widget"
+          data-widget-type="Appointments"
+          data-widget-id={widgetId}
+        ></div>
+      </div>
+    </div>
+  )
+}
+
 export default function ServicesPage() {
+  const [modalWidgetId, setModalWidgetId] = useState<string | null>(null)
+
   return (
     <main className="pt-24">
       {/* Page Header */}
@@ -102,10 +137,13 @@ export default function ServicesPage() {
               </div>
 
               <div className="mt-6 text-right">
-                <Link href="/booking" className="inline-flex items-center text-gold hover:underline group">
-                  <span className="group-hover:glitter-bold">Book Now</span>{" "}
+                <button
+                  onClick={() => setModalWidgetId("0e33258e78e")}
+                  className="inline-flex items-center text-gold hover:underline group"
+                >
+                  <span className="group-hover:glitter-bold">Book Herbal Treatment</span>{" "}
                   <ChevronRight className="w-4 h-4 ml-1 group-hover:glitter-icon" />
-                </Link>
+                </button>
               </div>
             </div>
           </div>
@@ -437,6 +475,9 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+      {modalWidgetId && (
+        <MindbodyWidgetModal widgetId={modalWidgetId} onClose={() => setModalWidgetId(null)} />
+      )}
       <ScrollToTop />
     </main>
   )
