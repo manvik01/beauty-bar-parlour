@@ -1,4 +1,5 @@
 import { BookingForm } from "@/components/booking/booking-form"
+import { ScheduleWidget } from "@/components/mindbody/schedule-widget"
 
 export default function BookingPage() {
   return (
@@ -16,26 +17,26 @@ export default function BookingPage() {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <div className="prose prose-lg max-w-none mx-auto mb-0 text-left bg-white p-8 border border-gold/20 shadow-sm">
-              <h2 className="text-xl font-serif uppercase tracking-wider text-gold text-center">
+              <h2 className="text-xl font-serif uppercase tracking-wider text-gold text-center font-bold">
                 Before Booking Your Appointment at Beauty Bar Parlour
               </h2>
               <p>We’re excited to have you visit us! Please read the following before making your appointment:</p>
               
-              <h3 className="text-lg font-serif uppercase tracking-wider text-gold mt-6">Booking Requests</h3>
+              <h3 className="text-lg font-serif uppercase tracking-wider text-gold mt-6 font-bold">Booking Requests</h3>
               <ul>
                 <li>Submitting a booking request does not mean your appointment is confirmed.</li>
                 <li>You will receive an email once your booking is approved.</li>
                 <li>If you don’t hear from us, please contact us directly and we’ll be happy to help.</li>
               </ul>
 
-              <h3 className="text-lg font-serif uppercase tracking-wider text-gold mt-6">Scheduling Information</h3>
+              <h3 className="text-lg font-serif uppercase tracking-wider text-gold mt-6 font-bold">Scheduling Information</h3>
               <ul>
                 <li>Appointments are scheduled only during our operating hours and must be approved by our team.</li>
                 <li>If you're booking more than one service, please submit a separate request for each time slot, as services can’t be split between different beauticians.</li>
                 <li>For faster assistance, you’re welcome to call or message us directly to book.</li>
               </ul>
               
-              <h3 className="text-lg font-serif uppercase tracking-wider text-gold mt-6">Need help with your booking?</h3>
+              <h3 className="text-lg font-serif uppercase tracking-wider text-gold mt-6 font-bold">Need help with your booking?</h3>
               <p>
                 Call or WhatsApp us at <a href="tel:+6584158896" className="text-gold hover:underline">+65 8415 8896</a> to schedule your appointment instantly.
               </p>
@@ -46,6 +47,13 @@ export default function BookingPage() {
             </div>
 
             <BookingForm />
+            
+            <div className="prose prose-lg max-w-none mx-auto mt-12 text-left bg-white p-8 border border-gold/20 shadow-sm">
+              <h2 className="text-xl font-serif uppercase tracking-wider text-gold text-center font-bold">
+                Continue with Schedule
+              </h2>
+              <ScheduleWidget widgetId="0e29882e78e" />
+            </div>
           </div>
         </div>
       </section>
