@@ -2,7 +2,6 @@
 
 import { useState, useRef } from "react"
 import MindbodyWidget from "@/components/MindbodyWidget"
-import { LoadingSpinner } from "@/components/loading-spinner"
 
 const serviceCategories = [
   { id: "hair", name: "Herbal Treatment", widgetId: "0e33258e78e" },
@@ -22,8 +21,6 @@ export function ServiceSelection({
 }) {
   const [activeCategory, setActiveCategory] = useState(selectedCategory || serviceCategories[0].id)
   const [widgetKey, setWidgetKey] = useState(0)
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState<string | null>(null)
   const serviceSelectionRef = useRef<HTMLDivElement>(null)
 
   const currentCategory = serviceCategories.find((cat) => cat.id === activeCategory)
@@ -31,22 +28,10 @@ export function ServiceSelection({
   const handleCategoryChange = (categoryId: string) => {
     setActiveCategory(categoryId)
     setWidgetKey(prev => prev + 1)
-    setLoading(true)
-    setError(null)
     if (onSelect) onSelect(categoryId)
     setTimeout(() => {
       serviceSelectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }, 100)
-  }
-
-  // Widget load/error handlers
-  const handleWidgetLoad = () => {
-    setLoading(false)
-    setError(null)
-  }
-  const handleWidgetError = () => {
-    setLoading(false)
-    setError("Failed to load booking widget. Please try again later.")
   }
 
   return (
@@ -76,17 +61,13 @@ export function ServiceSelection({
           ))}
         </div>
       </div>
-      {loading && <LoadingSpinner text="Loading booking widget..." />}
-      {error && (
-        <div className="text-center text-red-600 my-4" role="alert">{error}</div>
-      )}
-      {currentCategory && !loading && !error && (
+      {currentCategory && (
         <div className="mb-8" data-widget-area id={`widget-panel-${currentCategory.id}`} role="tabpanel" aria-labelledby={currentCategory.id}>
           <div className="mb-4 text-center">
             <h3 className="text-lg font-serif font-medium uppercase tracking-wider text-black mb-2">Book Your {currentCategory.name} Appointment</h3>
           </div>
           <div className="max-h-[80vh] overflow-y-auto rounded-lg border border-gold/30 bg-white shadow-sm">
-            <MindbodyWidget key={widgetKey} widgetId={currentCategory.widgetId} onLoad={handleWidgetLoad} onError={handleWidgetError} />
+            <MindbodyWidget key={widgetKey} widgetId={currentCategory.widgetId} />
           </div>
         </div>
       )}
