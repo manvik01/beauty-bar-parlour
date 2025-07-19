@@ -1,4 +1,4 @@
-import { AppointmentsWidget } from "@/components/mindbody/appointments-widget"
+import MindbodyAppointments from "@/components/MindbodyAppointments"
 
 export const metadata = {
   title: "Book Waxing Service | Beauty Bar Parlour",
@@ -17,7 +17,7 @@ export default function WaxingBookingPage() {
 
       <section className="clean-section">
         <div className="container-custom max-w-3xl mx-auto">
-          <AppointmentsWidget widgetId="0e33533e78e" />
+          <MindbodyAppointments widgetId="0e33533e78e" />
         </div>
       </section>
     </main>

@@ -1,4 +1,4 @@
-import { AppointmentsWidget } from "@/components/mindbody/appointments-widget"
+import MindbodyAppointments from "@/components/MindbodyAppointments"
 
 export const metadata = {
   title: "Book Herbal Service | Beauty Bar Parlour",
@@ -17,8 +17,7 @@ export default function HerbalBookingPage() {
 
       <section className="clean-section">
         <div className="container-custom max-w-3xl mx-auto">
-          {/* Mindbody Appointments Widget */}
-          <AppointmentsWidget widgetId="0e33258e78e" />
+          <MindbodyAppointments widgetId="0e33258e78e" />
         </div>
       </section>
     </main>
