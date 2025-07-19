@@ -1,30 +1,20 @@
-import { Suspense } from "react";
-import { RegistrationWidget } from "@/components/mindbody/registration-widget"
+'use client';
+import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
-export const metadata = {
-  title: "Register | Beauty Bar Parlour",
-  description: "Create a new account with Beauty Bar Parlour.",
-}
+export default function MindbodyAppointments() {
+  const pathname = usePathname();
 
-export default function RegisterPage() {
+  useEffect(() => {
+    (window as any)?.HC?.init?.();
+  }, [pathname]);
+
   return (
-    <main className="pt-24">
-      <section className="py-16 bg-secondary">
-        <div className="container-custom text-center">
-          <h1 className="clean-heading">Create a New Account</h1>
-          <p className="clean-subheading">Register with Beauty Bar Parlour</p>
-        </div>
-      </section>
-
-      <section className="clean-section">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-8">
-            <Suspense>
-              <RegistrationWidget />
-            </Suspense>
-          </div>
-        </div>
-      </section>
-    </main>
-  )
+    <div
+      className="mindbody-widget"
+      data-widget-type="Appointments"
+      data-widget-id="0e33258e78e"
+      style={{ width: '100%' }}
+    />
+  );
 } 

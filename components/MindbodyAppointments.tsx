@@ -2,10 +2,9 @@
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
-export default function MindbodyAppointments() {
+export default function MindbodyAppointments({ widgetId = "0e33258e78e" }: { widgetId?: string }) {
   const pathname = usePathname();
 
-  // Re-init after each client-side navigation
   useEffect(() => {
     (window as any)?.HC?.init?.();
   }, [pathname]);
@@ -14,7 +13,7 @@ export default function MindbodyAppointments() {
     <div
       className="mindbody-widget"
       data-widget-type="Appointments"
-      data-widget-id="0e33258e78e"
+      data-widget-id={widgetId}
       style={{ width: '100%' }}
     />
   );

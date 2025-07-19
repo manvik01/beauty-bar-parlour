@@ -135,14 +135,7 @@ export function ServiceSelection({}: ServiceSelectionProps) {
               Book Your {currentCategory.name} Appointment
             </h3>
           </div>
-          {currentCategory.id === "hair" ? (
-            <MindbodyAppointments />
-          ) : (
-            <MindbodyWidget
-              key={widgetKey}
-              widgetId={currentCategory.widgetId}
-            />
-          )}
+          <MindbodyAppointments key={currentCategory.widgetId} widgetId={currentCategory.widgetId} />
         </div>
       )}
     </div>
