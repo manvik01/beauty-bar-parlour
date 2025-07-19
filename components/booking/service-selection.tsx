@@ -2,100 +2,76 @@
 
 import { useState, useEffect, useRef } from "react"
 import { useSearchParams } from "next/navigation"
-import MindbodyAppointments from "@/components/MindbodyAppointments"
 
 const serviceCategories = [
-  {
-    id: "hair",
-    name: "Herbal Treatment",
-    widgetId: "0e33258e78e",
-  },
-  {
-    id: "nail",
-    name: "Nail & Foot Spa",
-    widgetId: "0e33444e78e",
-  },
-  {
-    id: "facial",
-    name: "Facial Services",
-    widgetId: "0e33532e78e",
-  },
-  {
-    id: "waxing",
-    name: "Waxing Services",
-    widgetId: "0e33533e78e",
-  },
-  {
-    id: "threading",
-    name: "Threading Services",
-    widgetId: "0e33534e78e",
-  },
-  {
-    id: "laser",
-    name: "AFT Treatment",
-    widgetId: "0e33535e78e",
-  },
+  { id: "hair", name: "Herbal Treatment", widgetId: "0e33258e78e" },
+  { id: "nail", name: "Nail & Foot Spa", widgetId: "0e33444e78e" },
+  { id: "facial", name: "Facial Services", widgetId: "0e33532e78e" },
+  { id: "waxing", name: "Waxing Services", widgetId: "0e33533e78e" },
+  { id: "threading", name: "Threading Services", widgetId: "0e33534e78e" },
+  { id: "laser", name: "AFT Treatment", widgetId: "0e33535e78e" },
 ]
 
-interface ServiceSelectionProps {
-  // No props needed for this component anymore
-}
-
-interface MindbodyWidgetProps {
-  widgetId: string
-}
-
-function MindbodyWidget({ widgetId }: MindbodyWidgetProps) {
-  const widgetWrapperId = `mb-widget-wrapper-${widgetId}`
+// A new, simple, and robust widget component.
+function SimpleMindbodyWidget({ widgetId }: { widgetId: string }) {
+  const widgetContainerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    // Only update the widget container and call MB.embed
-    const host = document.getElementById(widgetWrapperId)
-    if (!host) return
-    host.innerHTML = ""
-    const widget = document.createElement("div")
-    widget.className = "mindbody-widget"
-    widget.dataset.widgetType = "Appointments"
-    widget.dataset.widgetId = widgetId
-    host.appendChild(widget)
-    // Call Mindbody re-initializer if available
-    if (typeof window !== "undefined" && (window as any).MB && typeof (window as any).MB.embed === "function") {
-      (window as any).MB.embed()
-    }
-  }, [widgetId, widgetWrapperId])
+    const container = widgetContainerRef.current
+    if (!container) return
 
-  return <div id={widgetWrapperId} className="min-h-[400px]" />
+    // 1. Clear any previous widget content
+    container.innerHTML = ''
+
+    // 2. Remove any old Mindbody script to prevent conflicts
+    const oldScript = document.getElementById("mindbody-widget-script")
+    if (oldScript) {
+      oldScript.remove()
+    }
+
+    // 3. Create the widget div
+    const widgetDiv = document.createElement("div")
+    widgetDiv.className = "mindbody-widget"
+    widgetDiv.dataset.widgetType = "Appointments"
+    widgetDiv.dataset.widgetId = widgetId
+    container.appendChild(widgetDiv)
+
+    // 4. Create and inject a fresh script tag with a cache-busting timestamp
+    const script = document.createElement("script")
+    script.src = `https://brandedweb.mindbodyonline.com/embed/widget.js?v=${Date.now()}`
+    script.async = true
+    script.id = "mindbody-widget-script"
+    document.body.appendChild(script)
+
+    // Cleanup function to remove the script when the component unmounts
+    return () => {
+      const scriptToRemove = document.getElementById("mindbody-widget-script")
+      if (scriptToRemove) {
+        scriptToRemove.remove()
+      }
+    }
+  }, [widgetId]) // Rerun this entire logic if the widgetId changes
+
+  return <div ref={widgetContainerRef} className="min-h-[600px] w-full" />
 }
 
-export function ServiceSelection({}: ServiceSelectionProps) {
+export function ServiceSelection() {
   const searchParams = useSearchParams()
   const categoryFromUrl = searchParams.get("category")
 
-  const [activeCategory, setActiveCategory] = useState(
-    categoryFromUrl || serviceCategories[0].id
-  )
-  const [showWidget, setShowWidget] = useState(!!categoryFromUrl)
+  const [activeCategory, setActiveCategory] = useState(categoryFromUrl)
   const [widgetKey, setWidgetKey] = useState(0)
   const serviceSelectionRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    // On initial load, if a category is specified in the URL, don't scroll.
-    // The user should be able to see the top of the page.
-    if (categoryFromUrl) {
-      // The widget will be shown automatically, no need to scroll.
-    }
-  }, []) // Run only once on mount
-
   const handleCategoryChange = (categoryId: string) => {
     setActiveCategory(categoryId)
-    setShowWidget(true) // Show widget immediately
-    setWidgetKey(prev => prev + 1) // Force remount with a new key
+    // Force a complete remount of the widget component by changing its key
+    setWidgetKey(prev => prev + 1)
 
-    // Prevent the page from scrolling down.
-    // The user should remain at the category selection prompt.
-    if (serviceSelectionRef.current) {
-      serviceSelectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }
+    // Scroll to the widget area after selection
+    setTimeout(() => {
+      serviceSelectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }, 100)
   }
 
   const currentCategory = serviceCategories.find(
@@ -107,9 +83,8 @@ export function ServiceSelection({}: ServiceSelectionProps) {
       <h2 className="text-2xl font-serif font-medium mb-6 text-center uppercase tracking-widest text-black">
         Select a Service
       </h2>
-
       <div className="mb-8 overflow-x-auto">
-        <div className="flex justify-center space-x-2 min-w-max pb-2">
+        <div className="flex justify-center flex-wrap gap-2 md:gap-4">
           {serviceCategories.map((category) => (
             <button
               key={category.id}
@@ -127,15 +102,19 @@ export function ServiceSelection({}: ServiceSelectionProps) {
           ))}
         </div>
       </div>
-
-      {currentCategory && showWidget && (
+      {currentCategory && (
         <div className="mb-8" data-widget-area>
           <div className="mb-4 text-center">
             <h3 className="text-lg font-serif font-medium uppercase tracking-wider text-black mb-2">
               Book Your {currentCategory.name} Appointment
             </h3>
           </div>
-          <MindbodyAppointments key={currentCategory.widgetId} widgetId={currentCategory.widgetId} />
+          <div className="max-h-[80vh] overflow-y-auto rounded-lg border">
+            <SimpleMindbodyWidget
+              key={widgetKey} // This key change forces the component to remount
+              widgetId={currentCategory.widgetId}
+            />
+          </div>
         </div>
       )}
     </div>
