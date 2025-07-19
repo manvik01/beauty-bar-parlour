@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { AppointmentsWidget } from "@/components/mindbody/appointments-widget"
+import { useSearchParams, useRouter } from "next/navigation"
 
 const serviceCategories = [
   {
@@ -41,10 +42,16 @@ interface ServiceSelectionProps {
 }
 
 export function ServiceSelection({ onNext }: ServiceSelectionProps) {
-  const [activeCategory, setActiveCategory] = useState(serviceCategories[0].id)
+  const searchParams = useSearchParams()
+  const router = useRouter()
+  const initialCategory = searchParams.get("category") || serviceCategories[0].id
+  const [activeCategory, setActiveCategory] = useState(initialCategory)
 
   const handleCategoryChange = (categoryId: string) => {
     setActiveCategory(categoryId)
+    const url = new URL(window.location.href)
+    url.searchParams.set("category", categoryId)
+    router.replace(url.toString())
   }
 
   const currentCategory = serviceCategories.find((cat) => cat.id === activeCategory)
