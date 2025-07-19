@@ -13,96 +13,27 @@ const serviceCategories = [
   {
     id: "nail",
     name: "Nail & Foot Spa",
-    services: [
-      "Soak Off Gel Hand – 15 mins",
-      "Soak Off Gel Feet – 15 mins",
-      "Express Manicure – 20 mins",
-      "Express Pedicure – 20 mins",
-      "Classic Manicure – 40 mins",
-      "Classic Pedicure – 40 mins",
-      "Gel Express Manicure – 30 mins",
-      "Gel Express Pedicure – 30 mins",
-      "Classic Gel Manicure – 40 mins",
-      "Classic Gel Pedicure – 40 mins",
-      "Nail Extension (Full Set) – 60 mins",
-      "Parafin Wax SPA Hand – 30 mins",
-      "Parafin Wax SPA Feet – 30 mins",
-      "Milk Foot Spa – 45 mins",
-      "Milk & Wine Foot Spa – 45 mins",
-      "Signature Foot Spa – 45 mins",
-    ],
+    services: [],
   },
   {
     id: "facial",
     name: "Facial Services",
-    services: [
-      "Advanced Clinicals Basic – 45 mins",
-      "Advanced Clinicals Basic – 60 mins",
-      "Advanced Clinicals Advanced – 45 mins",
-      "Advanced Clinicals Advanced – 60 mins",
-      "WOB - Vitamin C Brightening – 45 mins",
-      "WOB – Akoia Gold – 60 mins",
-      "WOB - Hydra Calm – 90 mins",
-      "WOB - Collagen Hlayu – 90 mins",
-      "TAE - Ayurvedic Oily Skin Treatment – 60 mins",
-      "TAE - Ayurvedic Skin Tightening Treatment – 60 mins",
-      "TAE - Ayurvedic Hydrating Treatment – 90 mins",
-      "TAE - Ayurvedic Anti Aging – 90 mins",
-    ],
+    services: [],
   },
   {
     id: "waxing",
     name: "Waxing Services",
-    services: [
-      "Side Burn – 15 mins",
-      "Upper Lip / Chin – 15 mins",
-      "Eyebrow Wax – 15 mins",
-      "Full Face Wax – 30 mins",
-      "Half Arms – 30 mins",
-      "Half Legs – 30 mins",
-      "Full Arms – 30 mins",
-      "Full Legs – 30 mins",
-      "Underarms – 15 mins",
-      "Bikini Line – 20 mins",
-      "Brazilian – 45 mins",
-    ],
+    services: [],
   },
   {
     id: "threading",
     name: "Threading Services",
-    services: [
-      "Eyebrows – 15 mins",
-      "Upper Lip – 15 mins",
-      "Chin – 15 mins",
-      "Forehead – 15 mins",
-      "Full Face – 30 mins",
-    ],
+    services: [],
   },
   {
     id: "laser",
     name: "AFT Treatment",
-    services: [
-      "Upper Lip – 15 mins",
-      "Chin – 15 mins",
-      "Sideburns – 20 mins",
-      "Full Face – 30 mins",
-      "Neck (Front/Back) – 30 mins",
-      "Underarms – 20 mins",
-      "Half Arms (Upper/Lower) – 30 mins",
-      "Full Arms – 45 mins",
-      "Hands & Fingers – 15 mins",
-      "Chest – 30 mins",
-      "Areola – 15 mins",
-      "Abdomen – 30 mins",
-      "Back (Full) – 45 mins",
-      "Lower Back – 30 mins",
-      "Bikini Line – 30 mins",
-      "Brazilian + Crack – 45 mins",
-      "Buttocks (Full) – 30 mins",
-      "Half Legs (Upper/Lower) – 45 mins",
-      "Full Legs – 60 mins",
-      "Feet & Toes – 20 mins",
-    ],
+    services: [],
   },
 ]
 
@@ -165,42 +96,32 @@ export function ServiceSelection({ selectedService, selectedCategory, onSelect, 
         </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-        {currentCategory?.services.map((service) => {
-          if (service.startsWith("Root Touch Up")) {
-            const widgetHtml = `<healcode-widget data-version="0.2" data-link-class="healcode-pricing-option-text-link" data-site-id="127612" data-mb-site-id="5746301" data-service-id="100059" data-bw-identity-site="true" data-type="pricing-link" data-inner-html="Root Touch Up – 90 mins"></healcode-widget>`
-            return (
-              <div
-                key="healcode-root-touch-up"
-                className="p-4 border transition-all border-border hover:border-primary/50 flex items-center justify-center text-center"
-              >
-                <Script src="https://widgets.mindbodyonline.com/javascripts/healcode.js" strategy="afterInteractive" />
-                <div dangerouslySetInnerHTML={{ __html: widgetHtml }} />
-              </div>
-            )
-          }
+      {activeCategory === "facial" && (
+        <div className="mb-8">
+          <AppointmentsWidget widgetId="0e33532e78e" />
+        </div>
+      )}
 
-          return (
-            <div
-              key={service}
-              onClick={() => handleServiceSelect(service)}
-              className={`p-4 border cursor-pointer transition-all group ${
-                selectedService === service ? "border-primary bg-primary/5" : "border-border hover:border-primary/50"
-              }`}
-            >
-              <div className="flex items-center justify-center text-center">
-                <div
-                  className={`w-4 h-4 rounded-full border mr-3 flex items-center justify-center ${
-                    selectedService === service ? "border-primary" : "border-gray-300"
-                  }`}
-                >
-                  {selectedService === service && <div className="w-2 h-2 rounded-full bg-primary"></div>}
-                </div>
-                <span className={`font-medium text-black group-hover:glitter-bold transition-all`}>{service}</span>
-              </div>
-            </div>
-          )
-        })}
+      {activeCategory === "waxing" && (
+        <div className="mb-8">
+          <AppointmentsWidget widgetId="0e33533e78e" />
+        </div>
+      )}
+
+      {activeCategory === "threading" && (
+        <div className="mb-8">
+          <AppointmentsWidget widgetId="0e33534e78e" />
+        </div>
+      )}
+
+      {activeCategory === "laser" && (
+        <div className="mb-8">
+          <AppointmentsWidget widgetId="0e33535e78e" />
+        </div>
+      )}
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+        {/* Service mapping removed */}
       </div>
 
       <div className="flex justify-end">
