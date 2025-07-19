@@ -18,7 +18,13 @@ function AFTTreatmentWidget({ widgetId }: { widgetId: string }) {
   const [isLoading, setIsLoading] = useState(true)
   const [hasError, setHasError] = useState(false)
   const [retryCount, setRetryCount] = useState(0)
+  const [diagnostics, setDiagnostics] = useState<string[]>([])
   const maxRetries = 3
+
+  const addDiagnostic = (message: string) => {
+    console.log(`AFT Widget Diagnostic: ${message}`)
+    setDiagnostics(prev => [...prev, `${new Date().toLocaleTimeString()}: ${message}`])
+  }
 
   useEffect(() => {
     let mounted = true
@@ -29,6 +35,7 @@ function AFTTreatmentWidget({ widgetId }: { widgetId: string }) {
       try {
         setIsLoading(true)
         setHasError(false)
+        addDiagnostic(`Starting AFT widget deployment with ID: ${widgetId}`)
 
         // Clear any existing content
         containerRef.current.innerHTML = ''
@@ -41,26 +48,55 @@ function AFTTreatmentWidget({ widgetId }: { widgetId: string }) {
           <!-- Mindbody Appointments widget end -->
         `
 
+        addDiagnostic('Injecting AFT widget HTML')
         // Inject the exact widget code
         containerRef.current.innerHTML = aftWidgetHTML
+
+        addDiagnostic('Widget HTML injected, waiting for script to load...')
 
         // Wait for script to load and initialize
         setTimeout(() => {
           if (mounted) {
             try {
+              addDiagnostic('Attempting widget initialization')
               // Force widget initialization
               if (typeof window !== 'undefined') {
                 const w = window as any
+                
+                addDiagnostic(`Window.HC available: ${!!w.HC}`)
+                addDiagnostic(`Window.MB available: ${!!w.MB}`)
+                
                 if (w.HC && typeof w.HC.init === 'function') {
+                  addDiagnostic('Calling HC.init()')
                   w.HC.init()
                 }
+                
                 if (w.MB && typeof w.MB.embed === 'function') {
+                  addDiagnostic('Calling MB.embed()')
                   w.MB.embed()
                 }
+
+                // Check if widget was created
+                const widgetElements = document.querySelectorAll('.mindbody-widget')
+                addDiagnostic(`Found ${widgetElements.length} mindbody-widget elements`)
+                
+                widgetElements.forEach((el, index) => {
+                  const widgetId = el.getAttribute('data-widget-id')
+                  addDiagnostic(`Widget ${index + 1}: ID=${widgetId}`)
+                })
               }
-              setIsLoading(false)
+              
+              // Set loading to false after attempting initialization
+              setTimeout(() => {
+                if (mounted) {
+                  addDiagnostic('Widget initialization complete')
+                  setIsLoading(false)
+                }
+              }, 2000) // Give widget more time to initialize
+              
             } catch (error) {
               console.error('AFT Widget initialization error:', error)
+              addDiagnostic(`Initialization error: ${error}`)
               if (mounted) {
                 setHasError(true)
                 setIsLoading(false)
@@ -71,6 +107,7 @@ function AFTTreatmentWidget({ widgetId }: { widgetId: string }) {
 
       } catch (error) {
         console.error('Error deploying AFT Treatment widget:', error)
+        addDiagnostic(`Deployment error: ${error}`)
         if (mounted) {
           setHasError(true)
           setIsLoading(false)
@@ -87,12 +124,14 @@ function AFTTreatmentWidget({ widgetId }: { widgetId: string }) {
 
   const handleRetry = () => {
     if (retryCount < maxRetries) {
+      addDiagnostic(`Retrying... Attempt ${retryCount + 1}/${maxRetries}`)
       setRetryCount(prev => prev + 1)
     }
   }
 
   const handleFallback = () => {
     // Redirect to Mindbody AFT Treatment booking page
+    addDiagnostic('Opening fallback Mindbody booking page')
     const aftBookingUrl = `https://clients.mindbodyonline.com/classic/ws?studioid=5746301&stype=-7&sTG=25&sVT=7&sView=day&sLoc=1`
     window.open(aftBookingUrl, '_blank')
   }
@@ -105,6 +144,20 @@ function AFTTreatmentWidget({ widgetId }: { widgetId: string }) {
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
             <p className="text-gray-600 font-light">Loading AFT Treatment booking widget...</p>
             <p className="text-xs text-gray-500 mt-2">Widget ID: 0e33535e78e</p>
+            {diagnostics.length > 0 && (
+              <div className="mt-4 text-left max-w-md mx-auto">
+                <details className="text-xs">
+                  <summary className="cursor-pointer text-blue-600 hover:text-blue-800">
+                    View Diagnostics ({diagnostics.length})
+                  </summary>
+                  <div className="mt-2 bg-gray-100 p-2 rounded max-h-32 overflow-y-auto">
+                    {diagnostics.map((msg, index) => (
+                      <div key={index} className="text-gray-700 text-xs">{msg}</div>
+                    ))}
+                  </div>
+                </details>
+              </div>
+            )}
           </div>
         </div>
       )}
@@ -121,6 +174,23 @@ function AFTTreatmentWidget({ widgetId }: { widgetId: string }) {
             <p className="text-gray-600 mb-4 font-light">
               We're having trouble loading the AFT Treatment booking widget. You can still book your appointment directly.
             </p>
+            
+            {/* Diagnostics for troubleshooting */}
+            {diagnostics.length > 0 && (
+              <div className="mb-4 text-left">
+                <details className="text-xs">
+                  <summary className="cursor-pointer text-blue-600 hover:text-blue-800">
+                    Troubleshooting Info ({diagnostics.length})
+                  </summary>
+                  <div className="mt-2 bg-gray-100 p-2 rounded max-h-32 overflow-y-auto">
+                    {diagnostics.map((msg, index) => (
+                      <div key={index} className="text-gray-700 text-xs">{msg}</div>
+                    ))}
+                  </div>
+                </details>
+              </div>
+            )}
+            
             <div className="flex flex-col sm:flex-row gap-2 justify-center">
               {retryCount < maxRetries && (
                 <button
