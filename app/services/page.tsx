@@ -135,16 +135,6 @@ export default function ServicesPage() {
                   <span className="text-primary font-medium">$95</span>
                 </div>
               </div>
-
-              <div className="mt-6 text-right">
-                <button
-                  onClick={() => setModalWidgetId("0e33258e78e")}
-                  className="inline-flex items-center text-gold hover:underline group"
-                >
-                  <span className="group-hover:glitter-bold">Book Herbal Treatment</span>{" "}
-                  <ChevronRight className="w-4 h-4 ml-1 group-hover:glitter-icon" />
-                </button>
-              </div>
             </div>
           </div>
 
@@ -186,13 +176,6 @@ export default function ServicesPage() {
                   </div>
                 ))}
               </div>
-
-              <div className="mt-6 text-right">
-                <Link href="/mindbody/appointments/nail" className="inline-flex items-center text-gold hover:underline group">
-                  <span className="group-hover:glitter-bold">Book Nail & Foot Spa Service</span>{" "}
-                  <ChevronRight className="w-4 h-4 ml-1 group-hover:glitter-icon" />
-                </Link>
-              </div>
             </div>
           </div>
 
@@ -228,16 +211,6 @@ export default function ServicesPage() {
                   </div>
                 ))}
               </div>
-
-              <div className="mt-6 text-right">
-                <Link
-                  href="/mindbody/appointments/facial"
-                  className="inline-flex items-center text-gold hover:underline group"
-                >
-                  <span className="group-hover:glitter-bold">Book Facial Service</span>{" "}
-                  <ChevronRight className="w-4 h-4 ml-1 group-hover:glitter-icon" />
-                </Link>
-              </div>
             </div>
           </div>
 
@@ -272,16 +245,6 @@ export default function ServicesPage() {
                   </div>
                 ))}
               </div>
-
-              <div className="mt-6 text-right">
-                <Link
-                  href="/mindbody/appointments/waxing"
-                  className="inline-flex items-center text-gold hover:underline group"
-                >
-                  <span className="group-hover:glitter-bold">Book Waxing Service</span>{" "}
-                  <ChevronRight className="w-4 h-4 ml-1 group-hover:glitter-icon" />
-                </Link>
-              </div>
             </div>
           </div>
 
@@ -309,16 +272,6 @@ export default function ServicesPage() {
                     <span className="text-primary font-medium">{price}</span>
                   </div>
                 ))}
-              </div>
-
-              <div className="mt-6 text-right">
-                <Link
-                  href="/mindbody/appointments/threading"
-                  className="inline-flex items-center text-gold hover:underline group"
-                >
-                  <span className="group-hover:glitter-bold">Book Threading Service</span>{" "}
-                  <ChevronRight className="w-4 h-4 ml-1 group-hover:glitter-icon" />
-                </Link>
               </div>
             </div>
           </div>
@@ -351,16 +304,6 @@ export default function ServicesPage() {
                   <span className="text-primary font-medium">$25-$150</span>
                 </div>
               </div>
-
-              <div className="mt-6 text-right">
-                <Link
-                  href="/booking?service=henna"
-                  className="inline-flex items-center text-gold hover:underline group"
-                >
-                  <span className="group-hover:glitter-bold">Book Henna Service</span>{" "}
-                  <ChevronRight className="w-4 h-4 ml-1 group-hover:glitter-icon" />
-                </Link>
-              </div>
             </div>
           </div>
 
@@ -389,16 +332,6 @@ export default function ServicesPage() {
                   </span>
                   <span className="text-primary font-medium">Starting From $888</span>
                 </div>
-              </div>
-
-              <div className="mt-6 text-right">
-                <Link
-                  href="/booking?service=bridal"
-                  className="inline-flex items-center text-gold hover:underline group"
-                >
-                  <span className="group-hover:glitter-bold">Book Bridal Service</span>{" "}
-                  <ChevronRight className="w-4 h-4 ml-1 group-hover:glitter-icon" />
-                </Link>
               </div>
             </div>
           </div>
@@ -442,16 +375,6 @@ export default function ServicesPage() {
                     <span className="text-primary font-medium">{price}</span>
                   </div>
                 ))}
-              </div>
-
-              <div className="mt-6 text-right">
-                <Link
-                  href="/mindbody/appointments/laser"
-                  className="inline-flex items-center text-gold hover:underline group"
-                >
-                  <span className="group-hover:glitter-bold">Book AFT Treatment</span>{" "}
-                  <ChevronRight className="w-4 h-4 ml-1 group-hover:glitter-icon" />
-                </Link>
               </div>
             </div>
           </div>
