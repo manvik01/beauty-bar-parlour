@@ -8,14 +8,7 @@ const serviceCategories = [
   {
     id: "hair",
     name: "Herbal Treatment",
-    services: [
-      "Root Touch Up – 90 mins",
-      "Hair Pack (Short Hair) – 90 mins",
-      "Hair Pack (Medium Hair) – 90 mins",
-      "Hair Pack (Long Hair) – 90 mins",
-      "Hot Oil Massage (Seated) – 60 mins",
-      "Hot Oil Massage (Spa) – 90 mins",
-    ],
+    services: [],
   },
   {
     id: "nail",
@@ -163,6 +156,12 @@ export function ServiceSelection({ selectedService, selectedCategory, onSelect, 
       {activeCategory === "nail" && (
         <div className="mb-8">
           <AppointmentsWidget widgetId="0e33444e78e" />
+        </div>
+      )}
+
+      {activeCategory === "hair" && (
+        <div className="mb-8">
+          <AppointmentsWidget widgetId="0e33258e78e" />
         </div>
       )}
 
