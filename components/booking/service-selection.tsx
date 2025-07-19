@@ -1,59 +1,50 @@
 "use client"
 
 import { useState } from "react"
-import Script from "next/script"
 import { AppointmentsWidget } from "@/components/mindbody/appointments-widget"
 
 const serviceCategories = [
   {
     id: "hair",
     name: "Herbal Treatment",
-    services: [],
+    widgetId: "0e33258e78e",
   },
   {
     id: "nail",
     name: "Nail & Foot Spa",
-    services: [],
+    widgetId: "0e33444e78e",
   },
   {
     id: "facial",
     name: "Facial Services",
-    services: [],
+    widgetId: "0e33532e78e",
   },
   {
     id: "waxing",
     name: "Waxing Services",
-    services: [],
+    widgetId: "0e33533e78e",
   },
   {
     id: "threading",
     name: "Threading Services",
-    services: [],
+    widgetId: "0e33534e78e",
   },
   {
     id: "laser",
     name: "AFT Treatment",
-    services: [],
+    widgetId: "0e33535e78e",
   },
 ]
 
 interface ServiceSelectionProps {
-  selectedService: string
-  selectedCategory: string
-  onSelect: (service: string, category: string) => void
   onNext: () => void
 }
 
-export function ServiceSelection({ selectedService, selectedCategory, onSelect, onNext }: ServiceSelectionProps) {
-  const [activeCategory, setActiveCategory] = useState(selectedCategory || serviceCategories[0].id)
+export function ServiceSelection({ onNext }: ServiceSelectionProps) {
+  const [activeCategory, setActiveCategory] = useState(serviceCategories[0].id)
 
   const handleCategoryChange = (categoryId: string) => {
     setActiveCategory(categoryId)
-  }
-
-  const handleServiceSelect = (service: string) => {
-    const category = serviceCategories.find((cat) => cat.id === activeCategory)?.name || ""
-    onSelect(service, category)
   }
 
   const currentCategory = serviceCategories.find((cat) => cat.id === activeCategory)
@@ -84,55 +75,16 @@ export function ServiceSelection({ selectedService, selectedCategory, onSelect, 
         </div>
       </div>
 
-      {activeCategory === "nail" && (
+      {currentCategory && (
         <div className="mb-8">
-          <AppointmentsWidget widgetId="0e33444e78e" />
+          <AppointmentsWidget widgetId={currentCategory.widgetId} />
         </div>
       )}
-
-      {activeCategory === "hair" && (
-        <div className="mb-8">
-          <AppointmentsWidget widgetId="0e33258e78e" />
-        </div>
-      )}
-
-      {activeCategory === "facial" && (
-        <div className="mb-8">
-          <AppointmentsWidget widgetId="0e33532e78e" />
-        </div>
-      )}
-
-      {activeCategory === "waxing" && (
-        <div className="mb-8">
-          <AppointmentsWidget widgetId="0e33533e78e" />
-        </div>
-      )}
-
-      {activeCategory === "threading" && (
-        <div className="mb-8">
-          <AppointmentsWidget widgetId="0e33534e78e" />
-        </div>
-      )}
-
-      {activeCategory === "laser" && (
-        <div className="mb-8">
-          <AppointmentsWidget widgetId="0e33535e78e" />
-        </div>
-      )}
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-        {/* Service mapping removed */}
-      </div>
 
       <div className="flex justify-end">
         <button
           onClick={onNext}
-          disabled={!selectedService}
-          className={`px-8 py-3 uppercase tracking-widest text-xs transition-all ${
-            selectedService
-              ? "bg-primary text-white hover:bg-primary/90"
-              : "bg-gray-200 text-gray-500 cursor-not-allowed"
-          }`}
+          className="px-8 py-3 uppercase tracking-widest text-xs transition-all bg-primary text-white hover:bg-primary/90"
         >
           Continue
         </button>
