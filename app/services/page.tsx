@@ -18,9 +18,9 @@ function MindbodyWidgetModal({ widgetId, onClose }: { widgetId: string; onClose:
   }, [])
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white p-4 rounded-lg shadow-lg max-w-2xl w-full">
-        <div className="flex justify-end">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+      <div className="bg-white p-4 rounded-lg shadow-lg max-w-2xl w-full max-h-full overflow-y-auto">
+        <div className="flex justify-end sticky top-0 bg-white z-10">
           <button onClick={onClose} className="text-gray-500 hover:text-gray-700">
             <X className="w-6 h-6" />
           </button>
