@@ -70,7 +70,6 @@ export default function RootLayout({
           id="mindbody-sdk"
           src="https://brandedweb.mindbodyonline.com/embed/widget.js"
           strategy="afterInteractive"
-          onReady={() => console.log('Mindbody SDK ready')}
         />
       </body>
     </html>
