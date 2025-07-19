@@ -1,45 +1,38 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { AppointmentsWidget } from "@/components/mindbody/appointments-widget"
-import { useSearchParams, useRouter } from "next/navigation"
+import { useSearchParams } from "next/navigation"
 
 const serviceCategories = [
   {
     id: "hair",
     name: "Herbal Treatment",
     widgetId: "0e33258e78e",
-    isSpecial: true, // Mark this as special to handle differently
   },
   {
     id: "nail",
     name: "Nail & Foot Spa",
     widgetId: "0e33444e78e",
-    isSpecial: false,
   },
   {
     id: "facial",
     name: "Facial Services",
     widgetId: "0e33532e78e",
-    isSpecial: false,
   },
   {
     id: "waxing",
     name: "Waxing Services",
     widgetId: "0e33533e78e",
-    isSpecial: false,
   },
   {
     id: "threading",
     name: "Threading Services",
     widgetId: "0e33534e78e",
-    isSpecial: false,
   },
   {
     id: "laser",
     name: "AFT Treatment",
     widgetId: "0e33535e78e",
-    isSpecial: false,
   },
 ]
 
@@ -47,130 +40,94 @@ interface ServiceSelectionProps {
   onNext: () => void
 }
 
-// Special widget component for Herbal Treatment with enhanced reloading
-function HerbalTreatmentWidget({ key: widgetKey }: { key: string }) {
+interface MindbodyWidgetProps {
+  widgetId: string
+}
+
+function MindbodyWidget({ widgetId }: MindbodyWidgetProps) {
+  const widgetWrapperId = `mb-widget-wrapper-${widgetId}`
+
   useEffect(() => {
-    // Enhanced Mindbody widget implementation
-    const WIDGET_ID = '0e33258e78e';
-    const WIDGET_TYPE = 'Appointments';
-    const SCRIPT_URL = 'https://brandedweb.mindbodyonline.com/embed/widget.js';
-
-    /* Mount or re‑mount the widget */
-    function mountWidget() {
-      const host = document.getElementById('mb-widget-wrapper');
-      if (!host) return;
-
-      /* 1  Clear any previous mount (important for SPA revisits) */
-      host.innerHTML = '';
-
-      /* 2  Insert the widget element expected by Mindbody */
-      const widget = document.createElement('div');
-      widget.className = 'mindbody-widget';
-      widget.dataset.widgetType = WIDGET_TYPE;
-      widget.dataset.widgetId = WIDGET_ID;
-      host.appendChild(widget);
-
-      /* 3  Load once, then just re‑initialise */
-      if (!(window as any).__MB_WIDGET_LOADED__) {
-        const s = document.createElement('script');
-        s.src = SCRIPT_URL;
-        s.async = true;
-        s.onload = () => { 
-          (window as any).__MB_WIDGET_LOADED__ = true; 
-        };
-        document.head.appendChild(s);
-      } else if ((window as any).MB && typeof (window as any).MB.embed === 'function') {
-        (window as any).MB.embed(); // call the Mindbody initialiser again
+    // --- Aggressive Cleanup: Force a clean slate on every mount ---
+    const cleanup = () => {
+      // 1. Remove any existing widget script
+      const existingScript = document.getElementById("mindbody-widget-script")
+      if (existingScript) {
+        existingScript.remove()
       }
+
+      // 2. Clear any global Mindbody objects to prevent conflicts
+      if ((window as any).MB) delete (window as any).MB
+      if ((window as any).__MB_WIDGET_LOADED__) delete (window as any).__MB_WIDGET_LOADED__
+
+      // 3. Ensure the host container is empty
+      const host = document.getElementById(widgetWrapperId)
+      if (host) host.innerHTML = ""
     }
 
-    // Mount the widget immediately
-    mountWidget();
+    cleanup()
 
-    // Set up event listeners for SPA navigation
-    const events = [
-      'turbolinks:load',       // Squarespace 7.0, Rails Turbolinks, Stimulus Reflex
-      'routeChangeComplete',   // Next.js
-      'router:after-navigate', // SvelteKit
-      'vue:route-loaded'       // example custom event
-    ];
+    // --- Mount Widget ---
+    const timer = setTimeout(() => {
+      const host = document.getElementById(widgetWrapperId)
+      if (!host) return
 
-    events.forEach(evt => document.addEventListener(evt, mountWidget));
+      // 1. Create the widget element
+      const widget = document.createElement("div")
+      widget.className = "mindbody-widget"
+      widget.dataset.widgetType = "Appointments"
+      widget.dataset.widgetId = widgetId
+      host.appendChild(widget)
 
-    // Cleanup function
+      // 2. Create and load the script
+      const script = document.createElement("script")
+      script.src = "https://brandedweb.mindbodyonline.com/embed/widget.js"
+      script.async = true
+      script.id = "mindbody-widget-script" // Assign ID for easy removal
+      document.head.appendChild(script)
+    }, 100) // Small delay to ensure DOM is ready after cleanup
+
+    // --- Return Cleanup Function for when component unmounts ---
     return () => {
-      events.forEach(evt => document.removeEventListener(evt, mountWidget));
-      
-      // Clean up the widget wrapper
-      const host = document.getElementById('mb-widget-wrapper');
-      if (host) {
-        host.innerHTML = '';
-      }
-    };
-  }, [widgetKey]); // Re-run when key changes
+      clearTimeout(timer)
+      cleanup()
+    }
+  }, [widgetId, widgetWrapperId]) // Rerun if widgetId changes
 
-  return (
-    <div>
-      {/* Mindbody Appointments widget (enhanced) */}
-      <div id="mb-widget-wrapper" className="min-h-[400px]"></div>
-    </div>
-  )
+  return <div id={widgetWrapperId} className="min-h-[400px]" />
 }
 
 export function ServiceSelection({ onNext }: ServiceSelectionProps) {
   const searchParams = useSearchParams()
-  const router = useRouter()
-  const initialCategory = searchParams.get("category") || serviceCategories[0].id
-  const [activeCategory, setActiveCategory] = useState(initialCategory)
+  const [activeCategory, setActiveCategory] = useState(
+    searchParams.get("category") || serviceCategories[0].id
+  )
   const [showWidget, setShowWidget] = useState(false)
-  const [widgetKey, setWidgetKey] = useState(0) // For forcing widget remount
-  
-  // Add ref for scroll management
+  const [widgetKey, setWidgetKey] = useState(0)
   const serviceSelectionRef = useRef<HTMLDivElement>(null)
-  const categoryButtonsRef = useRef<HTMLDivElement>(null)
 
   const handleCategoryChange = (categoryId: string) => {
     setActiveCategory(categoryId)
-    setShowWidget(false) // Hide widget when changing categories
-    setWidgetKey(prev => prev + 1) // Force widget remount
-    
-    // Update URL without causing scroll
-    const url = new URL(window.location.href)
-    url.searchParams.set("category", categoryId)
-    
-    // Use window.history.replaceState to avoid scroll behavior
-    window.history.replaceState({}, '', url.toString())
-    
-    // Ensure user stays focused on category buttons
-    setTimeout(() => {
-      if (categoryButtonsRef.current) {
-        categoryButtonsRef.current.scrollIntoView({ 
-          behavior: 'smooth', 
-          block: 'center' 
-        })
-      }
-    }, 100)
+    setShowWidget(false)
+    // This is the forced step: generate a new key on every category change.
+    // This ensures the next widget shown will be a completely new instance.
+    setWidgetKey(prev => prev + 1)
   }
 
   const handleMakeBooking = () => {
     setShowWidget(true)
-    setWidgetKey(prev => prev + 1) // Force widget remount for fresh loading
-    
-    // Scroll to the widget area smoothly after it loads
+    // Scroll to the widget area smoothly after it appears
     setTimeout(() => {
-      if (serviceSelectionRef.current) {
-        const widgetArea = serviceSelectionRef.current.querySelector('[data-widget-area]')
-        if (widgetArea) {
-          widgetArea.scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'start' 
-          })
-        }
+      const widgetArea = serviceSelectionRef.current?.querySelector('[data-widget-area]')
+      if (widgetArea) {
+        widgetArea.scrollIntoView({ behavior: 'smooth', block: 'start' })
       }
-    }, 200)
+    }, 100)
   }
 
-  const currentCategory = serviceCategories.find((cat) => cat.id === activeCategory)
+  const currentCategory = serviceCategories.find(
+    (cat) => cat.id === activeCategory
+  )
 
   return (
     <div ref={serviceSelectionRef}>
@@ -178,7 +135,7 @@ export function ServiceSelection({ onNext }: ServiceSelectionProps) {
         Select a Service
       </h2>
 
-      <div ref={categoryButtonsRef} className="mb-8 overflow-x-auto">
+      <div className="mb-8 overflow-x-auto">
         <div className="flex justify-center space-x-2 min-w-max pb-2">
           {serviceCategories.map((category) => (
             <button
@@ -198,7 +155,6 @@ export function ServiceSelection({ onNext }: ServiceSelectionProps) {
         </div>
       </div>
 
-      {/* Show selected service info */}
       {currentCategory && !showWidget && (
         <div className="mb-8 p-6 bg-white border border-primary/20 text-center">
           <h3 className="text-lg font-serif font-medium mb-2 uppercase tracking-wider text-black">
@@ -214,7 +170,6 @@ export function ServiceSelection({ onNext }: ServiceSelectionProps) {
         </div>
       )}
 
-      {/* Show widget after clicking Make a Booking */}
       {currentCategory && showWidget && (
         <div className="mb-8" data-widget-area>
           <div className="mb-4 text-center">
@@ -223,12 +178,10 @@ export function ServiceSelection({ onNext }: ServiceSelectionProps) {
             </h3>
           </div>
           
-          {/* Render the appropriate widget */}
-          {currentCategory.isSpecial ? (
-            <HerbalTreatmentWidget key={`herbal-${widgetKey}`} />
-          ) : (
-            <AppointmentsWidget key={`widget-${widgetKey}`} widgetId={currentCategory.widgetId} />
-          )}
+          <MindbodyWidget
+            key={widgetKey}
+            widgetId={currentCategory.widgetId}
+          />
         </div>
       )}
     </div>
