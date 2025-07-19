@@ -1,5 +1,4 @@
 import { BookingForm } from "@/components/booking/booking-form"
-import { ScheduleWidget } from "@/components/mindbody/schedule-widget"
 
 export default function BookingPage() {
   return (
@@ -47,13 +46,6 @@ export default function BookingPage() {
             </div>
 
             <BookingForm />
-            
-            <div className="prose prose-lg max-w-none mx-auto mt-12 text-left bg-white p-8 border border-gold/20 shadow-sm">
-              <h2 className="text-xl font-serif uppercase tracking-wider text-gold text-center font-bold">
-                Continue with Schedule
-              </h2>
-              <ScheduleWidget widgetId="0e29882e78e" />
-            </div>
           </div>
         </div>
       </section>
