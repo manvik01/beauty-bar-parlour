@@ -111,10 +111,11 @@ export function BookingForm() {
       >
         {step === 1 && (
           <ServiceSelection
-            selectedService={bookingData.service}
             selectedCategory={bookingData.serviceCategory}
-            onSelect={(service, category) => updateBookingData({ service, serviceCategory: category })}
-            onNext={nextStep}
+            onSelect={(categoryId) => {
+              updateBookingData({ serviceCategory: categoryId })
+              setTimeout(nextStep, 300) // slight delay for UX
+            }}
           />
         )}
 

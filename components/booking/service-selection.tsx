@@ -1,10 +1,8 @@
 "use client"
 
 import { useState, useRef } from "react"
-import { useSearchParams } from "next/navigation"
 import MindbodyWidget from "@/components/MindbodyWidget"
 import { LoadingSpinner } from "@/components/loading-spinner"
-import { useToast } from "@/hooks/use-toast"
 
 const serviceCategories = [
   { id: "hair", name: "Herbal Treatment", widgetId: "0e33258e78e" },
@@ -15,16 +13,18 @@ const serviceCategories = [
   { id: "laser", name: "AFT Treatment", widgetId: "0e33535e78e" },
 ]
 
-export function ServiceSelection() {
-  const searchParams = useSearchParams()
-  const categoryFromUrl = searchParams.get("category")
-
-  const [activeCategory, setActiveCategory] = useState(categoryFromUrl)
+export function ServiceSelection({
+  selectedCategory,
+  onSelect,
+}: {
+  selectedCategory?: string
+  onSelect?: (categoryId: string) => void
+}) {
+  const [activeCategory, setActiveCategory] = useState(selectedCategory || serviceCategories[0].id)
   const [widgetKey, setWidgetKey] = useState(0)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const serviceSelectionRef = useRef<HTMLDivElement>(null)
-  const { toast } = useToast()
 
   const currentCategory = serviceCategories.find((cat) => cat.id === activeCategory)
 
@@ -33,8 +33,7 @@ export function ServiceSelection() {
     setWidgetKey(prev => prev + 1)
     setLoading(true)
     setError(null)
-    // Analytics event (replace with real analytics in prod)
-    console.log(`Category selected: ${categoryId}`)
+    if (onSelect) onSelect(categoryId)
     setTimeout(() => {
       serviceSelectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }, 100)
@@ -44,19 +43,10 @@ export function ServiceSelection() {
   const handleWidgetLoad = () => {
     setLoading(false)
     setError(null)
-    // Analytics event (replace with real analytics in prod)
-    if (currentCategory) {
-      console.log(`Widget loaded: ${currentCategory.widgetId}`)
-    }
   }
   const handleWidgetError = () => {
     setLoading(false)
     setError("Failed to load booking widget. Please try again later.")
-    toast({
-      title: "Widget Load Error",
-      description: "Failed to load booking widget. Please try again later.",
-      variant: "destructive",
-    })
   }
 
   return (
@@ -68,7 +58,11 @@ export function ServiceSelection() {
             <button
               key={category.id}
               onClick={() => handleCategoryChange(category.id)}
-              className={`px-4 py-2 text-xs uppercase tracking-widest transition-colors group ${activeCategory === category.id ? "bg-primary text-black font-medium" : "bg-secondary text-black hover:bg-primary/10"}`}
+              className={`px-4 py-2 text-xs uppercase tracking-widest transition-colors rounded-full border-2 font-serif font-medium group focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 ${
+                activeCategory === category.id
+                  ? "bg-gold text-black border-gold glitter-bold"
+                  : "bg-secondary text-black border-transparent hover:bg-gold/10"
+              }`}
               aria-selected={activeCategory === category.id}
               aria-controls={`widget-panel-${category.id}`}
               role="tab"
@@ -91,7 +85,7 @@ export function ServiceSelection() {
           <div className="mb-4 text-center">
             <h3 className="text-lg font-serif font-medium uppercase tracking-wider text-black mb-2">Book Your {currentCategory.name} Appointment</h3>
           </div>
-          <div className="max-h-[80vh] overflow-y-auto rounded-lg border">
+          <div className="max-h-[80vh] overflow-y-auto rounded-lg border border-gold/30 bg-white shadow-sm">
             <MindbodyWidget key={widgetKey} widgetId={currentCategory.widgetId} onLoad={handleWidgetLoad} onError={handleWidgetError} />
           </div>
         </div>
