@@ -15,12 +15,7 @@ export default function BookingPage() {
       <section className="clean-section">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
-            <p className="text-center mb-12 font-light">
-              Schedule your appointment with our skilled professionals. Please select your preferred service, date, and
-              time below. We look forward to pampering you at Beauty Bar Parlour.
-            </p>
-
-            <div className="prose prose-lg max-w-none mx-auto mb-12 text-left bg-white p-8 border border-gold/20 shadow-sm">
+            <div className="prose prose-lg max-w-none mx-auto mb-0 text-left bg-white p-8 border border-gold/20 shadow-sm">
               <h2 className="text-xl font-serif uppercase tracking-wider text-black text-center">
                 Before Booking Your Appointment at Beauty Bar Parlour
               </h2>
