@@ -57,12 +57,6 @@ export function Footer() {
               Register
             </Link>
             <Link
-              href="/contact"
-              className="text-xs uppercase tracking-widest text-black hover:text-primary transition-colors"
-            >
-              Contact
-            </Link>
-            <Link
               href="/booking"
               className="text-xs uppercase tracking-widest text-black hover:text-primary transition-colors"
             >
