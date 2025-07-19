@@ -1,21 +1,20 @@
 "use client"
 
 import { useEffect } from "react"
+import { useMindbodyScript } from "@/hooks/use-mindbody-script"
 
 interface AppointmentsWidgetProps {
   widgetId: string
 }
 
 export function AppointmentsWidget({ widgetId }: AppointmentsWidgetProps) {
+  const isScriptLoaded = useMindbodyScript()
+
   useEffect(() => {
-    // Check if the script is already on the page
-    if (!document.querySelector('script[src="https://brandedweb.mindbodyonline.com/embed/widget.js"]')) {
-      const script = document.createElement("script")
-      script.src = "https://brandedweb.mindbodyonline.com/embed/widget.js"
-      script.async = true
-      document.body.appendChild(script)
+    if (isScriptLoaded) {
+      window.Mindbody.onLoad()
     }
-  }, [])
+  }, [isScriptLoaded, widgetId])
 
   return (
     <div
