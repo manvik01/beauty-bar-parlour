@@ -46,12 +46,18 @@ export function ServiceSelection({ onNext }: ServiceSelectionProps) {
   const router = useRouter()
   const initialCategory = searchParams.get("category") || serviceCategories[0].id
   const [activeCategory, setActiveCategory] = useState(initialCategory)
+  const [showWidget, setShowWidget] = useState(false)
 
   const handleCategoryChange = (categoryId: string) => {
     setActiveCategory(categoryId)
+    setShowWidget(false) // Hide widget when changing categories
     const url = new URL(window.location.href)
     url.searchParams.set("category", categoryId)
     router.replace(url.toString())
+  }
+
+  const handleMakeBooking = () => {
+    setShowWidget(true)
   }
 
   const currentCategory = serviceCategories.find((cat) => cat.id === activeCategory)
@@ -82,20 +88,51 @@ export function ServiceSelection({ onNext }: ServiceSelectionProps) {
         </div>
       </div>
 
-      {currentCategory && (
+      {/* Show selected service info */}
+      {currentCategory && !showWidget && (
+        <div className="mb-8 p-6 bg-white border border-primary/20 text-center">
+          <h3 className="text-lg font-serif font-medium mb-2 uppercase tracking-wider text-black">
+            Selected Service
+          </h3>
+          <p className="text-primary font-medium mb-4">{currentCategory.name}</p>
+          <button
+            onClick={handleMakeBooking}
+            className="px-8 py-3 bg-gold text-black hover:bg-gold/90 font-medium uppercase tracking-widest transition-all"
+          >
+            Make a Booking
+          </button>
+        </div>
+      )}
+
+      {/* Show widget only after clicking Make a Booking */}
+      {currentCategory && showWidget && (
         <div className="mb-8">
+          <div className="mb-4 text-center">
+            <h3 className="text-lg font-serif font-medium uppercase tracking-wider text-black mb-2">
+              Book Your {currentCategory.name} Appointment
+            </h3>
+            <button
+              onClick={() => setShowWidget(false)}
+              className="text-sm text-primary hover:underline"
+            >
+              ← Change Service
+            </button>
+          </div>
           <AppointmentsWidget widgetId={currentCategory.widgetId} />
         </div>
       )}
 
-      <div className="flex justify-end">
-        <button
-          onClick={onNext}
-          className="px-8 py-3 uppercase tracking-widest text-xs transition-all bg-primary text-white hover:bg-primary/90"
-        >
-          Continue
-        </button>
-      </div>
+      {/* Continue button - only show if widget is loaded or if using the form flow */}
+      {showWidget && (
+        <div className="flex justify-end">
+          <button
+            onClick={onNext}
+            className="px-8 py-3 uppercase tracking-widest text-xs transition-all bg-primary text-white hover:bg-primary/90"
+          >
+            Continue with Form
+          </button>
+        </div>
+      )}
     </div>
   )
 }

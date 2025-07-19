@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { RegistrationWidget } from "@/components/mindbody/registration-widget"
 
 export const metadata = {
@@ -18,7 +19,9 @@ export default function RegisterPage() {
       <section className="clean-section">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-8">
-            <RegistrationWidget />
+            <Suspense>
+              <RegistrationWidget />
+            </Suspense>
           </div>
         </div>
       </section>
