@@ -1,10 +1,18 @@
 "use client"
 
 import { useState } from "react"
+import { motion } from "framer-motion"
 import MindbodyWidget from "@/components/MindbodyWidget"
 
+const serviceCategories = [
+  { id: "hair", name: "Herbal Treatment", widgetId: "0e33258e78e" },
+  { id: "nail", name: "Nail & Foot Spa", widgetId: "0e33444e78e" },
+]
+
 export default function BookingPage() {
-  const [showWidget, setShowWidget] = useState(false);
+  const [activeTab, setActiveTab] = useState(serviceCategories[0].id);
+  
+  const selectedCategory = serviceCategories.find(cat => cat.id === activeTab);
 
   return (
     <main className="pt-24">
@@ -19,32 +27,40 @@ export default function BookingPage() {
       {/* Booking Content */}
       <section className="clean-section">
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto bg-white p-8 border border-gold/20 shadow-sm text-center">
-            <h2 className="text-xl font-serif uppercase tracking-wider text-gold font-bold mb-6">
-                Schedule Your Visit
+          <div className="max-w-4xl mx-auto bg-white p-8 border border-gold/20 shadow-sm">
+            <h2 className="text-xl font-serif uppercase tracking-wider text-gold font-bold mb-8 text-center">
+                Select a Service to Book
             </h2>
-            <p className="mb-8 font-serif">
-              Click the button below to schedule your appointment with our skilled professionals. 
-              We look forward to pampering you at Beauty Bar Parlour.
-            </p>
             
-            {!showWidget && (
-                <button
-                onClick={() => setShowWidget(true)}
-                className="inline-flex h-12 items-center justify-center rounded-full bg-gold px-8 text-sm font-medium text-black shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 glitter-border"
-                >
-                Book Herbal Treatment
-                </button>
-            )}
+            {/* Tabs */}
+            <div className="flex justify-center border-b border-gold/20 mb-8">
+                {serviceCategories.map((category) => (
+                    <button
+                        key={category.id}
+                        onClick={() => setActiveTab(category.id)}
+                        className={`px-6 py-3 text-sm font-serif uppercase tracking-widest transition-colors focus:outline-none ${
+                            activeTab === category.id 
+                                ? 'border-b-2 border-gold text-black font-bold' 
+                                : 'text-gray-500 hover:text-black'
+                        }`}
+                    >
+                        {category.name}
+                    </button>
+                ))}
+            </div>
 
-            {showWidget && (
-              <div className="mt-8">
-                <h2 className="text-xl font-serif uppercase tracking-wider text-gold font-bold mb-6">
-                    Book Your Herbal Treatment
-                </h2>
-                <MindbodyWidget widgetId="0e33258e78e" />
-              </div>
+            {/* Widget Display */}
+            {selectedCategory && (
+              <motion.div 
+                key={selectedCategory.id}
+                initial={{ opacity: 0, y: 10 }} 
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <MindbodyWidget widgetId={selectedCategory.widgetId} />
+              </motion.div>
             )}
+            
           </div>
         </div>
       </section>
