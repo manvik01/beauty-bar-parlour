@@ -6,9 +6,6 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { OfflineDetector } from "@/components/offline-detector"
-import { useMindbodyScript } from "@/hooks/use-mindbody-script"
-import { MindbodyScriptProvider } from "@/components/MindbodyScriptProvider"
-import Script from 'next/script';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -56,21 +53,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <MindbodyScriptProvider>
-            <div className="flex flex-col min-h-screen">
-              <OfflineDetector />
-              <Navbar />
-              <main className="flex-grow">{children}</main>
-              <Footer />
-            </div>
-          </MindbodyScriptProvider>
+          <div className="flex flex-col min-h-screen">
+            <OfflineDetector />
+            <Navbar />
+            <main className="flex-grow">{children}</main>
+            <Footer />
+          </div>
         </ThemeProvider>
-        {/* Mindbody SDK loads exactly once after hydration */}
-        <Script
-          id="mindbody-sdk"
-          src="https://brandedweb.mindbodyonline.com/embed/widget.js"
-          strategy="afterInteractive"
-        />
       </body>
     </html>
   )
