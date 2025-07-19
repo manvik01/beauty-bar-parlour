@@ -112,18 +112,19 @@ export function Navbar() {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden fixed inset-0 bg-black/90 backdrop-blur-sm z-40 flex flex-col items-center justify-center touch-none">
-            <nav className="flex flex-col items-center space-y-8 p-6 w-full max-w-sm">
+            <nav className="flex flex-col items-center space-y-8 p-6 w-full max-w-sm max-h-[90vh] overflow-y-auto">
               {navLinks
                 .filter(link => !link.hidden)
                 .map(link => (
                   <Link
                     key={link.name}
                     href={link.href}
-                    className={`text-white text-lg uppercase tracking-wider ${
+                    className={`text-white text-lg uppercase tracking-wider rounded-lg focus:outline-none focus:ring-2 focus:ring-gold transition-all duration-150 ${
                       link.name === "Book Now"
-                        ? "px-6 py-3 bg-gold text-black hover:bg-gold/90 font-medium mt-6 w-full text-center"
-                        : "w-full text-center py-2"
+                        ? "px-8 py-4 bg-gold text-black hover:bg-gold/90 font-medium mt-6 w-full text-center"
+                        : "w-full text-center py-4 px-2"
                     }`}
+                    style={{ minHeight: 56 }}
                     onClick={() => setIsOpen(false)}
                   >
                     {link.name}
