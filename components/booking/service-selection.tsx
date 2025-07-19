@@ -1,8 +1,8 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useRef } from "react"
 import { useSearchParams } from "next/navigation"
-import { AppointmentsWidget } from "@/components/mindbody/appointments-widget"
+import MindbodyWidget from "@/components/MindbodyWidget"
 
 const serviceCategories = [
   { id: "hair", name: "Herbal Treatment", widgetId: "0e33258e78e" },
@@ -22,15 +22,6 @@ export function ServiceSelection() {
   const serviceSelectionRef = useRef<HTMLDivElement>(null)
   
   const currentCategory = serviceCategories.find((cat) => cat.id === activeCategory)
-
-  useEffect(() => {
-    // If a category is specified in the URL, scroll to the widget area
-    if (categoryFromUrl) {
-      setTimeout(() => {
-        serviceSelectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      }, 100)
-    }
-  }, [categoryFromUrl]);
 
   const handleCategoryChange = (categoryId: string) => {
     setActiveCategory(categoryId)
@@ -64,11 +55,7 @@ export function ServiceSelection() {
             <h3 className="text-lg font-serif font-medium uppercase tracking-wider text-black mb-2">Book Your {currentCategory.name} Appointment</h3>
           </div>
           <div className="max-h-[80vh] overflow-y-auto rounded-lg border">
-            <AppointmentsWidget
-              key={widgetKey}
-              widgetId={currentCategory.widgetId}
-              isAftTreatment={currentCategory.id === "laser"}
-            />
+            <MindbodyWidget key={widgetKey} widgetId={currentCategory.widgetId} />
           </div>
         </div>
       )}

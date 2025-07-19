@@ -1,4 +1,4 @@
-import { AppointmentsWidget } from "@/components/mindbody/appointments-widget";
+import MindbodyWidget from "@/components/MindbodyWidget";
 
 export const metadata = {
   title: "Book AFT Treatment | Beauty Bar Parlour",
@@ -17,8 +17,7 @@ export default function AFTBookingPage() {
 
       <section className="clean-section">
         <div className="container-custom max-w-3xl mx-auto">
-          {/* Re-usable and Robust Mindbody Appointments Widget */}
-          <AppointmentsWidget widgetId="0e33535e78e" isAftTreatment={true} />
+          <MindbodyWidget widgetId="0e33535e78e" />
         </div>
       </section>
     </main>

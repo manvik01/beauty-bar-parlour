@@ -92,3 +92,15 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.mindbody-widget {
+  width: 100%;
+  min-height: 650px;
+  box-sizing: border-box;
+  margin-bottom: 32px;
+}
+@media (max-width: 600px) {
+  .mindbody-widget {
+    min-height: 800px;
+  }
+}
