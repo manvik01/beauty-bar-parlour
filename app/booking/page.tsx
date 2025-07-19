@@ -7,6 +7,10 @@ import MindbodyWidget from "@/components/MindbodyWidget"
 const serviceCategories = [
   { id: "hair", name: "Herbal Treatment", widgetId: "0e33258e78e" },
   { id: "nail", name: "Nail & Foot Spa", widgetId: "0e33444e78e" },
+  { id: "facial", name: "Facial Services", widgetId: "0e33532e78e" },
+  { id: "waxing", name: "Waxing Services", widgetId: "0e33533e78e" },
+  { id: "threading", name: "Threading Services", widgetId: "0e33534e78e" },
+  { id: "laser", name: "AFT Treatment", widgetId: "0e33535e78e" },
 ]
 
 export default function BookingPage() {
@@ -33,7 +37,7 @@ export default function BookingPage() {
             </h2>
             
             {/* Tabs */}
-            <div className="flex justify-center border-b border-gold/20 mb-8">
+            <div className="flex justify-center flex-wrap border-b border-gold/20 mb-8">
                 {serviceCategories.map((category) => (
                     <button
                         key={category.id}
