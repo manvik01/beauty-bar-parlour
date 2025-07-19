@@ -47,75 +47,72 @@ interface ServiceSelectionProps {
   onNext: () => void
 }
 
-// Special widget component for Herbal Treatment with improved reloading
+// Special widget component for Herbal Treatment with enhanced reloading
 function HerbalTreatmentWidget({ key: widgetKey }: { key: string }) {
   useEffect(() => {
-    // Clean up any existing Mindbody widgets and scripts
-    const cleanup = () => {
-      const existingWidgets = document.querySelectorAll('.mindbody-widget')
-      existingWidgets.forEach(widget => {
-        if (widget.parentNode) {
-          widget.parentNode.removeChild(widget)
-        }
-      })
-      
-      const existingScripts = document.querySelectorAll('script[src*="mindbodyonline.com"]')
-      existingScripts.forEach(script => {
-        if (script.parentNode) {
-          script.parentNode.removeChild(script)
-        }
-      })
+    // Enhanced Mindbody widget implementation
+    const WIDGET_ID = '0e33258e78e';
+    const WIDGET_TYPE = 'Appointments';
+    const SCRIPT_URL = 'https://brandedweb.mindbodyonline.com/embed/widget.js';
 
-      // Clear any Mindbody global variables if they exist
-      if (typeof window !== 'undefined' && 'Mindbody' in window) {
-        delete (window as any).Mindbody
+    /* Mount or re‑mount the widget */
+    function mountWidget() {
+      const host = document.getElementById('mb-widget-wrapper');
+      if (!host) return;
+
+      /* 1  Clear any previous mount (important for SPA revisits) */
+      host.innerHTML = '';
+
+      /* 2  Insert the widget element expected by Mindbody */
+      const widget = document.createElement('div');
+      widget.className = 'mindbody-widget';
+      widget.dataset.widgetType = WIDGET_TYPE;
+      widget.dataset.widgetId = WIDGET_ID;
+      host.appendChild(widget);
+
+      /* 3  Load once, then just re‑initialise */
+      if (!(window as any).__MB_WIDGET_LOADED__) {
+        const s = document.createElement('script');
+        s.src = SCRIPT_URL;
+        s.async = true;
+        s.onload = () => { 
+          (window as any).__MB_WIDGET_LOADED__ = true; 
+        };
+        document.head.appendChild(s);
+      } else if ((window as any).MB && typeof (window as any).MB.embed === 'function') {
+        (window as any).MB.embed(); // call the Mindbody initialiser again
       }
     }
 
-    // Initial cleanup
-    cleanup()
+    // Mount the widget immediately
+    mountWidget();
 
-    // Add a small delay to ensure cleanup is complete
-    const timer = setTimeout(() => {
-      // Create and inject the widget HTML
-      const widgetDiv = document.createElement('div')
-      widgetDiv.className = 'mindbody-widget'
-      widgetDiv.setAttribute('data-widget-type', 'Appointments')
-      widgetDiv.setAttribute('data-widget-id', '0e33258e78e')
-      
-      // Find the container and append the widget
-      const container = document.getElementById('herbal-widget-container')
-      if (container) {
-        container.appendChild(widgetDiv)
+    // Set up event listeners for SPA navigation
+    const events = [
+      'turbolinks:load',       // Squarespace 7.0, Rails Turbolinks, Stimulus Reflex
+      'routeChangeComplete',   // Next.js
+      'router:after-navigate', // SvelteKit
+      'vue:route-loaded'       // example custom event
+    ];
 
-        // Create and inject the script with cache busting
-        const script = document.createElement('script')
-        script.src = `https://brandedweb.mindbodyonline.com/embed/widget.js?v=${Date.now()}`
-        script.async = true
-        
-        // Add script to document head for proper loading
-        document.head.appendChild(script)
+    events.forEach(evt => document.addEventListener(evt, mountWidget));
 
-        // Force widget initialization after script loads
-        script.onload = () => {
-          // Give the script time to initialize and auto-load widgets
-          setTimeout(() => {
-            // The Mindbody script will automatically initialize widgets
-            // No manual init call needed
-          }, 100)
-        }
-      }
-    }, 100)
-
+    // Cleanup function
     return () => {
-      clearTimeout(timer)
-      cleanup()
-    }
-  }, [widgetKey]) // Re-run when key changes
+      events.forEach(evt => document.removeEventListener(evt, mountWidget));
+      
+      // Clean up the widget wrapper
+      const host = document.getElementById('mb-widget-wrapper');
+      if (host) {
+        host.innerHTML = '';
+      }
+    };
+  }, [widgetKey]); // Re-run when key changes
 
   return (
-    <div id="herbal-widget-container" className="min-h-[400px]">
-      {/* The widget will be dynamically inserted here */}
+    <div>
+      {/* Mindbody Appointments widget (enhanced) */}
+      <div id="mb-widget-wrapper" className="min-h-[400px]"></div>
     </div>
   )
 }
