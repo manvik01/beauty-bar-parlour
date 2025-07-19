@@ -36,21 +36,21 @@ export default function BookingPage() {
                 Select a Service to Book
             </h2>
             
-            {/* Tabs */}
-            <div className="flex justify-center flex-wrap border-b border-gold/20 mb-8">
-                {serviceCategories.map((category) => (
-                    <button
-                        key={category.id}
-                        onClick={() => setActiveTab(category.id)}
-                        className={`px-6 py-3 text-sm font-serif uppercase tracking-widest transition-colors focus:outline-none ${
-                            activeTab === category.id 
-                                ? 'border-b-2 border-gold text-black font-bold' 
-                                : 'text-gray-500 hover:text-black'
-                        }`}
-                    >
-                        {category.name}
-                    </button>
-                ))}
+            {/* Category Boxes */}
+            <div className="flex justify-center flex-wrap gap-4 md:gap-6 mb-8">
+              {serviceCategories.map((category) => (
+                  <button
+                    key={category.id}
+                    onClick={() => setActiveTab(category.id)}
+                    className={`group flex items-center justify-center p-4 w-36 h-36 md:w-40 md:h-40 rounded-lg text-center transition-all duration-300 ease-in-out font-serif uppercase text-xs tracking-widest focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 ${
+                      activeTab === category.id
+                        ? "bg-gold text-black shadow-lg scale-105"
+                        : "bg-secondary text-black hover:bg-gold/20"
+                    }`}
+                  >
+                    <span className="font-bold">{category.name}</span>
+                  </button>
+              ))}
             </div>
 
             {/* Widget Display */}
@@ -61,6 +61,9 @@ export default function BookingPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
               >
+                <h3 className="text-lg font-serif font-medium uppercase tracking-wider text-black mb-4 text-center">
+                  Book Your {selectedCategory.name} Appointment
+                </h3>
                 <MindbodyWidget widgetId={selectedCategory.widgetId} />
               </motion.div>
             )}
