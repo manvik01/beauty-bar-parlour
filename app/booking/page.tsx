@@ -41,7 +41,7 @@ export default function BookingPage() {
               </p>
               
               <p className="text-center mt-6">
-                Thank you for choosing Beauty Bar Parlour. We look forward to seeing you soon!
+                Schedule your appointment with our skilled professionals. Please select your preferred service, date, and time below. We look forward to pampering you at Beauty Bar Parlour.
               </p>
             </div>
 
