@@ -19,6 +19,37 @@ export default function BookingPage() {
               Schedule your appointment with our skilled professionals. Please select your preferred service, date, and
               time below. We look forward to pampering you at Beauty Bar Parlour.
             </p>
+
+            <div className="prose prose-lg max-w-none mx-auto mb-12 text-left bg-white p-8 border border-gold/20 shadow-sm">
+              <h2 className="text-xl font-serif uppercase tracking-wider text-black text-center">
+                Before Booking Your Appointment at Beauty Bar Parlour
+              </h2>
+              <p>We’re excited to have you visit us! Please read the following before making your appointment:</p>
+              
+              <h3 className="text-lg font-serif uppercase tracking-wider text-black mt-6">Booking Requests</h3>
+              <ul>
+                <li>Submitting a booking request does not mean your appointment is confirmed.</li>
+                <li>You will receive an email once your booking is approved.</li>
+                <li>If you don’t hear from us, please contact us directly and we’ll be happy to help.</li>
+              </ul>
+
+              <h3 className="text-lg font-serif uppercase tracking-wider text-black mt-6">Scheduling Information</h3>
+              <ul>
+                <li>Appointments are scheduled only during our operating hours and must be approved by our team.</li>
+                <li>If you're booking more than one service, please submit a separate request for each time slot, as services can’t be split between different beauticians.</li>
+                <li>For faster assistance, you’re welcome to call or message us directly to book.</li>
+              </ul>
+              
+              <h3 className="text-lg font-serif uppercase tracking-wider text-black mt-6">Need help with your booking?</h3>
+              <p>
+                Call or WhatsApp us at <a href="tel:+6584158896" className="text-gold hover:underline">+65 8415 8896</a> to schedule your appointment instantly.
+              </p>
+              
+              <p className="text-center mt-6">
+                Thank you for choosing Beauty Bar Parlour. We look forward to seeing you soon!
+              </p>
+            </div>
+
             <BookingForm />
           </div>
         </div>
