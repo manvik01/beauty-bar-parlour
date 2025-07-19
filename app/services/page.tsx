@@ -434,6 +434,7 @@ export default function ServicesPage() {
               BOOK NOW
             </Link>
           </div>
+          </div>
         </div>
       </section>
       <ScrollToTop />
