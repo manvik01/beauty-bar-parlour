@@ -37,7 +37,7 @@ const serviceCategories = [
 ]
 
 interface ServiceSelectionProps {
-  onNext: () => void
+  // No props needed for this component anymore
 }
 
 interface MindbodyWidgetProps {
@@ -97,7 +97,7 @@ function MindbodyWidget({ widgetId }: MindbodyWidgetProps) {
   return <div id={widgetWrapperId} className="min-h-[400px]" />
 }
 
-export function ServiceSelection({ onNext }: ServiceSelectionProps) {
+export function ServiceSelection({}: ServiceSelectionProps) {
   const searchParams = useSearchParams()
   const categoryFromUrl = searchParams.get("category")
 
@@ -109,14 +109,10 @@ export function ServiceSelection({ onNext }: ServiceSelectionProps) {
   const serviceSelectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    // On initial load, if a category is specified in the URL, scroll to the widget.
+    // On initial load, if a category is specified in the URL, don't scroll.
+    // The user should be able to see the top of the page.
     if (categoryFromUrl) {
-      setTimeout(() => {
-        const widgetArea = serviceSelectionRef.current?.querySelector('[data-widget-area]')
-        if (widgetArea) {
-          widgetArea.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        }
-      }, 200) // Delay to allow widget to start rendering
+      // The widget will be shown automatically, no need to scroll.
     }
   }, []) // Run only once on mount
 
@@ -125,13 +121,11 @@ export function ServiceSelection({ onNext }: ServiceSelectionProps) {
     setShowWidget(true) // Show widget immediately
     setWidgetKey(prev => prev + 1) // Force remount with a new key
 
-    // Scroll to the widget area smoothly
-    setTimeout(() => {
-      const widgetArea = serviceSelectionRef.current?.querySelector('[data-widget-area]')
-      if (widgetArea) {
-        widgetArea.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      }
-    }, 100)
+    // Prevent the page from scrolling down.
+    // The user should remain at the category selection prompt.
+    if (serviceSelectionRef.current) {
+      serviceSelectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
   }
 
   const currentCategory = serviceCategories.find(

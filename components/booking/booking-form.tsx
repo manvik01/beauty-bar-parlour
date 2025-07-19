@@ -85,36 +85,11 @@ export function BookingForm() {
   }
 
   const renderStepIndicator = () => {
-    const steps = [
-      { num: 1, label: "Service" },
-      { num: 2, label: "Date" },
-      { num: 3, label: "Time" },
-      { num: 4, label: "Details" },
-    ]
-
     return (
       <div className="mb-8">
         <h2 className="text-2xl font-serif font-light mb-6 text-center uppercase tracking-wider glitter-bold">
-          Make Payment
+          MAKE A BOOKING
         </h2>
-        <div className="flex justify-between">
-          {steps.map((s) => (
-            <div key={s.num} className="flex flex-col items-center group">
-              <div
-                className={`h-8 w-8 rounded-full flex items-center justify-center mb-1 transition-all duration-300 ${
-                  s.num === step ? "bg-primary text-black" : "bg-gray-200 text-gray-500 group-hover:bg-primary/20"
-                }`}
-              >
-                {s.num}
-              </div>
-              <span
-                className={`text-xs uppercase ${s.num === step ? "text-primary glitter-bold" : "text-gray-500 group-hover:text-primary/70"}`}
-              >
-                {s.label}
-              </span>
-            </div>
-          ))}
-        </div>
       </div>
     )
   }
