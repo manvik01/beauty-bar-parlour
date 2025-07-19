@@ -45,8 +45,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Mindbody widget script loads ONCE */}
-        <script async src="https://brandedweb.mindbodyonline.com/embed/widget.js"></script>
+        {/* The Mindbody widget script will now be loaded by the component itself */}
       </head>
       <body
         className={`${inter.variable} ${cormorant.variable} font-sans bg-background`}
