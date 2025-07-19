@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Script from "next/script"
+import { AppointmentsWidget } from "@/components/mindbody/appointments-widget"
 
 const serviceCategories = [
   {
@@ -158,6 +159,12 @@ export function ServiceSelection({ selectedService, selectedCategory, onSelect, 
           ))}
         </div>
       </div>
+
+      {activeCategory === "nail" && (
+        <div className="mb-8">
+          <AppointmentsWidget widgetId="0e33444e78e" />
+        </div>
+      )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
         {currentCategory?.services.map((service) => {
