@@ -48,51 +48,20 @@ function MindbodyWidget({ widgetId }: MindbodyWidgetProps) {
   const widgetWrapperId = `mb-widget-wrapper-${widgetId}`
 
   useEffect(() => {
-    // --- Aggressive Cleanup: Force a clean slate on every mount ---
-    const cleanup = () => {
-      // 1. Remove any existing widget script
-      const existingScript = document.getElementById("mindbody-widget-script")
-      if (existingScript) {
-        existingScript.remove()
-      }
-
-      // 2. Clear any global Mindbody objects to prevent conflicts
-      if ((window as any).MB) delete (window as any).MB
-      if ((window as any).__MB_WIDGET_LOADED__) delete (window as any).__MB_WIDGET_LOADED__
-
-      // 3. Ensure the host container is empty
-      const host = document.getElementById(widgetWrapperId)
-      if (host) host.innerHTML = ""
+    // Only update the widget container and call MB.embed
+    const host = document.getElementById(widgetWrapperId)
+    if (!host) return
+    host.innerHTML = ""
+    const widget = document.createElement("div")
+    widget.className = "mindbody-widget"
+    widget.dataset.widgetType = "Appointments"
+    widget.dataset.widgetId = widgetId
+    host.appendChild(widget)
+    // Call Mindbody re-initializer if available
+    if (typeof window !== "undefined" && (window as any).MB && typeof (window as any).MB.embed === "function") {
+      (window as any).MB.embed()
     }
-
-    cleanup()
-
-    // --- Mount Widget ---
-    const timer = setTimeout(() => {
-      const host = document.getElementById(widgetWrapperId)
-      if (!host) return
-
-      // 1. Create the widget element
-      const widget = document.createElement("div")
-      widget.className = "mindbody-widget"
-      widget.dataset.widgetType = "Appointments"
-      widget.dataset.widgetId = widgetId
-      host.appendChild(widget)
-
-      // 2. Create and load the script
-      const script = document.createElement("script")
-      script.src = "https://brandedweb.mindbodyonline.com/embed/widget.js"
-      script.async = true
-      script.id = "mindbody-widget-script" // Assign ID for easy removal
-      document.head.appendChild(script)
-    }, 100) // Small delay to ensure DOM is ready after cleanup
-
-    // --- Return Cleanup Function for when component unmounts ---
-    return () => {
-      clearTimeout(timer)
-      cleanup()
-    }
-  }, [widgetId, widgetWrapperId]) // Rerun if widgetId changes
+  }, [widgetId, widgetWrapperId])
 
   return <div id={widgetWrapperId} className="min-h-[400px]" />
 }

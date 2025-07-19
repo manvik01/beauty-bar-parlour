@@ -1,38 +1,15 @@
 "use client"
 
-import { useState, useEffect } from "react"
-
-declare global {
-  interface Window {
-    Mindbody: {
-      isLoaded: boolean
-      onLoad: () => void
-    }
-  }
-}
+import { useEffect } from "react"
 
 export function useMindbodyScript() {
-  const [isScriptLoaded, setIsScriptLoaded] = useState(false)
-
   useEffect(() => {
-    if (window.Mindbody?.isLoaded) {
-      setIsScriptLoaded(true)
-      return
-    }
-
+    if (document.getElementById("mindbody-widget-script")) return
     const script = document.createElement("script")
     script.src = "https://brandedweb.mindbodyonline.com/embed/widget.js"
     script.async = true
-    script.onload = () => {
-      window.Mindbody.onLoad()
-      setIsScriptLoaded(true)
-    }
+    script.id = "mindbody-widget-script"
     document.body.appendChild(script)
-
-    return () => {
-      document.body.removeChild(script)
-    }
+    // Never remove the script
   }, [])
-
-  return isScriptLoaded
 } 
