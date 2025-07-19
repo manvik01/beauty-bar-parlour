@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { AppointmentsWidget } from "@/components/mindbody/appointments-widget"
 import { useSearchParams, useRouter } from "next/navigation"
 
@@ -124,30 +124,61 @@ export function ServiceSelection({ onNext }: ServiceSelectionProps) {
   const [activeCategory, setActiveCategory] = useState(initialCategory)
   const [showWidget, setShowWidget] = useState(false)
   const [widgetKey, setWidgetKey] = useState(0) // For forcing widget remount
+  
+  // Add ref for scroll management
+  const serviceSelectionRef = useRef<HTMLDivElement>(null)
+  const categoryButtonsRef = useRef<HTMLDivElement>(null)
 
   const handleCategoryChange = (categoryId: string) => {
     setActiveCategory(categoryId)
     setShowWidget(false) // Hide widget when changing categories
     setWidgetKey(prev => prev + 1) // Force widget remount
+    
+    // Update URL without causing scroll
     const url = new URL(window.location.href)
     url.searchParams.set("category", categoryId)
-    router.replace(url.toString())
+    
+    // Use window.history.replaceState to avoid scroll behavior
+    window.history.replaceState({}, '', url.toString())
+    
+    // Ensure user stays focused on category buttons
+    setTimeout(() => {
+      if (categoryButtonsRef.current) {
+        categoryButtonsRef.current.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'center' 
+        })
+      }
+    }, 100)
   }
 
   const handleMakeBooking = () => {
     setShowWidget(true)
     setWidgetKey(prev => prev + 1) // Force widget remount for fresh loading
+    
+    // Scroll to the widget area smoothly after it loads
+    setTimeout(() => {
+      if (serviceSelectionRef.current) {
+        const widgetArea = serviceSelectionRef.current.querySelector('[data-widget-area]')
+        if (widgetArea) {
+          widgetArea.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+          })
+        }
+      }
+    }, 200)
   }
 
   const currentCategory = serviceCategories.find((cat) => cat.id === activeCategory)
 
   return (
-    <div>
+    <div ref={serviceSelectionRef}>
       <h2 className="text-2xl font-serif font-medium mb-6 text-center uppercase tracking-widest text-black">
         Select a Service
       </h2>
 
-      <div className="mb-8 overflow-x-auto">
+      <div ref={categoryButtonsRef} className="mb-8 overflow-x-auto">
         <div className="flex justify-center space-x-2 min-w-max pb-2">
           {serviceCategories.map((category) => (
             <button
@@ -185,7 +216,7 @@ export function ServiceSelection({ onNext }: ServiceSelectionProps) {
 
       {/* Show widget after clicking Make a Booking */}
       {currentCategory && showWidget && (
-        <div className="mb-8">
+        <div className="mb-8" data-widget-area>
           <div className="mb-4 text-center">
             <h3 className="text-lg font-serif font-medium uppercase tracking-wider text-black mb-2">
               Book Your {currentCategory.name} Appointment
