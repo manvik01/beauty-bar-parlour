@@ -12,47 +12,17 @@ const serviceCategories = [
   { id: "laser", name: "AFT Treatment", widgetId: "0e33535e78e" },
 ]
 
-// A new, simple, and robust widget component.
-function SimpleMindbodyWidget({ widgetId }: { widgetId: string }) {
-  const widgetContainerRef = useRef<HTMLDivElement>(null)
+// A new, simple, and robust widget component using direct HTML injection.
+function MindbodySnippetEmbed({ widgetId }: { widgetId: string }) {
+  const getWidgetSnippet = () => {
+    // This creates the exact HTML snippet Mindbody provides.
+    const div = `<div class="mindbody-widget" data-widget-type="Appointments" data-widget-id="${widgetId}"></div>`
+    // The script is re-injected every time with a cache-busting parameter.
+    const script = `<script async src="https://brandedweb.mindbodyonline.com/embed/widget.js?v=${Date.now()}"><\/script>`
+    return { __html: div + script }
+  }
 
-  useEffect(() => {
-    const container = widgetContainerRef.current
-    if (!container) return
-
-    // 1. Clear any previous widget content
-    container.innerHTML = ''
-
-    // 2. Remove any old Mindbody script to prevent conflicts
-    const oldScript = document.getElementById("mindbody-widget-script")
-    if (oldScript) {
-      oldScript.remove()
-    }
-
-    // 3. Create the widget div
-    const widgetDiv = document.createElement("div")
-    widgetDiv.className = "mindbody-widget"
-    widgetDiv.dataset.widgetType = "Appointments"
-    widgetDiv.dataset.widgetId = widgetId
-    container.appendChild(widgetDiv)
-
-    // 4. Create and inject a fresh script tag with a cache-busting timestamp
-    const script = document.createElement("script")
-    script.src = `https://brandedweb.mindbodyonline.com/embed/widget.js?v=${Date.now()}`
-    script.async = true
-    script.id = "mindbody-widget-script"
-    document.body.appendChild(script)
-
-    // Cleanup function to remove the script when the component unmounts
-    return () => {
-      const scriptToRemove = document.getElementById("mindbody-widget-script")
-      if (scriptToRemove) {
-        scriptToRemove.remove()
-      }
-    }
-  }, [widgetId]) // Rerun this entire logic if the widgetId changes
-
-  return <div ref={widgetContainerRef} className="min-h-[600px] w-full" />
+  return <div dangerouslySetInnerHTML={getWidgetSnippet()} className="min-h-[600px] w-full" />
 }
 
 export function ServiceSelection() {
@@ -110,7 +80,7 @@ export function ServiceSelection() {
             </h3>
           </div>
           <div className="max-h-[80vh] overflow-y-auto rounded-lg border">
-            <SimpleMindbodyWidget
+            <MindbodySnippetEmbed
               key={widgetKey} // This key change forces the component to remount
               widgetId={currentCategory.widgetId}
             />
