@@ -12,7 +12,147 @@ const serviceCategories = [
   { id: "laser", name: "AFT Treatment", widgetId: "0e33535e78e" },
 ]
 
-// Improved Mindbody Widget Component with proper error handling and fallback
+// Specialized AFT Treatment Widget using exact provided code
+function AFTTreatmentWidget({ widgetId }: { widgetId: string }) {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [isLoading, setIsLoading] = useState(true)
+  const [hasError, setHasError] = useState(false)
+  const [retryCount, setRetryCount] = useState(0)
+  const maxRetries = 3
+
+  useEffect(() => {
+    let mounted = true
+    
+    const deployAFTWidget = async () => {
+      if (!containerRef.current || !mounted) return
+
+      try {
+        setIsLoading(true)
+        setHasError(false)
+
+        // Clear any existing content
+        containerRef.current.innerHTML = ''
+
+        // Deploy exact AFT Treatment widget code as provided
+        const aftWidgetHTML = `
+          <!-- Mindbody Appointments widget begin -->
+          <div class="mindbody-widget" data-widget-type="Appointments" data-widget-id="0e33535e78e"></div>
+          <script async src="https://brandedweb.mindbodyonline.com/embed/widget.js"></script>
+          <!-- Mindbody Appointments widget end -->
+        `
+
+        // Inject the exact widget code
+        containerRef.current.innerHTML = aftWidgetHTML
+
+        // Wait for script to load and initialize
+        setTimeout(() => {
+          if (mounted) {
+            try {
+              // Force widget initialization
+              if (typeof window !== 'undefined') {
+                const w = window as any
+                if (w.HC && typeof w.HC.init === 'function') {
+                  w.HC.init()
+                }
+                if (w.MB && typeof w.MB.embed === 'function') {
+                  w.MB.embed()
+                }
+              }
+              setIsLoading(false)
+            } catch (error) {
+              console.error('AFT Widget initialization error:', error)
+              if (mounted) {
+                setHasError(true)
+                setIsLoading(false)
+              }
+            }
+          }
+        }, 1000)
+
+      } catch (error) {
+        console.error('Error deploying AFT Treatment widget:', error)
+        if (mounted) {
+          setHasError(true)
+          setIsLoading(false)
+        }
+      }
+    }
+
+    deployAFTWidget()
+
+    return () => {
+      mounted = false
+    }
+  }, [widgetId, retryCount])
+
+  const handleRetry = () => {
+    if (retryCount < maxRetries) {
+      setRetryCount(prev => prev + 1)
+    }
+  }
+
+  const handleFallback = () => {
+    // Redirect to Mindbody AFT Treatment booking page
+    const aftBookingUrl = `https://clients.mindbodyonline.com/classic/ws?studioid=5746301&stype=-7&sTG=25&sVT=7&sView=day&sLoc=1`
+    window.open(aftBookingUrl, '_blank')
+  }
+
+  return (
+    <div className="min-h-[600px] w-full">
+      {isLoading && !hasError && (
+        <div className="flex items-center justify-center h-96 bg-gray-50 rounded-lg">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+            <p className="text-gray-600 font-light">Loading AFT Treatment booking widget...</p>
+            <p className="text-xs text-gray-500 mt-2">Widget ID: 0e33535e78e</p>
+          </div>
+        </div>
+      )}
+      
+      {hasError && (
+        <div className="flex items-center justify-center h-96 bg-gray-50 rounded-lg">
+          <div className="text-center max-w-md mx-auto p-6">
+            <div className="text-red-500 mb-4">
+              <svg className="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 className="text-lg font-serif font-medium mb-2">AFT Treatment Widget Unavailable</h3>
+            <p className="text-gray-600 mb-4 font-light">
+              We're having trouble loading the AFT Treatment booking widget. You can still book your appointment directly.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-2 justify-center">
+              {retryCount < maxRetries && (
+                <button
+                  onClick={handleRetry}
+                  className="px-4 py-2 bg-primary text-black text-sm uppercase tracking-wider hover:bg-primary/90 transition-colors"
+                >
+                  Try Again ({maxRetries - retryCount} left)
+                </button>
+              )}
+              <button
+                onClick={handleFallback}
+                className="px-4 py-2 bg-secondary text-black text-sm uppercase tracking-wider hover:bg-secondary/90 transition-colors"
+              >
+                Book AFT Treatment
+              </button>
+              <a
+                href="tel:+6584158896"
+                className="px-4 py-2 bg-gold text-white text-sm uppercase tracking-wider hover:bg-gold/90 transition-colors"
+              >
+                Call to Book
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
+      
+      <div ref={containerRef} className={isLoading || hasError ? 'hidden' : 'block'} />
+    </div>
+  )
+}
+
+// Standard Mindbody Widget Component for other services
 function MindbodyWidget({ widgetId }: { widgetId: string }) {
   const containerRef = useRef<HTMLDivElement>(null)
   const [isLoading, setIsLoading] = useState(true)
@@ -226,7 +366,12 @@ export function ServiceSelection() {
             <h3 className="text-lg font-serif font-medium uppercase tracking-wider text-black mb-2">Book Your {currentCategory.name} Appointment</h3>
           </div>
           <div className="max-h-[80vh] overflow-y-auto rounded-lg border">
-            <MindbodyWidget key={widgetKey} widgetId={currentCategory.widgetId} />
+            {/* Special deployment for AFT Treatment widget */}
+            {currentCategory.id === "laser" ? (
+              <AFTTreatmentWidget key={widgetKey} widgetId={currentCategory.widgetId} />
+            ) : (
+              <MindbodyWidget key={widgetKey} widgetId={currentCategory.widgetId} />
+            )}
           </div>
         </div>
       )}
