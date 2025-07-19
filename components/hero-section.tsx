@@ -163,7 +163,7 @@ export function HeroSection() {
               href="/booking"
               className="px-6 sm:px-8 py-3 border border-white text-white hover:bg-white/10 transition-all duration-300 uppercase tracking-widest text-xs glitter-border text-center"
             >
-              Buy Now
+              Book Now
             </Link>
           </div>
         </motion.div>

@@ -102,8 +102,8 @@ export default function ServicesPage() {
               </div>
 
               <div className="mt-6 text-right">
-                <Link href="/mindbody/appointments" className="inline-flex items-center text-gold hover:underline group">
-                  <span className="group-hover:glitter-bold">Book Herbal Service</span>{" "}
+                <Link href="/booking" className="inline-flex items-center text-gold hover:underline group">
+                  <span className="group-hover:glitter-bold">Book Now</span>{" "}
                   <ChevronRight className="w-4 h-4 ml-1 group-hover:glitter-icon" />
                 </Link>
               </div>
@@ -426,8 +426,12 @@ export default function ServicesPage() {
                 potential upgrades to equipment.
               </p>
             </div>
-            <Link href="/booking" className="clean-button">
-              BUY NOW
+            <div className="text-center mt-12">
+            <Link
+              href="/booking"
+              className="inline-flex h-12 items-center justify-center rounded-full bg-gold px-8 text-sm font-medium text-black shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 glitter-border"
+            >
+              BOOK NOW
             </Link>
           </div>
         </div>

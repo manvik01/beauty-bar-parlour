@@ -13,7 +13,7 @@ const navLinks = [
   { name: "Service Menu", href: "/services" },
   { name: "Register", href: "/register" },
   { name: "Contact Us", href: "/contact" },
-  { name: "Buy Now", href: "/booking" },
+  { name: "Book Now", href: "/booking" },
 ]
 
 export function Navbar() {
@@ -86,7 +86,7 @@ export function Navbar() {
                   key={link.name}
                   href={link.href}
                   className={`text-white text-xs uppercase tracking-widest hover:text-gold transition-colors group ${
-                    link.name === "Buy Now"
+                    link.name === "Book Now"
                       ? "px-4 py-2 bg-gold text-black hover:bg-gold/90 font-medium glitter-border"
                       : ""
                   }`}
@@ -120,7 +120,7 @@ export function Navbar() {
                     key={link.name}
                     href={link.href}
                     className={`text-white text-lg uppercase tracking-wider ${
-                      link.name === "Buy Now"
+                      link.name === "Book Now"
                         ? "px-6 py-3 bg-gold text-black hover:bg-gold/90 font-medium mt-6 w-full text-center"
                         : "w-full text-center py-2"
                     }`}
