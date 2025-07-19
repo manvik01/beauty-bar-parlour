@@ -7,6 +7,7 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { OfflineDetector } from "@/components/offline-detector"
 import { useMindbodyScript } from "@/hooks/use-mindbody-script"
+import { MindbodyScriptProvider } from "@/components/MindbodyScriptProvider"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -43,7 +44,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  useMindbodyScript();
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -55,12 +55,14 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="flex flex-col min-h-screen">
-            <OfflineDetector />
-            <Navbar />
-            <main className="flex-grow">{children}</main>
-            <Footer />
-          </div>
+          <MindbodyScriptProvider>
+            <div className="flex flex-col min-h-screen">
+              <OfflineDetector />
+              <Navbar />
+              <main className="flex-grow">{children}</main>
+              <Footer />
+            </div>
+          </MindbodyScriptProvider>
         </ThemeProvider>
       </body>
     </html>
