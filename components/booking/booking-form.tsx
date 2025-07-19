@@ -174,6 +174,15 @@ export function BookingForm() {
           />
         )}
       </motion.div>
+      <div className="text-right mt-8">
+            <button
+              onClick={handleSubmit}
+              className="px-6 py-3 bg-gold text-black hover:bg-gold/90 font-medium uppercase tracking-wider disabled:bg-gray-300 glitter-border"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Submitting..." : "Make a Booking"}
+            </button>
+          </div>
     </div>
   )
 }

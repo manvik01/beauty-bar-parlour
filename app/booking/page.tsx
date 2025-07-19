@@ -7,7 +7,7 @@ export default function BookingPage() {
       <section className="py-16 bg-secondary">
         <div className="container-custom">
           <h3 className="clean-heading">Reservations</h3>
-          <h1 className="clean-subheading">Make Payment</h1>
+          <h1 className="clean-subheading">Make a Booking</h1>
         </div>
       </section>
 
