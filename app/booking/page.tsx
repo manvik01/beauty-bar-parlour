@@ -67,6 +67,12 @@ export default function BookingPage() {
                 <MindbodyWidget widgetId={selectedCategory.widgetId} />
               </motion.div>
             )}
+
+            {!activeTab && (
+                <div className="text-center mt-8">
+                    <p className="font-serif text-gray-500">Please select a service category to begin.</p>
+                </div>
+            )}
             
           </div>
         </div>
