@@ -99,24 +99,33 @@ function MindbodyWidget({ widgetId }: MindbodyWidgetProps) {
 
 export function ServiceSelection({ onNext }: ServiceSelectionProps) {
   const searchParams = useSearchParams()
+  const categoryFromUrl = searchParams.get("category")
+
   const [activeCategory, setActiveCategory] = useState(
-    searchParams.get("category") || serviceCategories[0].id
+    categoryFromUrl || serviceCategories[0].id
   )
-  const [showWidget, setShowWidget] = useState(false)
+  const [showWidget, setShowWidget] = useState(!!categoryFromUrl)
   const [widgetKey, setWidgetKey] = useState(0)
   const serviceSelectionRef = useRef<HTMLDivElement>(null)
 
+  useEffect(() => {
+    // On initial load, if a category is specified in the URL, scroll to the widget.
+    if (categoryFromUrl) {
+      setTimeout(() => {
+        const widgetArea = serviceSelectionRef.current?.querySelector('[data-widget-area]')
+        if (widgetArea) {
+          widgetArea.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      }, 200) // Delay to allow widget to start rendering
+    }
+  }, []) // Run only once on mount
+
   const handleCategoryChange = (categoryId: string) => {
     setActiveCategory(categoryId)
-    setShowWidget(false)
-    // This is the forced step: generate a new key on every category change.
-    // This ensures the next widget shown will be a completely new instance.
-    setWidgetKey(prev => prev + 1)
-  }
+    setShowWidget(true) // Show widget immediately
+    setWidgetKey(prev => prev + 1) // Force remount with a new key
 
-  const handleMakeBooking = () => {
-    setShowWidget(true)
-    // Scroll to the widget area smoothly after it appears
+    // Scroll to the widget area smoothly
     setTimeout(() => {
       const widgetArea = serviceSelectionRef.current?.querySelector('[data-widget-area]')
       if (widgetArea) {
@@ -154,21 +163,6 @@ export function ServiceSelection({ onNext }: ServiceSelectionProps) {
           ))}
         </div>
       </div>
-
-      {currentCategory && !showWidget && (
-        <div className="mb-8 p-6 bg-white border border-primary/20 text-center">
-          <h3 className="text-lg font-serif font-medium mb-2 uppercase tracking-wider text-black">
-            Selected Service
-          </h3>
-          <p className="text-primary font-medium mb-4">{currentCategory.name}</p>
-          <button
-            onClick={handleMakeBooking}
-            className="px-8 py-3 bg-gold text-black hover:bg-gold/90 font-medium uppercase tracking-widest transition-all"
-          >
-            Make a Booking
-          </button>
-        </div>
-      )}
 
       {currentCategory && showWidget && (
         <div className="mb-8" data-widget-area>
