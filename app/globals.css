@@ -601,3 +601,13 @@ img {
   @apply relative overflow-hidden;
   min-height: 44px; /* Minimum touch target size */
 }
+
+.mindbody-widget {
+  width: 100%;
+  min-height: 650px;
+  box-sizing: border-box;
+  margin-bottom: 32px;
+}
+@media (max-width: 600px) {
+  .mindbody-widget { min-height: 800px; }
+}

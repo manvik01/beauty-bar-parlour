@@ -1,26 +1,16 @@
-"use client";
+'use client';
+import { useEffect } from 'react';
 
-import { useEffect } from "react";
-
-interface MindbodyWidgetProps {
-  widgetId: string;
-  minHeight?: number;
-}
-
-export default function MindbodyWidget({ widgetId, minHeight = 650 }: MindbodyWidgetProps) {
+export default function MindbodyWidget({ widgetId, minHeight = 650 }: { widgetId: string, minHeight?: number }) {
   useEffect(() => {
-    // Re-initialize the Mindbody widget when component mounts
-    const initializeWidget = () => {
-      if (window.MB && typeof window.MB.reloadWidgets === "function") {
-        window.MB.reloadWidgets();
-      }
-    };
+    const timer = setTimeout(() => {
+        if (window.MB?.reloadWidgets) {
+            window.MB.reloadWidgets();
+        }
+    }, 100); // A small delay can help ensure the script is ready
 
-    // The Mindbody script might take a moment to load
-    const timeout = setTimeout(initializeWidget, 100);
-
-    return () => clearTimeout(timeout);
-  }, [widgetId]);
+    return () => clearTimeout(timer);
+  }, [widgetId]); // Re-run effect if widgetId changes
 
   return (
     <div
@@ -28,10 +18,10 @@ export default function MindbodyWidget({ widgetId, minHeight = 650 }: MindbodyWi
       data-widget-type="Appointments"
       data-widget-id={widgetId}
       style={{
-        width: "100%",
-        minHeight: minHeight,
-        boxSizing: "border-box",
-        marginBottom: "32px",
+        width: '100%',
+        minHeight,
+        boxSizing: 'border-box',
+        marginBottom: '32px'
       }}
     />
   );
