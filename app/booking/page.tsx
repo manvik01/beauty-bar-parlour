@@ -14,7 +14,7 @@ const serviceCategories = [
 ]
 
 export default function BookingPage() {
-  const [activeTab, setActiveTab] = useState(serviceCategories[0].id);
+  const [activeTab, setActiveTab] = useState<string | null>(null);
   
   const selectedCategory = serviceCategories.find(cat => cat.id === activeTab);
 
@@ -37,12 +37,12 @@ export default function BookingPage() {
             </h2>
             
             {/* Category Boxes */}
-            <div className="flex justify-center flex-wrap gap-3 md:gap-4 mb-8">
+            <div className="flex justify-center flex-wrap gap-4 md:gap-6 mb-8">
               {serviceCategories.map((category) => (
                   <button
                     key={category.id}
                     onClick={() => setActiveTab(category.id)}
-                    className={`group flex items-center justify-center px-6 py-4 rounded-lg text-center transition-all duration-300 ease-in-out font-serif uppercase text-xs tracking-widest focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 ${
+                    className={`group flex items-center justify-center p-4 w-40 h-20 rounded-lg text-center transition-all duration-300 ease-in-out font-serif uppercase text-xs tracking-widest focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 ${
                       activeTab === category.id
                         ? "bg-gold text-black shadow-lg scale-105"
                         : "bg-secondary text-black hover:bg-gold/20"
