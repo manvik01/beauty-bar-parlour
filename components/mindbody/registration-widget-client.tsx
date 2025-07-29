@@ -21,13 +21,7 @@ const MindbodyRegistrationWidgetClient = () => {
 
         script.onload = () => {
           if (mounted) {
-            // Give a small delay to ensure the DOM is ready for widget initialization
-            setTimeout(() => {
-              if (typeof window !== 'undefined' && (window as any).healcode) {
-                (window as any).healcode();
-              }
-              setIsLoading(false);
-            }, 500); // Increased delay to 500ms
+            setIsLoading(false); // Set loading to false once script is loaded
           }
         };
 
@@ -40,13 +34,8 @@ const MindbodyRegistrationWidgetClient = () => {
 
         document.head.appendChild(script);
       } else {
-        // Script already loaded, just initialize if healcode is available
-        setTimeout(() => {
-          if (typeof window !== 'undefined' && (window as any).healcode) {
-            (window as any).healcode();
-          }
-          setIsLoading(false);
-        }, 500); // Increased delay to 500ms
+        // Script already loaded, just set loading to false
+        setIsLoading(false);
       }
     };
 
@@ -56,6 +45,17 @@ const MindbodyRegistrationWidgetClient = () => {
       mounted = false;
     };
   }, []);
+
+  // New useEffect to call healcode() after the widget is rendered
+  useEffect(() => {
+    if (!isLoading && !hasError && typeof window !== 'undefined' && (window as any).healcode) {
+      const timer = setTimeout(() => {
+        (window as any).healcode();
+      }, 50); // Small delay to ensure DOM is ready
+
+      return () => clearTimeout(timer);
+    }
+  }, [isLoading, hasError]);
 
   return (
     <div className="bg-white border border-primary/10 shadow-sm rounded-lg overflow-hidden">
