@@ -127,12 +127,12 @@ export default function ServicesPage() {
                   <span className="text-primary font-medium">$80</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Hot Oil Massage (Seated) – 60 mins</span>
-                  <span className="text-primary font-medium">$75</span>
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Signature Hot Oil Head Spa – 60 mins</span>
+                  <span className="text-primary font-medium">$85</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Hot Oil Massage (Spa) – 90 mins</span>
-                  <span className="text-primary font-medium">$95</span>
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Signature Hot Oil Head Spa – 90 mins</span>
+                  <span className="text-primary font-medium">$120</span>
                 </div>
               </div>
             </div>
