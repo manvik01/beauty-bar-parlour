@@ -22,15 +22,9 @@ export function ContactSection() {
               <div className="flex items-start">
                 <Clock className="w-6 h-6 mr-4 text-primary flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="font-light text-lg mb-1 uppercase tracking-wider">Opening Soon</h3>
-                  <p className="font-light">July 27, 2025</p>
-                  <div className="mt-1 font-light flex">
-                      <p className="w-32">Operating Hours:</p>
-                      <div>
-                        <p>10:00 AM - 8:00 PM, Mon-Sat</p>
-                        <p>10:00 AM - 6:00 PM, Sun</p>
-                      </div>
-                    </div>
+                  <h3 className="font-light text-lg mb-1 uppercase tracking-wider">Operating Hours:</h3>
+                  <p className="font-light">10:00 AM - 8:00 PM, Mon-Sat</p>
+                  <p className="font-light">10:00 AM - 6:00 PM, Sun</p>
                 </div>
               </div>
 

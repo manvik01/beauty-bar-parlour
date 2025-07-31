@@ -12,16 +12,7 @@ export function Footer() {
   return (
     <footer className="bg-white py-12 text-black border-t border-gold/20">
       <div className="container-custom">
-        {/* Opening Soon Section */}
-        <div className="mb-12 py-8 border-b border-primary/20">
-          <div className="max-w-xl mx-auto">
-            <h3 className="text-center text-2xl font-serif mb-6 uppercase tracking-widest text-black">
-              Opening Soon
-            </h3>
-            <CountdownTimer targetDate={openingDate} />
-          </div>
-        </div>
-
+        
         <div className="flex flex-col items-center text-center">
           <Image
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Transparent%20Logo-UGwsiSqHFvdgpAJe0uPY3bKNkKzNVw.png"
