@@ -152,20 +152,17 @@ export default function ServicesPage() {
                   ["Soak Off Gel Feet – 15 mins", "$10"],
                   ["Express Manicure – 20 mins", "$12"],
                   ["Express Pedicure – 20 mins", "$18"],
-                  ["Classic Manicure – 40 mins", "$25"],
-                  ["Classic Manicure (Male) - 40 mins", "$25"],
-                  ["Classic Pedicure – 40 mins", "$35"],
-                  ["Classic Pedicure (Male) - 40 mins", "$55"],
-                  ["Gel Express Manicure – 30 mins", "$28"],
-                  ["Gel Express Pedicure – 30 mins", "$38"],
+                  ["Classic Manicure – 40 mins", "$28"],
+                  ["Classic Pedicure – 40 mins", "$38"],
+                  ["Gel Express Manicure – 30 mins", "$32"],
+                  ["Gel Express Pedicure – 30 mins", "$35"],
                   ["Classic Gel Manicure – 40 mins", "$48"],
                   ["Classic Gel Pedicure – 40 mins", "$58"],
                   ["Nail Extension (Full Set) – 60 mins", "$99"],
-                  ["Parafin Wax SPA Hand – 30 mins", "$25"],
-                  ["Parafin Wax SPA Feet – 30 mins", "$45"],
-                  ["Milk Foot Spa – 45 mins", "$55"],
-                  ["Milk & Wine Foot Spa – 45 mins", "$65"],
-                  ["Signature Foot Spa – 45 mins", "$75"]
+                  ["Paraffin Wax (hand & feet) - 30 mins", "$55"],
+                  ["Hand Spa - 30 mins", "$30"],
+                  ["Signature Foot Spa – 45 mins", "$85"],
+                  ["Milk, Wine & Honey Spa - 45 mins", "$65"]
                 ].map(([label, price]) => (
                   <div
                     key={label}
@@ -175,6 +172,9 @@ export default function ServicesPage() {
                     <span className="text-primary font-medium">{price}</span>
                   </div>
                 ))}
+                <p className="text-sm text-gray-600 pt-4 text-center">
+                  <strong>Disclaimer:</strong> Spa services do not include nail colour. Top up $8 for normal color & $20 for gel.
+                </p>
               </div>
             </div>
           </div>
