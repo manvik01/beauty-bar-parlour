@@ -115,23 +115,23 @@ export default function ServicesPage() {
                   <span className="text-primary font-medium">$88</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Hair Pack (Short Hair) – 90 mins</span>
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Herbal Protein Hair Pack (Short Hair) – 90 mins</span>
                   <span className="text-primary font-medium">$60</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Hair Pack (Medium Hair) – 90 mins</span>
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Herbal Protein Hair Pack (Medium Hair) – 90 mins</span>
                   <span className="text-primary font-medium">$70</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Hair Pack (Long Hair) – 90 mins</span>
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Herbal Protein Hair Pack (Long Hair) – 90 mins</span>
                   <span className="text-primary font-medium">$80</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Signature Hot Oil Head Spa – 60 mins</span>
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Signature IYURA Hot Oil Head Spa – 60 mins</span>
                   <span className="text-primary font-medium">$85</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Signature Hot Oil Head Spa – 90 mins</span>
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Signature IYURA Hot Oil Head Spa – 90 mins</span>
                   <span className="text-primary font-medium">$120</span>
                 </div>
               </div>
@@ -160,7 +160,7 @@ export default function ServicesPage() {
                   ["Classic Gel Pedicure – 40 mins", "$58"],
                   ["Nail Extension (Full Set) – 60 mins", "$99"],
                   ["Paraffin Wax (hand & feet) - 30 mins", "$55"],
-                  ["Hand Spa - 30 mins", "$30"],
+                  ["Hand Spa - 30 mins", "$38"],
                   ["Signature Foot Spa – 45 mins", "$85"],
                   ["Milk, Wine & Honey Spa - 45 mins", "$65"]
                 ].map(([label, price]) => (
@@ -234,7 +234,8 @@ export default function ServicesPage() {
                   ["Full Legs – 30 mins", "$60"],
                   ["Underarms – 15 mins", "$25"],
                   ["Bikini Line – 20 mins", "$38"],
-                  ["Brazilian – 45 mins", "$65"]
+                  ["Brazilian – 45 mins", "$65"],
+                  ["Cheeks – 15 mins", "$18"]
                 ].map(([label, price]) => (
                   <div
                     key={label}
@@ -262,7 +263,8 @@ export default function ServicesPage() {
                   ["Upper Lip – 15 mins", "$10"],
                   ["Chin – 15 mins", "$10"],
                   ["Forehead – 15 mins", "$15"],
-                  ["Full Face – 30 mins", "$40"]
+                  ["Full Face – 30 mins", "$40"],
+                  ["Cheeks – 15 mins", "$15"]
                 ].map(([label, price]) => (
                   <div
                     key={label}
