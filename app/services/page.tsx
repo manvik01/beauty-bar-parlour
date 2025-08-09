@@ -155,7 +155,7 @@ export default function ServicesPage() {
                   ["Classic Manicure – 40 mins", "$28"],
                   ["Classic Pedicure – 40 mins", "$38"],
                   ["Gel Express Manicure – 30 mins", "$32"],
-                  ["Gel Express Pedicure – 30 mins", "$35"],
+                  ["Gel Express Pedicure – 30 mins", "$38"],
                   ["Classic Gel Manicure – 40 mins", "$48"],
                   ["Classic Gel Pedicure – 40 mins", "$58"],
                   ["Nail Extension (Full Set) – 60 mins", "$99"],
