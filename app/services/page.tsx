@@ -111,20 +111,12 @@ export default function ServicesPage() {
 
               <div className="space-y-4">
                 <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Root Touch Up – 90 mins</span>
-                  <span className="text-primary font-medium">$88</span>
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Root Touch Up – 90 mins (based on hair length)</span>
+                  <span className="text-primary font-medium">$88-$180</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Herbal Protein Hair Pack (Short Hair) – 90 mins</span>
-                  <span className="text-primary font-medium">$60</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Herbal Protein Hair Pack (Medium Hair) – 90 mins</span>
-                  <span className="text-primary font-medium">$70</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
-                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Herbal Protein Hair Pack (Long Hair) – 90 mins</span>
-                  <span className="text-primary font-medium">$80</span>
+                  <span className="font-serif text-black group-hover:glitter-bold transition-all">Herbal Protein Hair Pack – 90 mins (based on hair length)</span>
+                  <span className="text-primary font-medium">$80-$150</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group">
                   <span className="font-serif text-black group-hover:glitter-bold transition-all">Signature IYURA Hot Oil Head Spa – 60 mins</span>
@@ -196,7 +188,7 @@ export default function ServicesPage() {
                   ["WOB - Vitamin C Brightening – 45 mins", "$139"],
                   ["WOB – Akoia Gold – 60 mins", "$183"],
                   ["WOB - Hydra Calm – 90 mins", "$230"],
-                  ["WOB - Collagen Hlayu – 90 mins", "$252"],
+                  ["WOB - Collagen Hlayu – 120 mins", "$280"],
                   ["TAE - Ayurvedic Oily Skin Treatment – 60 mins", "$160"],
                   ["TAE - Ayurvedic Skin Tightening Treatment – 60 mins", "$180"],
                   ["TAE - Ayurvedic Hydrating Treatment – 90 mins", "$190"],
