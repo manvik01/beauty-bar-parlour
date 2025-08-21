@@ -3,12 +3,7 @@ import { AboutSection } from "@/components/about-section"
 import { ServicesSection } from "@/components/services-section"
 import { ContactSection } from "@/components/contact-section"
 import ReviewBanner from "@/components/review-banner" // Direct import of client component
-import dynamic from "next/dynamic"
-
-const PopupReviewWidget = dynamic(
-  () => import("@/components/popup-review-widget"),
-  { ssr: false }
-)
+import PopupReviewWidgetWrapper from "@/components/popup-review-widget-wrapper"
 
 export default function Home() {
   return (
@@ -18,7 +13,7 @@ export default function Home() {
       <ServicesSection />
       <ReviewBanner />
       <ContactSection />
-      <PopupReviewWidget />
+      <PopupReviewWidgetWrapper />
     </main>
   )
 }
