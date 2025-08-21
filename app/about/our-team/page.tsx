@@ -8,7 +8,7 @@ const teamMembers = [
     name: "Priya",
     role: "Full-time Beautician",
     image: "/images/priya.png", // Corrected image path
-    description: "Priya is our full-time Beautician from Chennai, India, bringing over 10 years of experience in the beauty and wellness industry. She is especially loved for her signature facials and hot oil spa treatments, with many loyal clients returning to her regularly. Priya is known for her exceptional dedication, often going above and beyond to ensure her clients leave fully satisfied. Her work has earned her outstanding reviews and deep client trust.",
+    description: "Priya is our full-time Beautician from India, bringing over 13 years of experience in the beauty and wellness industry. She is especially loved for her signature facials and hot oil spa treatments, with many loyal clients returning to her regularly. Priya is known for her exceptional dedication, often going above and beyond to ensure her clients leave fully satisfied. Her work has earned her outstanding reviews and deep client trust.",
     availability: "Monday, Tuesday, Thursday to Sunday (Off on Wednesdays)",
   },
   {
