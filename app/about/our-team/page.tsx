@@ -46,11 +46,11 @@ export default function OurTeamPage() {
       </section>
 
       {/* Team Members Section */}
-      <section className="clean-section">
+      <section className="clean-section py-8 sm:py-12 md:py-16">
         <div className="container-custom">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
             {teamMembers.map((member, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-sm border border-gold/20 flex flex-col items-center text-center">
+              <div key={index} className="bg-white p-4 sm:p-6 rounded-lg shadow-sm border border-gold/20 flex flex-col items-center text-center">
                 <div className="relative w-40 h-40 rounded-full overflow-hidden mb-4 border-2 border-primary">
                   <Image
                     src={member.image}
