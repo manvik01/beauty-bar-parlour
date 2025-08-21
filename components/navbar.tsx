@@ -23,6 +23,7 @@ const navLinks = [
   },
   { name: "Gallery", href: "/gallery", hidden: true },
   { name: "Service Menu", href: "/services" },
+  { name: "Testimonials", href: "/testimonials" },
   { name: "Register", href: "/register" },
   { name: "Book Now", href: "/booking" },
 ]
