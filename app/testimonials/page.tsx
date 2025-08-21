@@ -19,6 +19,7 @@ export default function TestimonialsPage() {
           <div 
             data-bid="157659" 
             data-url="https://app.revu.cloud"
+            data-aid="23780"
             className="min-h-[500px] w-full flex items-center justify-center"
           >
             {/* Reviewability widget will load here from the globally included script */}
