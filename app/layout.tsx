@@ -62,8 +62,8 @@ export default function RootLayout({
             <main className="flex-grow">{children}</main>
             <Footer />
             {/* Reviewability widget script - loaded once globally */}
-            <script src="https://widget.reviewability.com/js/widgetAdv.min.js" async></script>
-            <script type="application/ld+json" class="json-ld-content"></script>
+            {/* <script src="https://widget.reviewability.com/js/widgetAdv.min.js" async></script> */}
+            <script type="application/ld+json" className="json-ld-content"></script>
           </div>
         </ThemeProvider>
       </body>
