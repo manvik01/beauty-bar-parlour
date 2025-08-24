@@ -28,9 +28,5 @@ export default function PopupReviewWidget() {
     }
   }, []) // Empty dependency array means this effect runs once on mount and cleanup on unmount
 
-  return (
-    <div id="popup-rating-widget" className="fixed bottom-4 right-4 z-50">
-      {/* The widget content will be injected into this div by the external script */}
-    </div>
-  )
+  return <div id="popup-rating-widget" className="fixed bottom-4 right-4 z-50" />
 }
