@@ -182,17 +182,13 @@ export default function ServicesPage() {
               <div className="space-y-4">
                 {[
                   ["Advanced Clinicals Basic – 45 mins", "$69"],
-                  ["Advanced Clinicals Basic – 60 mins", "$79"],
-                  ["Advanced Clinicals Advanced – 45 mins", "$89"],
-                  ["Advanced Clinicals Advanced – 60 mins", "$99"],
-                  ["WOB - Vitamin C Brightening – 45 mins", "$139"],
-                  ["WOB – Akoia Gold – 60 mins", "$183"],
-                  ["WOB - Hydra Calm – 90 mins", "$230"],
-                  ["WOB - Collagen Hlayu – 120 mins", "$280"],
-                  ["TAE - Ayurvedic Oily Skin Treatment – 60 mins", "$160"],
-                  ["TAE - Ayurvedic Skin Tightening Treatment – 60 mins", "$180"],
-                  ["TAE - Ayurvedic Hydrating Treatment – 90 mins", "$190"],
-                  ["TAE - Ayurvedic Anti Aging – 90 mins", "$210"]
+                  ["Vitamin C Brightening – 45 mins", "$139"],
+                  ["Akoia Gold 24K - 60 mins", "$189"],
+                  ["Hydra Calm – 90 mins", "$229"],
+                  ["Collagen Hlayu – 120 mins", "$279"],
+                  ["Ayurvedic Facial 60 mins", "$179"],
+                  ["Ayurvedic Facial 90 mins", "$209"],
+                  ["Carboxy Lift Facial 60 mins", "$259"]
                 ].map(([label, price]) => (
                   <div
                     key={label}
