@@ -186,9 +186,9 @@ export default function ServicesPage() {
                   ["Akoia Gold 24K - 60 mins", "$189"],
                   ["Hydra Calm – 90 mins", "$229"],
                   ["Collagen Hlayu – 120 mins", "$279"],
-                  ["Carboxy Lift 60 mins", "$259"],
-                  ["Ayurvedic Facial 60 mins", "$179"],
-                  ["Ayurvedic Facial 90 mins", "$209"]
+                  ["Carboxy Lift - 60 mins", "$259"],
+                  ["Ayurvedic Facial - 60 mins", "$179"],
+                  ["Ayurvedic Facial - 90 mins", "$209"]
                 ].map(([label, price]) => (
                   <div
                     key={label}
