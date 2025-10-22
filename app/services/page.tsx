@@ -142,7 +142,7 @@ export default function ServicesPage() {
                 {[
                   ["Soak Off Gel Hand – 15 mins", "$10"],
                   ["Soak Off Gel Feet – 15 mins", "$10"],
-                  ["Express Manicure – 20 mins", "$12"],
+                  ["Express Manicure – 20 mins", "$18"],
                   ["Express Pedicure – 20 mins", "$18"],
                   ["Classic Manicure – 40 mins", "$28"],
                   ["Classic Pedicure – 40 mins", "$38"],
