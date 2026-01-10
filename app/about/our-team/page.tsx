@@ -28,7 +28,7 @@ const teamMembers = [
   {
     name: "Pinky",
     role: "Full-time Beautician",
-    image: "/images/pinky.png?v=2",
+    image: "/images/pinky.png?v=3",
     description:
       "Pinky is our full-time beautician with over 14 years of dedicated experience in the beauty industry, including the past 6 years serving clients in Singapore. Renowned for her meticulous attention to detail and warm, friendly personality, she is highly skilled in both classic and on-trend beauty techniques. With passion and precision, Pinky is committed to enhancing each client’s natural beauty and delivering consistently exceptional results.",
     availability: "By appointment",
