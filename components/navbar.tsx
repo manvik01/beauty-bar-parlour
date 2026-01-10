@@ -96,7 +96,7 @@ export function Navbar() {
                 link.subLinks ? (
                   <DropdownMenu key={link.name}>
                     <DropdownMenuTrigger
-                      className={`text-white text-xs uppercase tracking-widest hover:text-gold transition-colors group focus:outline-none`}
+                      className={`nav-pill nav-pill-ghost group focus:outline-none`}
                     >
                       <span className="group-hover:glitter-bold">
                         {link.name}
@@ -116,10 +116,8 @@ export function Navbar() {
                   <Link
                     key={link.name}
                     href={link.href}
-                    className={`text-white text-xs uppercase tracking-widest hover:text-gold transition-colors group ${
-                      link.name === "Book Now"
-                        ? "px-4 py-2 bg-gold text-black hover:bg-gold/90 font-medium glitter-border"
-                        : ""
+                    className={`group ${
+                      link.name === "Book Now" ? "nav-pill nav-cta" : "nav-pill nav-pill-ghost"
                     }`}
                   >
                     <span className="group-hover:glitter-bold">
@@ -156,7 +154,7 @@ export function Navbar() {
                     <div key={link.name} className="w-full text-center">
                       <Link
                         href={link.href}
-                        className="text-white text-lg uppercase tracking-wider rounded-lg focus:outline-none focus:ring-2 focus:ring-gold transition-all duration-150 w-full text-center py-4 px-2 block"
+                        className="nav-pill nav-pill-ghost w-full justify-center text-base focus:outline-none focus:ring-2 focus:ring-gold block"
                         onClick={() => setIsOpen(false)}
                       >
                         {link.name}
@@ -166,7 +164,7 @@ export function Navbar() {
                           <Link
                             key={subLink.name}
                             href={subLink.href}
-                            className="text-white/80 text-base uppercase tracking-wider focus:outline-none focus:ring-2 focus:ring-gold transition-all duration-150 w-full text-center py-2 px-2 block"
+                            className="nav-pill nav-pill-ghost w-full justify-center text-base focus:outline-none focus:ring-2 focus:ring-gold block"
                             onClick={() => setIsOpen(false)}
                           >
                             {subLink.name}
@@ -178,10 +176,8 @@ export function Navbar() {
                     <Link
                       key={link.name}
                       href={link.href}
-                      className={`text-white text-lg uppercase tracking-wider rounded-lg focus:outline-none focus:ring-2 focus:ring-gold transition-all duration-150 ${
-                        link.name === "Book Now"
-                          ? "px-8 py-4 bg-gold text-black hover:bg-gold/90 font-medium mt-6 w-full text-center"
-                          : "w-full text-center py-4 px-2"
+                      className={`${
+                        link.name === "Book Now" ? "nav-pill nav-cta w-full justify-center mt-6" : "nav-pill nav-pill-ghost w-full justify-center"
                       }`}
                       style={{ minHeight: 56 }}
                       onClick={() => setIsOpen(false)}
