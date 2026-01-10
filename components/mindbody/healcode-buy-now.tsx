@@ -1,21 +1,32 @@
 "use client"
 
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 export function HealcodeBuyNow() {
+  const [mounted, setMounted] = useState(false)
+
   useEffect(() => {
-    const scriptId = "mindbody-healcode-script"
-    if (document.getElementById(scriptId)) return
-    const script = document.createElement("script")
-    script.id = scriptId
-    script.src = "https://widgets.mindbodyonline.com/javascripts/healcode.js"
-    script.async = true
-    script.type = "text/javascript"
-    document.body.appendChild(script)
+    setMounted(true)
+    try {
+      const scriptId = "mindbody-healcode-script"
+      if (document.getElementById(scriptId)) return
+      const script = document.createElement("script")
+      script.id = scriptId
+      script.src = "https://widgets.mindbodyonline.com/javascripts/healcode.js"
+      script.async = true
+      script.type = "text/javascript"
+      document.body.appendChild(script)
+    } catch {
+      // no-op: avoid crashing client if DOM is unavailable
+    }
   }, [])
 
+  if (!mounted) {
+    return null
+  }
+
+  // The widget will replace this custom element with a styled anchor.
   return (
-    // The widget will replace this custom element with a styled anchor.
     <healcode-widget
       data-version="0.2"
       data-link-class="healcode-pricing-option-text-link"
