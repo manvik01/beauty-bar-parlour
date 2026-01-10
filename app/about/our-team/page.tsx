@@ -32,6 +32,14 @@ const teamMembers = [
     description: "Our part-time Nail Technician from Vietnam, now based in Singapore for 14 years. With over 10 years of experience, she’s skilled in manicures, pedicures, nail art, extensions, foot spa, and nail care treatments. Nana’s bubbly, friendly personality makes every visit a joy.",
     availability: "Saturdays & Sundays",
   },
+  {
+    name: "Pinky",
+    role: "Full-time Beautician",
+    image: "/images/pinky.png",
+    description:
+      "Pinky is our full-time beautician with over 14 years of dedicated experience in the beauty industry, including the past 6 years serving clients in Singapore. Renowned for her meticulous attention to detail and warm, friendly personality, she is highly skilled in both classic and on-trend beauty techniques. With passion and precision, Pinky is committed to enhancing each client’s natural beauty and delivering consistently exceptional results.",
+    availability: "By appointment",
+  },
 ]
 
 export default function OurTeamPage() {
