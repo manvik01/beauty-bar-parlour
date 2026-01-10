@@ -5,6 +5,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import { useIsMobile } from "@/hooks/use-mobile"
+import { HealcodeBuyNow } from "@/components/mindbody/healcode-buy-now"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -127,6 +128,10 @@ export function Navbar() {
                   </Link>
                 )
               ))}
+            {/* Buy Now (Mindbody Healcode widget) */}
+            <div className="hidden md:block">
+              <HealcodeBuyNow />
+            </div>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -185,6 +190,10 @@ export function Navbar() {
                     </Link>
                   )
                 ))}
+                  {/* Mobile Buy Now */}
+                  <div className="w-full text-center">
+                    <HealcodeBuyNow />
+                  </div>
             </nav>
           </div>
         )}
