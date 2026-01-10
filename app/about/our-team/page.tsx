@@ -5,13 +5,6 @@ import Image from "next/image"
 
 const teamMembers = [
   {
-    name: "Priya",
-    role: "Full-time Beautician",
-    image: "/images/priya.png", // Corrected image path
-    description: "Priya is our full-time Beautician from India, bringing over 13 years of experience in the beauty and wellness industry. She is especially loved for her signature facials and hot oil spa treatments, with many loyal clients returning to her regularly. Priya is known for her exceptional dedication, often going above and beyond to ensure her clients leave fully satisfied. Her work has earned her outstanding reviews and deep client trust.",
-    availability: "Monday, Tuesday, Thursday to Sunday (Off on Wednesdays)",
-  },
-  {
     name: "Komal",
     role: "Full-time Beautician",
     image: "/images/komal.png", // Corrected image path
@@ -20,7 +13,7 @@ const teamMembers = [
   },
   {
     name: "Jasmine",
-    role: "Full-time Nail Technician",
+    role: "Salon Manager",
     image: "/images/jasmine.png", // Corrected image path
     description: "Our full-time Nail Technician from Vietnam, Jasmine has been living in Singapore for over 10 years. With more than a decade of experience, she brings a meticulous eye for detail, a soft approach, and a loving personality to every session. Jasmine can do it all — from classic to creative — to make your nails look their absolute best.",
     availability: "Monday to Saturday (Off on Sundays)",
