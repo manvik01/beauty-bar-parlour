@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { OfflineDetector } from "@/components/offline-detector"
+import { WhatsAppFloat } from "@/components/whatsapp-float"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -64,6 +65,7 @@ export default function RootLayout({
             {/* Reviewability widget script - loaded once globally */}
             {/* <script src="https://widget.reviewability.com/js/widgetAdv.min.js" async></script> */}
             <script type="application/ld+json" className="json-ld-content"></script>
+            <WhatsAppFloat />
           </div>
         </ThemeProvider>
       </body>
