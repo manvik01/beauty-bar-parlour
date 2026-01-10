@@ -28,5 +28,5 @@ export default function PopupReviewWidget() {
     }
   }, []) // Empty dependency array means this effect runs once on mount and cleanup on unmount
 
-  return <div id="popup-rating-widget" className="fixed bottom-4 right-4 z-50" />
+  return <div id="popup-rating-widget" className="fixed bottom-4 right-4 z-30" />
 }

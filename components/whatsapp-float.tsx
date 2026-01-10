@@ -11,7 +11,7 @@ export function WhatsAppFloat() {
   }, [])
 
   return (
-    <div className="fixed z-40 bottom-5 right-5 md:bottom-6 md:right-6">
+    <div className="fixed z-[9999] bottom-5 right-5 md:bottom-6 md:right-6">
       <a
         href={href}
         target="_blank"
