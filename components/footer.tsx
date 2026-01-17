@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { Instagram, Facebook, Twitter } from "lucide-react"
+import { Instagram, Facebook, Music } from "lucide-react"
 import { CountdownTimer } from "./countdown-timer"
 
 export function Footer() {
@@ -65,11 +65,11 @@ export function Footer() {
               <span className="sr-only">Facebook</span>
             </Link>
             <Link
-              href="#"
+              href="https://www.tiktok.com/@beautybarparlourpteltd"
               className="text-black hover:text-primary transition-colors"
             >
-              <Twitter size={20} />
-              <span className="sr-only">Twitter</span>
+              <Music size={20} />
+              <span className="sr-only">TikTok</span>
             </Link>
           </div>
 
