@@ -18,6 +18,7 @@ interface ProspectsWidgetProps {
 export function ProspectsWidget({ widgetId = "0e58934e78e" }: ProspectsWidgetProps) {
   const router = useRouter()
   const widgetRef = useRef<HTMLDivElement | null>(null)
+  const submittedRef = useRef(false)
   /* HealCode registers a function named healcode() on window when the
      script finishes loading.  Calling it re-initialises all widgets that
      are already in the DOM – exactly what we need after a client-side
@@ -47,10 +48,33 @@ export function ProspectsWidget({ widgetId = "0e58934e78e" }: ProspectsWidgetPro
       return text.includes("thank you") && (text.includes("contact") || text.includes("message"))
     }
 
+    const markSubmitted = (event: Event) => {
+      const target = event.target as HTMLElement | null
+      if (!target) return
+
+      // Capture common submit interactions inside the widget
+      const isSubmitButton =
+        target.closest('button[type="submit"]') ||
+        target.closest('input[type="submit"]') ||
+        target.closest("[data-submit]")
+
+      if (isSubmitButton) {
+        submittedRef.current = true
+      }
+    }
+
+    const onFormSubmit = () => {
+      submittedRef.current = true
+    }
+
+    root.addEventListener("click", markSubmitted, true)
+    root.addEventListener("submit", onFormSubmit, true)
+
     const observer = new MutationObserver(() => {
       if (redirected) return
-      if (isSuccessMessage()) {
+      if (submittedRef.current && isSuccessMessage()) {
         redirected = true
+        submittedRef.current = false
         router.push("/thank-you-contact")
       }
     })
@@ -61,7 +85,11 @@ export function ProspectsWidget({ widgetId = "0e58934e78e" }: ProspectsWidgetPro
       characterData: true,
     })
 
-    return () => observer.disconnect()
+    return () => {
+      root.removeEventListener("click", markSubmitted, true)
+      root.removeEventListener("submit", onFormSubmit, true)
+      observer.disconnect()
+    }
   }, [router])
 
   return (
