@@ -32,7 +32,23 @@ export function ContactSection() {
                 <Phone className="w-6 h-6 mr-4 text-primary flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="font-light text-lg mb-1 uppercase tracking-wider">Phone</h3>
-                  <p className="font-light">+65 84158896</p>
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                    <a
+                      href="tel:+6584158896"
+                      className="font-light hover:text-primary transition-colors"
+                    >
+                      +65 84158896
+                    </a>
+                    <span className="text-gray-400">|</span>
+                    <a
+                      href="https://wa.me/6584158896"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-light hover:text-primary transition-colors"
+                    >
+                      WhatsApp
+                    </a>
+                  </div>
                 </div>
               </div>
 
