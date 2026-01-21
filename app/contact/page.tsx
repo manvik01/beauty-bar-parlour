@@ -41,7 +41,7 @@ export default function ContactPage() {
                     <div className="mt-1 flex">
                       <p className="w-32">Operating Hours:</p>
                       <div>
-                        <p>10:00 AM - 8:00 PM, Mon-Sat</p>
+                        <p>10:00 AM - 7:00 PM, Mon-Sat</p>
                         <p>10:00 AM - 6:00 PM, Sun</p>
                       </div>
                     </div>
@@ -52,7 +52,20 @@ export default function ContactPage() {
                   <Phone className="w-6 h-6 mr-4 text-primary flex-shrink-0 mt-1" />
                   <div>
                     <h3 className="font-serif text-lg mb-1">Phone</h3>
-                    <p>+65 84158896</p>
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                      <a href="tel:+6584158896" className="hover:text-primary transition-colors">
+                        +65 84158896
+                      </a>
+                      <span className="text-gray-400">|</span>
+                      <a
+                        href="https://wa.me/6584158896"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-primary transition-colors"
+                      >
+                        WhatsApp
+                      </a>
+                    </div>
                   </div>
                 </div>
 
@@ -60,7 +73,12 @@ export default function ContactPage() {
                   <Mail className="w-6 h-6 mr-4 text-primary flex-shrink-0 mt-1" />
                   <div>
                     <h3 className="font-serif text-lg mb-1">Email</h3>
-                    <p>enquiry@beautybarparlour.com</p>
+                    <a
+                      href="mailto:enquiry@beautybarparlour.com"
+                      className="hover:text-primary transition-colors"
+                    >
+                      enquiry@beautybarparlour.com
+                    </a>
                   </div>
                 </div>
               </div>
