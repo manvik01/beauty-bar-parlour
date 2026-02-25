@@ -185,6 +185,7 @@ export default function ServicesPage() {
                   ["Vitamin C Brightening – 45 mins", "$139"],
                   ["Akoia Gold 24K - 60 mins", "$189"],
                   ["Hydra Calm – 90 mins", "$229"],
+                  ["Meridian Bojin Facial – 90 mins", "$239"],
                   ["Collagen Hlayu – 120 mins", "$279"],
                   ["Carboxy Lift - 60 mins", "$259"],
                   ["Ayurvedic Facial - 60 mins", "$179"],
