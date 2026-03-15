@@ -293,8 +293,19 @@ export default function ServicesPage() {
                   ["Neck", "$12"],
                   ["Full Face – 30 mins", "$40"],
                   ["Full Face (With Eyebrows)", "$48"],
-                  ["Eyebrows + Upper Lip", "$20"],
-                  ["Eyebrows + Upper Lip + Chin", "$28"]
+                ].map(([label, price]) => (
+                  <div
+                    key={label}
+                    className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group"
+                  >
+                    <span className="font-serif text-black group-hover:glitter-bold transition-all">{label}</span>
+                    <span className="text-primary font-medium">{price}</span>
+                  </div>
+                ))}
+                <h3 className="text-sm uppercase tracking-widest text-black text-center pt-6">Offer Combo</h3>
+                {[
+                  ["Eyebrows + Upper Lips", "$20"],
+                  ["Eyebrows + Upper Lips + Chin", "$28"]
                 ].map(([label, price]) => (
                   <div
                     key={label}
