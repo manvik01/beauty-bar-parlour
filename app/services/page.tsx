@@ -183,10 +183,11 @@ export default function ServicesPage() {
                 {[
                   ["Advanced Clinicals Basic – 45 mins", "$69"],
                   ["Vitamin C Brightening – 45 mins", "$139"],
-                  ["Akoia Gold 24K - 60 mins", "$189"],
-                  ["Hydra Calm – 90 mins", "$229"],
-                  ["Meridian Bojin Facial – 90 mins", "$239"],
-                  ["Collagen Hlayu – 120 mins", "$279"],
+                  ["Akoia Gold 24K - 60 mins", "$169"],
+                  ["Hydra Calm – 90 mins", "$198"],
+                  ["Meridian Bojin Facial – 90 mins", "$189"],
+                  ["Detox Facial – 60 mins", "$139"],
+                  ["Collagen Hlayu – 120 mins", "$259"],
                   ["Carboxy Lift - 60 mins", "$259"],
                   ["Ayurvedic Facial - 60 mins", "$179"],
                   ["Ayurvedic Facial - 90 mins", "$209"]
@@ -212,19 +213,53 @@ export default function ServicesPage() {
               <div className="w-16 h-1 bg-gold mx-auto mb-8"></div>
 
               <div className="space-y-4">
+                <h3 className="text-sm uppercase tracking-widest text-black text-center">Face Waxing</h3>
                 {[
                   ["Side Burn – 15 mins", "$15"],
                   ["Upper Lip / Chin – 15 mins", "$15"],
                   ["Eyebrow Wax – 15 mins", "$15"],
+                  ["Neck – 15 mins", "$15"],
+                  ["Cheeks – 15 mins", "$18"],
+                  ["Upper Lip + Chin", "$25"],
                   ["Full Face Wax – 30 mins", "$50"],
+                  ["Full Face (With Eyebrows)", "$58"]
+                ].map(([label, price]) => (
+                  <div
+                    key={label}
+                    className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group"
+                  >
+                    <span className="font-serif text-black group-hover:glitter-bold transition-all">{label}</span>
+                    <span className="text-primary font-medium">{price}</span>
+                  </div>
+                ))}
+                <h3 className="text-sm uppercase tracking-widest text-black text-center pt-6">Body Waxing</h3>
+                {[
                   ["Half Arms – 30 mins", "$25"],
-                  ["Half Legs – 30 mins", "$30"],
                   ["Full Arms – 30 mins", "$40"],
+                  ["Half Legs – 30 mins", "$30"],
                   ["Full Legs – 30 mins", "$60"],
                   ["Underarms – 15 mins", "$25"],
                   ["Bikini Line – 20 mins", "$38"],
                   ["Brazilian – 45 mins", "$65"],
-                  ["Cheeks – 15 mins", "$18"]
+                  ["Buttocks", "$35"],
+                  ["Stomach", "$40"],
+                  ["Half Back", "$30"],
+                  ["Full Back", "$50"],
+                  ["Chest", "$30"]
+                ].map(([label, price]) => (
+                  <div
+                    key={label}
+                    className="flex justify-between items-center py-3 border-b border-gray-100 hover:bg-gray-50 px-2 group"
+                  >
+                    <span className="font-serif text-black group-hover:glitter-bold transition-all">{label}</span>
+                    <span className="text-primary font-medium">{price}</span>
+                  </div>
+                ))}
+                <h3 className="text-sm uppercase tracking-widest text-black text-center pt-6">Offer Combo</h3>
+                {[
+                  ["Full Arms + Underarm", "$55"],
+                  ["Full Legs + Bikini Line", "$80"],
+                  ["Full Back + Chest + Stomach", "$100"]
                 ].map(([label, price]) => (
                   <div
                     key={label}
@@ -249,11 +284,17 @@ export default function ServicesPage() {
               <div className="space-y-4">
                 {[
                   ["Eyebrows – 15 mins", "$12"],
+                  ["Eyebrows Men", "$15"],
                   ["Upper Lip – 15 mins", "$10"],
                   ["Chin – 15 mins", "$10"],
-                  ["Forehead – 15 mins", "$15"],
+                  ["Forehead – 15 mins", "$10"],
+                  ["Cheeks – 15 mins", "$10"],
+                  ["Sideburn – 15 mins", "$10"],
+                  ["Neck", "$12"],
                   ["Full Face – 30 mins", "$40"],
-                  ["Cheeks – 15 mins", "$15"]
+                  ["Full Face (With Eyebrows)", "$48"],
+                  ["Eyebrows + Upper Lip", "$20"],
+                  ["Eyebrows + Upper Lip + Chin", "$28"]
                 ].map(([label, price]) => (
                   <div
                     key={label}
