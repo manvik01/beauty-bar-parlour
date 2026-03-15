@@ -189,7 +189,7 @@ export default function ServicesPage() {
                   ["Meridian Bojin Facial – 90 mins", "$189"],
                   ["Hydra Calm – 90 mins", "$198"],
                   ["Ayurvedic Facial - 90 mins", "$209"],
-                  ["Collagen Hlayu – 120 mins", "$259"],
+                  ["Collagen Hlayu – 120 mins", "$279"],
                   ["Carboxy Lift - 60 mins", "$259"]
                 ].map(([label, price]) => (
                   <div
