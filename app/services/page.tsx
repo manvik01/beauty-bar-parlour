@@ -145,16 +145,16 @@ export default function ServicesPage() {
                   ["Express Manicure – 20 mins", "$18"],
                   ["Express Pedicure – 20 mins", "$18"],
                   ["Classic Manicure – 40 mins", "$28"],
-                  ["Classic Pedicure – 40 mins", "$38"],
                   ["Gel Express Manicure – 30 mins", "$32"],
+                  ["Classic Pedicure – 40 mins", "$38"],
                   ["Gel Express Pedicure – 30 mins", "$38"],
-                  ["Classic Gel Manicure – 40 mins", "$48"],
-                  ["Classic Gel Pedicure – 40 mins", "$58"],
-                  ["Nail Extension (Full Set) – 60 mins", "$99"],
-                  ["Paraffin Wax (hand & feet) - 30 mins", "$55"],
                   ["Hand Spa - 30 mins", "$38"],
+                  ["Classic Gel Manicure – 40 mins", "$48"],
+                  ["Paraffin Wax (hand & feet) - 30 mins", "$55"],
+                  ["Classic Gel Pedicure – 40 mins", "$58"],
+                  ["Milk, Wine & Honey Spa - 45 mins", "$65"],
                   ["Signature Foot Spa – 45 mins", "$85"],
-                  ["Milk, Wine & Honey Spa - 45 mins", "$65"]
+                  ["Nail Extension (Full Set) – 60 mins", "$99"]
                 ].map(([label, price]) => (
                   <div
                     key={label}
@@ -183,14 +183,14 @@ export default function ServicesPage() {
                 {[
                   ["Advanced Clinicals Basic – 45 mins", "$69"],
                   ["Vitamin C Brightening – 45 mins", "$139"],
-                  ["Akoia Gold 24K - 60 mins", "$169"],
-                  ["Hydra Calm – 90 mins", "$198"],
-                  ["Meridian Bojin Facial – 90 mins", "$189"],
                   ["Detox Facial – 60 mins", "$139"],
-                  ["Collagen Hlayu – 120 mins", "$259"],
-                  ["Carboxy Lift - 60 mins", "$259"],
+                  ["Akoia Gold 24K - 60 mins", "$169"],
                   ["Ayurvedic Facial - 60 mins", "$179"],
-                  ["Ayurvedic Facial - 90 mins", "$209"]
+                  ["Meridian Bojin Facial – 90 mins", "$189"],
+                  ["Hydra Calm – 90 mins", "$198"],
+                  ["Ayurvedic Facial - 90 mins", "$209"],
+                  ["Collagen Hlayu – 120 mins", "$259"],
+                  ["Carboxy Lift - 60 mins", "$259"]
                 ].map(([label, price]) => (
                   <div
                     key={label}
@@ -235,17 +235,17 @@ export default function ServicesPage() {
                 <h3 className="text-sm uppercase tracking-widest text-black text-center pt-6">Body Waxing</h3>
                 {[
                   ["Half Arms – 30 mins", "$25"],
-                  ["Full Arms – 30 mins", "$40"],
-                  ["Half Legs – 30 mins", "$30"],
-                  ["Full Legs – 30 mins", "$60"],
                   ["Underarms – 15 mins", "$25"],
-                  ["Bikini Line – 20 mins", "$38"],
-                  ["Brazilian – 45 mins", "$65"],
-                  ["Buttocks", "$35"],
-                  ["Stomach", "$40"],
+                  ["Half Legs – 30 mins", "$30"],
                   ["Half Back", "$30"],
+                  ["Chest", "$30"],
+                  ["Buttocks", "$35"],
+                  ["Bikini Line – 20 mins", "$38"],
+                  ["Full Arms – 30 mins", "$40"],
+                  ["Stomach", "$40"],
                   ["Full Back", "$50"],
-                  ["Chest", "$30"]
+                  ["Full Legs – 30 mins", "$60"],
+                  ["Brazilian – 45 mins", "$65"]
                 ].map(([label, price]) => (
                   <div
                     key={label}
@@ -283,14 +283,14 @@ export default function ServicesPage() {
 
               <div className="space-y-4">
                 {[
-                  ["Eyebrows – 15 mins", "$12"],
-                  ["Eyebrows Men", "$15"],
                   ["Upper Lip – 15 mins", "$10"],
                   ["Chin – 15 mins", "$10"],
                   ["Forehead – 15 mins", "$10"],
                   ["Cheeks – 15 mins", "$10"],
                   ["Sideburn – 15 mins", "$10"],
                   ["Neck", "$12"],
+                  ["Eyebrows – 15 mins", "$12"],
+                  ["Eyebrows Men", "$15"],
                   ["Full Face – 30 mins", "$40"],
                   ["Full Face (With Eyebrows)", "$48"],
                 ].map(([label, price]) => (
@@ -389,26 +389,26 @@ export default function ServicesPage() {
 
               <div className="space-y-4">
                 {[
+                  ["Areola – 15 mins", "$47"],
                   ["Upper Lip – 15 mins", "$60"],
                   ["Chin – 15 mins", "$64"],
+                  ["Feet & Toes – 20 mins", "$67"],
+                  ["Hands & Fingers – 15 mins", "$69"],
                   ["Sideburns – 20 mins", "$83"],
-                  ["Full Face – 30 mins", "$153"],
                   ["Neck (Front/Back) – 30 mins", "$95"],
                   ["Underarms – 20 mins", "$95"],
-                  ["Half Arms (Upper/Lower) – 30 mins", "$134"],
-                  ["Full Arms – 45 mins", "$189"],
-                  ["Hands & Fingers – 15 mins", "$69"],
-                  ["Chest – 30 mins", "$172"],
-                  ["Areola – 15 mins", "$47"],
-                  ["Abdomen – 30 mins", "$159"],
-                  ["Back (Full) – 45 mins", "$210"],
-                  ["Lower Back – 30 mins", "$124"],
                   ["Bikini Line – 30 mins", "$115"],
-                  ["Brazilian + Crack – 45 mins", "$172"],
+                  ["Lower Back – 30 mins", "$124"],
+                  ["Half Arms (Upper/Lower) – 30 mins", "$134"],
+                  ["Full Face – 30 mins", "$153"],
                   ["Buttocks (Full) – 30 mins", "$153"],
+                  ["Abdomen – 30 mins", "$159"],
+                  ["Chest – 30 mins", "$172"],
+                  ["Brazilian + Crack – 45 mins", "$172"],
                   ["Half Legs (Upper/Lower) – 45 mins", "$172"],
-                  ["Full Legs – 60 mins", "$287"],
-                  ["Feet & Toes – 20 mins", "$67"]
+                  ["Full Arms – 45 mins", "$189"],
+                  ["Back (Full) – 45 mins", "$210"],
+                  ["Full Legs – 60 mins", "$287"]
                 ].map(([label, price]) => (
                   <div
                     key={label}
