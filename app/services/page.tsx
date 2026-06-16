@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { ChevronRight, Sparkles, Scissors, Palette, Star, X } from "lucide-react"
 import { ScrollToTop } from "@/components/scroll-to-top"
+import { FRESHA_BOOKING_URL } from "@/lib/constants"
 
 function MindbodyWidgetModal({ widgetId, onClose }: { widgetId: string; onClose: () => void }) {
   useEffect(() => {
@@ -431,12 +432,14 @@ export default function ServicesPage() {
               </p>
             </div>
             <div className="text-center mt-12">
-            <Link
-              href="/booking"
+            <a
+              href={FRESHA_BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex h-12 items-center justify-center rounded-full bg-gold px-8 text-sm font-medium text-black shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 glitter-border"
             >
               BOOK NOW
-            </Link>
+            </a>
           </div>
           </div>
         </div>

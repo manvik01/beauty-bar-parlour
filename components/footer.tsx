@@ -3,6 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Instagram, Facebook, Music } from "lucide-react"
+import { FRESHA_BOOKING_URL } from "@/lib/constants"
 import { CountdownTimer } from "./countdown-timer"
 
 export function Footer() {
@@ -41,12 +42,14 @@ export function Footer() {
             >
               Services
             </Link>
-            <Link
-              href="/booking"
+            <a
+              href={FRESHA_BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-xs uppercase tracking-widest text-black hover:text-primary transition-colors"
             >
               Book Now
-            </Link>
+            </a>
           </div>
 
           <div className="flex space-x-4 mb-6">

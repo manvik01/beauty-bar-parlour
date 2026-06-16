@@ -1,4 +1,5 @@
 import { type NextRequest, NextResponse } from "next/server"
+import { FRESHA_BOOKING_URL } from "@/lib/constants"
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams
@@ -50,7 +51,7 @@ export async function GET(request: NextRequest) {
             '<p style="margin-bottom: 16px;">Widget type: ${widgetType}</p>' +
             '<p style="margin-bottom: 16px;">Theme: ${themeType}</p>' +
             '<p style="margin-bottom: 16px;">Business ID: ${businessId}</p>' +
-            '<a href="https://beautybar.parlour/booking" style="display: inline-block; padding: 12px 24px; background-color: var(--primary); color: white; text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; font-size: 12px;">Book Now</a>' +
+            '<a href="${FRESHA_BOOKING_URL}" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 12px 24px; background-color: var(--primary); color: white; text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; font-size: 12px;">Book Now</a>' +
             '</div>';
         });
       </script>

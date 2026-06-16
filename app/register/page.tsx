@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import React from "react"
 import dynamic from "next/dynamic"
+import { FRESHA_BOOKING_URL } from "@/lib/constants"
 
 const MindbodyRegistrationWidgetClient = dynamic(
   () => import("../../components/mindbody/registration-widget-client"),
@@ -34,7 +35,9 @@ export default function RegisterPage() {
               </p>
               <div className="flex justify-center space-x-4">
                 <a
-                  href="/booking"
+                  href={FRESHA_BOOKING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="px-8 py-3 bg-primary text-white hover:bg-primary/90 transition-all uppercase tracking-widest text-xs"
                 >
                   Book Appointment

@@ -5,6 +5,7 @@ import type React from "react"
 import { useState, useEffect } from "react"
 import { getClientInfo, getClientVisits } from "@/lib/mindbody-api"
 import { User, Calendar, Clock, ChevronRight } from "lucide-react"
+import { FRESHA_BOOKING_URL } from "@/lib/constants"
 
 interface ClientAccountWidgetProps {
   clientId?: string
@@ -293,7 +294,9 @@ export function ClientAccountWidget({ clientId }: ClientAccountWidgetProps) {
                 </p>
                 {activeTab === "upcoming" && (
                   <a
-                    href="/booking"
+                    href={FRESHA_BOOKING_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-block mt-4 px-6 py-3 bg-primary text-white hover:bg-primary/90 transition-colors text-xs uppercase tracking-wider"
                   >
                     Book Now

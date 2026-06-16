@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { getServices } from "@/lib/mindbody-api"
 import { Clock } from "lucide-react"
+import { FRESHA_BOOKING_URL } from "@/lib/constants"
 
 interface Service {
   Id: string
@@ -122,7 +123,9 @@ export function ServiceScheduleWidget() {
                 </div>
 
                 <a
-                  href={`/booking?serviceId=${service.Id}`}
+                  href={FRESHA_BOOKING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="px-4 py-2 text-xs uppercase tracking-wider bg-primary text-white hover:bg-primary/90 transition-colors"
                 >
                   Book Now

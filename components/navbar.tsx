@@ -5,6 +5,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import { useIsMobile } from "@/hooks/use-mobile"
+import { FRESHA_BOOKING_URL } from "@/lib/constants"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,7 +13,15 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
-const navLinks = [
+type NavLink = {
+  name: string
+  href: string
+  hidden?: boolean
+  external?: boolean
+  subLinks?: { name: string; href: string }[]
+}
+
+const navLinks: NavLink[] = [
   { name: "Home", href: "/" },
   {
     name: "About Us",
@@ -23,7 +32,7 @@ const navLinks = [
   },
   { name: "Gallery", href: "/gallery", hidden: true },
   { name: "Service Menu", href: "/services" },
-  { name: "Book Now", href: "/booking" },
+  { name: "Book Now", href: FRESHA_BOOKING_URL, external: true },
 ]
 
 export function Navbar() {
@@ -111,6 +120,20 @@ export function Navbar() {
                       ))}
                     </DropdownMenuContent>
                   </DropdownMenu>
+                ) : link.external ? (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`group ${
+                      link.name === "Book Now" ? "nav-pill nav-cta" : "nav-pill nav-pill-ghost"
+                    }`}
+                  >
+                    <span className="group-hover:glitter-bold">
+                      {link.name}
+                    </span>
+                  </a>
                 ) : (
                   <Link
                     key={link.name}
@@ -167,6 +190,20 @@ export function Navbar() {
                         ))}
                       </div>
                     </div>
+                  ) : link.external ? (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`${
+                        link.name === "Book Now" ? "nav-pill nav-cta w-full justify-center mt-6" : "nav-pill nav-pill-ghost w-full justify-center"
+                      }`}
+                      style={{ minHeight: 56 }}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {link.name}
+                    </a>
                   ) : (
                     <Link
                       key={link.name}

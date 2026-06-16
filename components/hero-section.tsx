@@ -5,6 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronRight, ChevronLeft } from "lucide-react"
+import { FRESHA_BOOKING_URL } from "@/lib/constants"
 import { GlitterEffect } from "./glitter-effect"
 
 const heroImages = [
@@ -159,12 +160,14 @@ export function HeroSection() {
             >
               Our Services
             </Link>
-            <Link
-              href="/booking"
+            <a
+              href={FRESHA_BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-6 sm:px-8 py-3 border border-white text-white hover:bg-white/10 transition-all duration-300 uppercase tracking-widest text-xs glitter-border text-center"
             >
               Book Now
-            </Link>
+            </a>
           </div>
         </motion.div>
       </div>
