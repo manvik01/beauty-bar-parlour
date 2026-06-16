@@ -8,6 +8,7 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { OfflineDetector } from "@/components/offline-detector"
 import { WhatsAppFloat } from "@/components/whatsapp-float"
+import { Toaster } from "@/components/ui/sonner"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -91,6 +92,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             {/* <script src="https://widget.reviewability.com/js/widgetAdv.min.js" async></script> */}
             <script type="application/ld+json" className="json-ld-content"></script>
             <WhatsAppFloat />
+            <Toaster richColors position="top-center" />
           </div>
         </ThemeProvider>
       </body>

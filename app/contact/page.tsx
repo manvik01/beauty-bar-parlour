@@ -1,6 +1,6 @@
 "use client"
 import { MapPin, Clock, Phone, Mail } from "lucide-react"
-import { ProspectsWidget } from "@/components/mindbody/prospects-widget"
+import { EnquiryForm } from "@/components/enquiry/enquiry-form"
 
 export default function ContactPage() {
   return (
@@ -13,15 +13,16 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Contact Content */}
+      {/* Contact info + map */}
       <section className="clean-section">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-3xl font-serif mb-8">We'd Love To Hear From You</h2>
+              <h2 className="text-3xl font-serif mb-8">We&apos;d Love To Hear From You</h2>
               <p className="body-md mb-8">
                 Whether you have questions about our services, want to book an appointment, or just want to say hello,
-                we're here for you. Reach out to us using any of the methods below.
+                we&apos;re here for you. Reach out to us using any of the methods below, or fill in the enquiry form to tell us
+                exactly what you&apos;re interested in &mdash; we&apos;ll get back to you on your preferred channel.
               </p>
 
               <div className="space-y-8 mb-12">
@@ -82,11 +83,15 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Mindbody Prospects Widget (handles Name, Phone, Email, Comment) */}
-              <ProspectsWidget />
+              <a
+                href="#enquiry-form"
+                className="inline-flex h-12 items-center justify-center rounded-full bg-gold px-8 text-sm font-medium uppercase tracking-widest text-black shadow-lg transition-transform duration-300 ease-in-out hover:scale-[1.02] hover:bg-gold/90 glitter-border"
+              >
+                Enquire Now
+              </a>
             </div>
 
-            <div className="h-[600px] lg:h-auto">
+            <div className="h-[400px] sm:h-[500px] lg:h-auto lg:min-h-[500px]">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7258670816313!2d103.9494!3d1.3767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMcKwMjInMzYuMSJOIDEwM8KwNTYnNTcuOCJF!5e0!3m2!1sen!2ssg!4v1619144473623!5m2!1sen!2ssg"
                 width="100%"
@@ -97,6 +102,26 @@ export default function ContactPage() {
                 title="Beauty Bar Parlour location"
                 className="grayscale"
               ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Enquiry form */}
+      <section id="enquiry-form" className="clean-section bg-secondary scroll-mt-24">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-10">
+              <h3 className="clean-heading">Customer Interest Form</h3>
+              <h2 className="clean-subheading">Tell us what you&apos;re looking for</h2>
+              <p className="body-md mt-4 max-w-2xl mx-auto">
+                Pick the services you&apos;re interested in and the best way to reach you. Our team will follow up
+                personally &mdash; this form is for enquiries only and is separate from the Fresha booking journey.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 sm:p-10 border border-gold/20 shadow-sm rounded-lg">
+              <EnquiryForm />
             </div>
           </div>
         </div>
