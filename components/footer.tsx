@@ -4,7 +4,6 @@ import Link from "next/link"
 import Image from "next/image"
 import { Instagram, Facebook, Music } from "lucide-react"
 import { FRESHA_BOOKING_URL } from "@/lib/constants"
-import { CountdownTimer } from "./countdown-timer"
 
 export function Footer() {
   // Set the target date to July 27, 2025

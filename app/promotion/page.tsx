@@ -40,7 +40,7 @@ export default function PromotionPage() {
               </a>
             </div>
             <p className="text-sm text-gray-600 mt-6">
-              Purchasing is handled securely via our Mindbody portal. The link opens in a new tab.
+              Purchasing is handled securely on our gift card store. The link opens in a new tab.
             </p>
           </div>
 

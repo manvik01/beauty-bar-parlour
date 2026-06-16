@@ -1,44 +1,11 @@
 "use client"
 
-import { useState, useEffect } from "react"
 import Link from "next/link"
-import { ChevronRight, Sparkles, Scissors, Palette, Star, X } from "lucide-react"
+import { ChevronRight, Sparkles, Scissors, Palette, Star } from "lucide-react"
 import { ScrollToTop } from "@/components/scroll-to-top"
 import { FRESHA_BOOKING_URL } from "@/lib/constants"
 
-function MindbodyWidgetModal({ widgetId, onClose }: { widgetId: string; onClose: () => void }) {
-  useEffect(() => {
-    const script = document.createElement("script")
-    script.src = "https://brandedweb.mindbodyonline.com/embed/widget.js"
-    script.async = true
-    document.body.appendChild(script)
-
-    return () => {
-      document.body.removeChild(script)
-    }
-  }, [])
-
-  return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white p-4 rounded-lg shadow-lg max-w-2xl w-full max-h-full overflow-y-auto">
-        <div className="flex justify-end sticky top-0 bg-white z-10">
-          <button onClick={onClose} className="text-gray-500 hover:text-gray-700">
-            <X className="w-6 h-6" />
-          </button>
-        </div>
-        <div
-          className="mindbody-widget"
-          data-widget-type="Appointments"
-          data-widget-id={widgetId}
-        ></div>
-      </div>
-    </div>
-  )
-}
-
 export default function ServicesPage() {
-  const [modalWidgetId, setModalWidgetId] = useState<string | null>(null)
-
   return (
     <main className="pt-24">
       {/* Page Header */}
@@ -444,9 +411,6 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
-      {modalWidgetId && (
-        <MindbodyWidgetModal widgetId={modalWidgetId} onClose={() => setModalWidgetId(null)} />
-      )}
       <ScrollToTop />
     </main>
   )

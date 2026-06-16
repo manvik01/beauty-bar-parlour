@@ -48,7 +48,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* The Mindbody widget script will now be loaded by the component itself */}
         {/* Google Tag Manager */}
         <Script
           id="gtm-script"
