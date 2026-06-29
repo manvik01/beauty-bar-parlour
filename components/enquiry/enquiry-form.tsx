@@ -27,6 +27,10 @@ import {
   type PreferredContactMethod,
 } from "@/lib/enquiry/schema"
 import { ENQUIRY_CATEGORIES } from "@/lib/enquiry/services"
+import {
+  isWeb3FormsConfigured,
+  sendEnquiryViaWeb3Forms,
+} from "@/lib/enquiry/web3forms-client"
 
 import { COUNTRY_CODES } from "./country-codes"
 
@@ -139,7 +143,36 @@ export function EnquiryForm({
       }
 
       const leadReference = result.leadReference as string
-      toast.success("Enquiry sent! We will be in touch shortly.")
+      const staffEmailSentByServer = Boolean(result?.notified?.staff)
+
+      // If the server didn't dispatch the email (Resend not configured) but
+      // we have a Web3Forms key on the client, send the notification from the
+      // browser. Web3Forms' free tier only accepts client-side submissions.
+      let clientEmailWarning: string | null = null
+      if (!staffEmailSentByServer && isWeb3FormsConfigured()) {
+        const web3Result = await sendEnquiryViaWeb3Forms({
+          data,
+          leadReference,
+          submittedAt: new Date(),
+        })
+        if (!web3Result.ok && !("skipped" in web3Result && web3Result.skipped)) {
+          console.error("[enquiry] Web3Forms client send failed", web3Result.error)
+          clientEmailWarning =
+            "We saved your enquiry, but the email notification had an issue. Our team may take a little longer — please WhatsApp +65 8415 8896 if it's urgent."
+        }
+      } else if (!staffEmailSentByServer && !isWeb3FormsConfigured()) {
+        console.warn(
+          "[enquiry] No email provider configured on client or server; staff will not receive an email automatically.",
+          { leadReference },
+        )
+      }
+
+      if (clientEmailWarning) {
+        toast.warning(clientEmailWarning, { duration: 8000 })
+      } else {
+        toast.success("Enquiry sent! We will be in touch shortly.")
+      }
+
       if (onSuccess) {
         onSuccess(leadReference)
         return
